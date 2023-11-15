@@ -6,82 +6,87 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
+
     <TextView
-        android:id="@+id/loginLabel"
-        android:layout_width="45dp"
-        android:layout_height="29dp"
-        android:text="LOGIN"
+        android:id="@+id/titleLable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="monospace"
+        android:text="WELCOME"
+        android:textSize="18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.132" />
+        app:layout_constraintVertical_bias="0.214" />
 
     <LinearLayout
-        android:layout_width="338dp"
-        android:layout_height="387dp"
+        android:id="@+id/linearLayoutA"
+        android:layout_width="267dp"
+        android:layout_height="193dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/loginLabel"
-        app:layout_constraintVertical_bias="0.295">
-
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
-
-        <TextView
-            android:id="@+id/emailAddLabel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Email" />
+        app:layout_constraintTop_toBottomOf="@+id/titleLable"
+        app:layout_constraintVertical_bias="0.181">
 
         <EditText
-            android:id="@+id/emailAddEdtTxt"
+            android:id="@+id/usernameEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="68dp"
+            android:background="@drawable/custom_input"
             android:ems="10"
-            android:hint="Enter Email Address"
-            android:inputType="textEmailAddress" />
+            android:fontFamily="monospace"
+            android:hint="Username"
+            android:inputType="text"
+            android:padding="16dp"
+            android:textAlignment="center" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="10dp" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Password" />
+            android:layout_height="28dp" />
 
         <EditText
-            android:id="@+id/editTextTextPassword"
+            android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="68dp"
             android:ems="10"
-            android:hint="Enter Password"
-            android:inputType="textPassword" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="50dp" />
-
-        <Button
-            android:id="@+id/loginBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="LOG-IN" />
-
-        <Button
-            android:id="@+id/forgetpwdBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="FORGOT PASSWORD" />
-
-
+            android:fontFamily="monospace"
+            android:hint="Password"
+            android:background="@drawable/custom_input"
+            android:padding="16dp"
+            android:inputType="textPassword"
+            android:textAlignment="center" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/loginBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:backgroundTint="@color/black"
+        android:fontFamily="monospace"
+        android:text="Login"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutA" />
+
+    <Button
+        android:id="@+id/signupBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="monospace"
+        android:text="Sign-up"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/loginBtn"
+        app:layout_constraintVertical_bias="0.729" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
