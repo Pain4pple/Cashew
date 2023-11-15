@@ -33,6 +33,36 @@
             android:paddingHorizontal="12dp"
             android:paddingVertical="15dp"
             android:text="Name"
+            android:textAlignment="viewStart"
+            android:layout_marginBottom="15dp"/>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/dm_sans"
+            android:text="EMAIL"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/editTextText2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:fontFamily="@font/dm_sans"
+            android:inputType="text"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="15dp"
+            android:text="Email"
             android:textAlignment="viewStart" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/dm_sans"
+            android:text="PASSWORD"
+            android:textSize="16sp" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
