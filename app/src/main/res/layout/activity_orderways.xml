@@ -73,7 +73,6 @@
         android:layout_height="229dp"
         android:layout_marginTop="208dp"
         android:src="@drawable/cashew1"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayoutA"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.437"
         app:layout_constraintStart_toStartOf="parent"
