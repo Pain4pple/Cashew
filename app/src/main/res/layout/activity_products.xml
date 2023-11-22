@@ -31,7 +31,7 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="#FFAD4D"
+                app:cardBackgroundColor="#C8C8C8"
                 app:cardCornerRadius="14dp">
 
                 <RelativeLayout
@@ -79,7 +79,7 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="#FFAD4D"
+                app:cardBackgroundColor="#C8C8C8"
                 app:cardCornerRadius="14dp">
 
                 <RelativeLayout
@@ -127,7 +127,7 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="#FFAD4D"
+                app:cardBackgroundColor="#C8C8C8"
                 app:cardCornerRadius="14dp">
 
                 <RelativeLayout
@@ -175,7 +175,7 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="#FFAD4D"
+                app:cardBackgroundColor="#C8C8C8"
                 app:cardCornerRadius="14dp">
 
                 <RelativeLayout
@@ -223,7 +223,7 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="#FFAD4D"
+                app:cardBackgroundColor="#C8C8C8"
                 app:cardCornerRadius="14dp">
 
                 <RelativeLayout
@@ -271,7 +271,7 @@
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="#FFAD4D"
+                app:cardBackgroundColor="#C8C8C8"
                 app:cardCornerRadius="14dp">
 
                 <RelativeLayout
