@@ -1,6 +1,468 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".activities.Products">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="395dp"
+        android:layout_height="591dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.157"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.715">
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="26dp"
+            android:layout_marginEnd="30dp"
+            android:columnCount="2">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/Pancake"
+                android:layout_width="0dp"
+                android:layout_height="180dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="#FFAD4D"
+                app:cardCornerRadius="14dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/PancakeLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:fontFamily="sans-serif-black"
+                        android:padding="10dp"
+                        android:text="Pancake"
+                        android:textSize="20dp" />
+
+                    <ImageView
+                        android:id="@+id/PancakeImage"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_centerInParent="true"
+                        android:scaleX="2"
+                        android:scaleY="2"
+                        app:srcCompat="@drawable/pancake" />
+
+                    <ImageButton
+                        android:id="@+id/trashButton"
+                        android:layout_width="40dp"
+                        android:layout_height="46dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="3dp"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:scaleX="1"
+                        android:scaleY="1"
+                        app:srcCompat="@drawable/add_button" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/Waffle"
+                android:layout_width="0dp"
+                android:layout_height="180dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="#FFAD4D"
+                app:cardCornerRadius="14dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:fontFamily="sans-serif-black"
+                        android:padding="10dp"
+                        android:text="Waffle"
+                        android:textSize="20dp" />
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_centerInParent="true"
+                        android:scaleX="2"
+                        android:scaleY="2"
+                        app:srcCompat="@drawable/waffle" />
+
+                    <ImageButton
+                        android:id="@+id/WaffleAdd"
+                        android:layout_width="40dp"
+                        android:layout_height="46dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="3dp"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:scaleX="1"
+                        android:scaleY="1"
+                        app:srcCompat="@drawable/add_button" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/BeefBurger"
+                android:layout_width="0dp"
+                android:layout_height="180dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="#FFAD4D"
+                app:cardCornerRadius="14dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:fontFamily="sans-serif-black"
+                        android:padding="10dp"
+                        android:text="Beef Burger"
+                        android:textSize="20dp" />
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_centerInParent="true"
+                        android:scaleX="2"
+                        android:scaleY="2"
+                        app:srcCompat="@drawable/bifborgir" />
+
+                    <ImageButton
+                        android:id="@+id/BeefBurgerAdd"
+                        android:layout_width="40dp"
+                        android:layout_height="46dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="3dp"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:scaleX="1"
+                        android:scaleY="1"
+                        app:srcCompat="@drawable/add_button" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/CheeseBurger"
+                android:layout_width="0dp"
+                android:layout_height="180dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="#FFAD4D"
+                app:cardCornerRadius="14dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:fontFamily="sans-serif-black"
+                        android:padding="10dp"
+                        android:text="Cheese Burger"
+                        android:textSize="20dp" />
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_centerInParent="true"
+                        android:scaleX="2"
+                        android:scaleY="2"
+                        app:srcCompat="@drawable/chizborgier" />
+
+                    <ImageButton
+                        android:id="@+id/CheeseBurgerAdd"
+                        android:layout_width="40dp"
+                        android:layout_height="46dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="3dp"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:scaleX="1"
+                        android:scaleY="1"
+                        app:srcCompat="@drawable/add_button" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/SoftDrink"
+                android:layout_width="0dp"
+                android:layout_height="180dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="#FFAD4D"
+                app:cardCornerRadius="14dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:fontFamily="sans-serif-black"
+                        android:padding="10dp"
+                        android:text="Soft Drinks"
+                        android:textSize="20dp" />
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_centerInParent="true"
+                        android:scaleX="2"
+                        android:scaleY="2"
+                        app:srcCompat="@drawable/harddrinks" />
+
+                    <ImageButton
+                        android:id="@+id/SoftDrinkAdd"
+                        android:layout_width="40dp"
+                        android:layout_height="46dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="3dp"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:scaleX="1"
+                        android:scaleY="1"
+                        app:srcCompat="@drawable/add_button" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/Milkshake"
+                android:layout_width="0dp"
+                android:layout_height="180dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
+                app:cardBackgroundColor="#FFAD4D"
+                app:cardCornerRadius="14dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:fontFamily="sans-serif-black"
+                        android:padding="10dp"
+                        android:text="Milkshake"
+                        android:textSize="20dp" />
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_centerInParent="true"
+                        android:scaleX="2"
+                        android:scaleY="2"
+                        app:srcCompat="@drawable/milkshake" />
+
+                    <ImageButton
+                        android:id="@+id/MilkshakeAdd"
+                        android:layout_width="40dp"
+                        android:layout_height="46dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginRight="5dp"
+                        android:layout_marginBottom="3dp"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:scaleX="1"
+                        android:scaleY="1"
+                        app:srcCompat="@drawable/add_button" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_rowWeight="1"
+                android:layout_columnWeight="1"
+                android:layout_margin="10dp"
+                app:cardElevation="0dp" />
+        </GridLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/cashierNameLabel3"
+        android:layout_width="169dp"
+        android:layout_height="24dp"
+        android:text="Cashier Name: Juan"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.397"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.045" />
+
+    <ImageView
+        android:id="@+id/border"
+        android:layout_width="399dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="695dp"
+        android:layout_marginBottom="4dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/lower_border" />
+
+    <TextView
+        android:id="@+id/customerQuestion"
+        android:layout_width="310dp"
+        android:layout_height="62dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Add products to your customer's order!"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#B65B05"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/creditListLabel"
+        android:layout_width="74dp"
+        android:layout_height="18dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Sales History"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.979" />
+
+    <TextView
+        android:id="@+id/productButtonLabel"
+        android:layout_width="74dp"
+        android:layout_height="18dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Products"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.979" />
+
+    <TextView
+        android:id="@+id/orderListLabel"
+        android:layout_width="74dp"
+        android:layout_height="18dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Order List"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.849"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.979" />
+
+    <ImageView
+        android:id="@+id/smileyLogo"
+        android:layout_width="82dp"
+        android:layout_height="33dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.035"
+        app:srcCompat="@drawable/smiley" />
+
+    <ImageButton
+        android:id="@+id/creditButton"
+        android:layout_width="75dp"
+        android:layout_height="74dp"
+        android:background="@null"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.147"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.946"
+        app:srcCompat="@drawable/credit_inactive" />
+
+    <ImageButton
+        android:id="@+id/productButton"
+        android:layout_width="75dp"
+        android:layout_height="74dp"
+        android:background="@null"
+        android:clickable="false"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.933"
+        app:srcCompat="@drawable/product_active" />
+
+    <ImageButton
+        android:id="@+id/basketButton"
+        android:layout_width="75dp"
+        android:layout_height="74dp"
+        android:background="@null"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.851"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.945"
+        app:srcCompat="@drawable/basket_inactive" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="81dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
