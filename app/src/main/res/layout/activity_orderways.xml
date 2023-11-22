@@ -67,16 +67,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.198" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="182dp"
-        android:layout_height="233dp"
-        android:layout_marginStart="114dp"
-        android:layout_marginEnd="115dp"
-        android:layout_marginBottom="290dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/gifImageView"
+        android:layout_width="178dp"
+        android:layout_height="231dp"
+        android:layout_marginTop="204dp"
+        android:src="@drawable/cashew1"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayoutA"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleLable2"
-        app:srcCompat="@drawable/cashew1" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.09" />
 </androidx.constraintlayout.widget.ConstraintLayout>
