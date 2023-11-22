@@ -4,12 +4,15 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.example.cashew.R
+import kotlin.math.sign
 
 class login_page : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_page)
 
+        //
         val signupBtn : Button = findViewById(R.id.signupBtn)
         val loginBtn = findViewById<Button>(R.id.loginBtn)
 
