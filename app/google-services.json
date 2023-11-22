@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "265938842996",
+    "project_id": "cashew-fce4d",
+    "storage_bucket": "cashew-fce4d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:265938842996:android:d3a75feb8f3b385dd52821",
+        "android_client_info": {
+          "package_name": "com.example.cashew"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChH5jXbaRr3oNAfYQkLT2IVREbB5IqA1M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
