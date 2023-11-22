@@ -10,7 +10,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 
 class login_page : AppCompatActivity() {
-    lateinit var auth: FirebaseAuth
+   // lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -18,7 +18,7 @@ class login_page : AppCompatActivity() {
         setContentView(R.layout.activity_login_page)
 
         //Initialize Firebase Auth
-        auth = FirebaseAuth.getInstance()
+        //auth = FirebaseAuth.getInstance()
 
 
 
@@ -46,6 +46,7 @@ class login_page : AppCompatActivity() {
 
 
     // Check if user is signed in (non-null) and update UI accordingly.
+    /*
     public override fun onStart() {
         super.onStart()
         val currentUser = auth.currentUser
@@ -54,6 +55,8 @@ class login_page : AppCompatActivity() {
 
     private fun updateUI(user: FirebaseUser?) {
     }
+    
+     */
 
 
 }
