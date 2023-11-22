@@ -38,9 +38,6 @@
             android:textAlignment="viewStart" />
 
         <TextView
-<<<<<<< Updated upstream
-            android:id="@+id/emailLabel"
-=======
             android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -63,7 +60,6 @@
 
         <TextView
             android:id="@+id/textView2"
->>>>>>> Stashed changes
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="monospace"

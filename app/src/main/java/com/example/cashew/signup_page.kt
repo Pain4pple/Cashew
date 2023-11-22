@@ -3,7 +3,6 @@ package com.example.cashew
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cashew.models.user_model
@@ -22,10 +21,7 @@ class signup_page  : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup_page)
-<<<<<<< Updated upstream
 
-        var
-=======
         editName = findViewById(R.id.editName)
         editUname = findViewById(R.id.editUname)
         editEmail = findViewById(R.id.editEmail)
@@ -55,6 +51,6 @@ class signup_page  : AppCompatActivity() {
         }.addOnFailureListener{
             Toast.makeText(this, "Failed to register",Toast.LENGTH_LONG).show()
         }
->>>>>>> Stashed changes
+
     }
 }
