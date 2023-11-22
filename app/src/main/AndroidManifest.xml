@@ -12,9 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cashew"
         tools:targetApi="31">
-        <activity
-            android:name=".orderways_pag"
-            android:exported="false" />
+
         <activity
             android:name=".signup_page"
             android:exported="false" />
