@@ -8,30 +8,30 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="395dp"
-        android:layout_height="591dp"
+        android:layout_width="385dp"
+        android:layout_height="546dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.157"
+        app:layout_constraintHorizontal_bias="0.384"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.715">
+        app:layout_constraintVertical_bias="0.497">
 
         <GridLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="26dp"
             android:layout_marginEnd="30dp"
             android:columnCount="2">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/Pancake"
+                android:id="@+id/ChocolateCake"
                 android:layout_width="0dp"
                 android:layout_height="180dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="#FFAD4D"
+                app:cardBackgroundColor="#C8C8C8"
                 app:cardCornerRadius="14dp">
 
                 <RelativeLayout
@@ -39,25 +39,25 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/PancakeLabel"
+                        android:id="@+id/ChocolateCakeLabel"
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:fontFamily="sans-serif-black"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:gravity="center"
                         android:padding="10dp"
-                        android:text="Pancake"
-                        android:textSize="20dp" />
+                        android:text="Chocolate Cake"
+                        android:textSize="15dp" />
 
                     <ImageView
-                        android:id="@+id/PancakeImage"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
+                        android:layout_width="90dp"
+                        android:layout_height="84dp"
                         android:layout_centerInParent="true"
                         android:scaleX="2"
                         android:scaleY="2"
-                        app:srcCompat="@drawable/pancake" />
+                        app:srcCompat="@drawable/chocolate_Cake" />
 
                     <ImageButton
-                        android:id="@+id/trashButton"
+                        android:id="@+id/add"
                         android:layout_width="40dp"
                         android:layout_height="46dp"
                         android:layout_alignParentRight="true"
@@ -68,18 +68,18 @@
                         android:scaleType="fitXY"
                         android:scaleX="1"
                         android:scaleY="1"
-                        app:srcCompat="@drawable/add_button" />
+                        app:srcCompat="@drawable/add" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/Waffle"
+                android:id="@+id/Macarons"
                 android:layout_width="0dp"
                 android:layout_height="180dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="#FFAD4D"
+                app:cardBackgroundColor="#C8C8C8"
                 app:cardCornerRadius="14dp">
 
                 <RelativeLayout
@@ -87,11 +87,13 @@
                     android:layout_height="match_parent">
 
                     <TextView
+                        android:id="@+id/MacaronsLabel"
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:fontFamily="sans-serif-black"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:gravity="center"
                         android:padding="10dp"
-                        android:text="Waffle"
+                        android:text="Macarons"
                         android:textSize="20dp" />
 
                     <ImageView
@@ -100,10 +102,10 @@
                         android:layout_centerInParent="true"
                         android:scaleX="2"
                         android:scaleY="2"
-                        app:srcCompat="@drawable/waffle" />
+                        app:srcCompat="@drawable/macarons" />
 
                     <ImageButton
-                        android:id="@+id/WaffleAdd"
+                        android:id="@+id/MacaronsAdd"
                         android:layout_width="40dp"
                         android:layout_height="46dp"
                         android:layout_alignParentRight="true"
@@ -114,18 +116,18 @@
                         android:scaleType="fitXY"
                         android:scaleX="1"
                         android:scaleY="1"
-                        app:srcCompat="@drawable/add_button" />
+                        app:srcCompat="@drawable/add" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/BeefBurger"
+                android:id="@+id/Cookies"
                 android:layout_width="0dp"
                 android:layout_height="180dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="#FFAD4D"
+                app:cardBackgroundColor="#C8C8C8"
                 app:cardCornerRadius="14dp">
 
                 <RelativeLayout
@@ -133,23 +135,25 @@
                     android:layout_height="match_parent">
 
                     <TextView
+                        android:id="@+id/CookiesLabel"
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:fontFamily="sans-serif-black"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:gravity="center"
                         android:padding="10dp"
-                        android:text="Beef Burger"
+                        android:text="Cookies"
                         android:textSize="20dp" />
 
                     <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
+                        android:layout_width="86dp"
+                        android:layout_height="81dp"
                         android:layout_centerInParent="true"
                         android:scaleX="2"
                         android:scaleY="2"
-                        app:srcCompat="@drawable/bifborgir" />
+                        app:srcCompat="@drawable/cookies" />
 
                     <ImageButton
-                        android:id="@+id/BeefBurgerAdd"
+                        android:id="@+id/CookiesAdd"
                         android:layout_width="40dp"
                         android:layout_height="46dp"
                         android:layout_alignParentRight="true"
@@ -160,18 +164,18 @@
                         android:scaleType="fitXY"
                         android:scaleX="1"
                         android:scaleY="1"
-                        app:srcCompat="@drawable/add_button" />
+                        app:srcCompat="@drawable/add" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/CheeseBurger"
+                android:id="@+id/CarrotCupcake"
                 android:layout_width="0dp"
                 android:layout_height="180dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="#FFAD4D"
+                app:cardBackgroundColor="#C8C8C8"
                 app:cardCornerRadius="14dp">
 
                 <RelativeLayout
@@ -179,23 +183,25 @@
                     android:layout_height="match_parent">
 
                     <TextView
+                        android:id="@+id/CarrotCupcakeLabel"
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:fontFamily="sans-serif-black"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:gravity="center"
                         android:padding="10dp"
-                        android:text="Cheese Burger"
-                        android:textSize="20dp" />
+                        android:text="Carrot Cupcake"
+                        android:textSize="15dp" />
 
                     <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
+                        android:layout_width="97dp"
+                        android:layout_height="85dp"
                         android:layout_centerInParent="true"
                         android:scaleX="2"
                         android:scaleY="2"
-                        app:srcCompat="@drawable/chizborgier" />
+                        app:srcCompat="@drawable/carrot_cupcake" />
 
                     <ImageButton
-                        android:id="@+id/CheeseBurgerAdd"
+                        android:id="@+id/CarrotCupcakeAdd"
                         android:layout_width="40dp"
                         android:layout_height="46dp"
                         android:layout_alignParentRight="true"
@@ -206,18 +212,18 @@
                         android:scaleType="fitXY"
                         android:scaleX="1"
                         android:scaleY="1"
-                        app:srcCompat="@drawable/add_button" />
+                        app:srcCompat="@drawable/add" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/SoftDrink"
+                android:id="@+id/BananaSplit"
                 android:layout_width="0dp"
                 android:layout_height="180dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="#FFAD4D"
+                app:cardBackgroundColor="#C8C8C8"
                 app:cardCornerRadius="14dp">
 
                 <RelativeLayout
@@ -225,23 +231,25 @@
                     android:layout_height="match_parent">
 
                     <TextView
+                        android:id="@+id/BananaSplitLabel"
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:fontFamily="sans-serif-black"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:gravity="center"
                         android:padding="10dp"
-                        android:text="Soft Drinks"
-                        android:textSize="20dp" />
+                        android:text="Banana Split"
+                        android:textSize="16dp" />
 
                     <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
+                        android:layout_width="94dp"
+                        android:layout_height="82dp"
                         android:layout_centerInParent="true"
                         android:scaleX="2"
                         android:scaleY="2"
-                        app:srcCompat="@drawable/harddrinks" />
+                        app:srcCompat="@drawable/banana_split" />
 
                     <ImageButton
-                        android:id="@+id/SoftDrinkAdd"
+                        android:id="@+id/BananaSplitAdd"
                         android:layout_width="40dp"
                         android:layout_height="46dp"
                         android:layout_alignParentRight="true"
@@ -252,18 +260,18 @@
                         android:scaleType="fitXY"
                         android:scaleX="1"
                         android:scaleY="1"
-                        app:srcCompat="@drawable/add_button" />
+                        app:srcCompat="@drawable/add" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/Milkshake"
+                android:id="@+id/CinnamonRoll"
                 android:layout_width="0dp"
                 android:layout_height="180dp"
                 android:layout_rowWeight="1"
                 android:layout_columnWeight="1"
                 android:layout_margin="10dp"
-                app:cardBackgroundColor="#FFAD4D"
+                app:cardBackgroundColor="#C8C8C8"
                 app:cardCornerRadius="14dp">
 
                 <RelativeLayout
@@ -271,23 +279,25 @@
                     android:layout_height="match_parent">
 
                     <TextView
+                        android:id="@+id/CinnamonRollLabel"
                         android:layout_width="match_parent"
-                        android:layout_height="70dp"
-                        android:fontFamily="sans-serif-black"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="monospace"
+                        android:gravity="center"
                         android:padding="10dp"
-                        android:text="Milkshake"
-                        android:textSize="20dp" />
+                        android:text="Cinnamon Roll"
+                        android:textSize="16dp" />
 
                     <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
+                        android:layout_width="75dp"
+                        android:layout_height="74dp"
                         android:layout_centerInParent="true"
                         android:scaleX="2"
                         android:scaleY="2"
-                        app:srcCompat="@drawable/milkshake" />
+                        app:srcCompat="@drawable/cinnamon_roll" />
 
                     <ImageButton
-                        android:id="@+id/MilkshakeAdd"
+                        android:id="@+id/CinnamonRollAdd"
                         android:layout_width="40dp"
                         android:layout_height="46dp"
                         android:layout_alignParentRight="true"
@@ -298,7 +308,7 @@
                         android:scaleType="fitXY"
                         android:scaleX="1"
                         android:scaleY="1"
-                        app:srcCompat="@drawable/add_button" />
+                        app:srcCompat="@drawable/add" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
@@ -314,149 +324,100 @@
 
     <TextView
         android:id="@+id/cashierNameLabel3"
-        android:layout_width="169dp"
-        android:layout_height="24dp"
-        android:text="Cashier Name: Juan"
+        android:layout_width="194dp"
+        android:layout_height="34dp"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:text="Cashier Name: LaraCher"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.397"
+        app:layout_constraintHorizontal_bias="0.376"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.045" />
+        app:layout_constraintVertical_bias="0.022" />
+
 
     <ImageView
-        android:id="@+id/border"
-        android:layout_width="399dp"
-        android:layout_height="96dp"
-        android:layout_marginTop="695dp"
-        android:layout_marginBottom="4dp"
+        android:id="@+id/lowborder"
+        android:layout_width="1122dp"
+        android:layout_height="558dp"
+        android:layout_marginTop="81dp"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/lower_border" />
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2"
+        app:srcCompat="@drawable/lowborder" />
 
     <TextView
         android:id="@+id/customerQuestion"
-        android:layout_width="310dp"
-        android:layout_height="62dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Add products to your customer's order!"
+        android:layout_width="340dp"
+        android:layout_height="33dp"
+        android:fontFamily="monospace"
+        android:gravity="center"
+        android:text="Add Products"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textColor="#B65B05"
+        android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.349"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
-    <TextView
-        android:id="@+id/creditListLabel"
-        android:layout_width="74dp"
-        android:layout_height="18dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Sales History"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.15"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.979" />
-
-    <TextView
-        android:id="@+id/productButtonLabel"
-        android:layout_width="74dp"
-        android:layout_height="18dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Products"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.979" />
-
-    <TextView
-        android:id="@+id/orderListLabel"
-        android:layout_width="74dp"
-        android:layout_height="18dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Order List"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.849"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.979" />
-
     <ImageView
-        android:id="@+id/smileyLogo"
-        android:layout_width="82dp"
-        android:layout_height="33dp"
+        android:id="@+id/cashewlogo"
+        android:layout_width="46dp"
+        android:layout_height="48dp"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.035"
-        app:srcCompat="@drawable/smiley" />
+        app:layout_constraintVertical_bias="0.011"
+        app:srcCompat="@drawable/cashew1" />
 
     <ImageButton
         android:id="@+id/creditButton"
-        android:layout_width="75dp"
-        android:layout_height="74dp"
+        android:layout_width="127dp"
+        android:layout_height="121dp"
         android:background="@null"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.147"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.946"
-        app:srcCompat="@drawable/credit_inactive" />
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/credit_list" />
 
     <ImageButton
         android:id="@+id/productButton"
-        android:layout_width="75dp"
-        android:layout_height="74dp"
+        android:layout_width="127dp"
+        android:layout_height="129dp"
         android:background="@null"
         android:clickable="false"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.933"
-        app:srcCompat="@drawable/product_active" />
+        app:srcCompat="@drawable/products" />
 
     <ImageButton
         android:id="@+id/basketButton"
-        android:layout_width="75dp"
-        android:layout_height="74dp"
+        android:layout_width="129dp"
+        android:layout_height="123dp"
         android:background="@null"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.851"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.945"
-        app:srcCompat="@drawable/basket_inactive" />
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/order_list" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline6"
