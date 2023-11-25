@@ -6,22 +6,17 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-//import com.google.firebase.auth.FirebaseAuth
-//import com.google.firebase.auth.FirebaseUser
+
 
 class login_page : AppCompatActivity() {
-//    lateinit var auth: FirebaseAuth
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_page)
 
-//        //Initialize Firebase Auth
-//        auth = FirebaseAuth.getInstance()
-//
-//
-//
+
 
         // DECLARATIONS
         val signupBtn : Button = findViewById(R.id.signupBtn)
@@ -44,16 +39,7 @@ class login_page : AppCompatActivity() {
         }
     }
 
-//
-//    // Check if user is signed in (non-null) and update UI accordingly.
-//    public override fun onStart() {
-//        super.onStart()
-//        val currentUser = auth.currentUser
-//        updateUI(currentUser)
-//    }
-//
-//    private fun updateUI(user: FirebaseUser?) {
-//    }
+
 
 
 }
