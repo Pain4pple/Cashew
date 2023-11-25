@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 
 
 class login_page : AppCompatActivity() {
@@ -19,7 +18,7 @@ class login_page : AppCompatActivity() {
 
 
         // DECLARATIONS
-        val signupBtn : Button = findViewById(R.id.signupBtn)
+        val signupBtn : Button = findViewById(R.id.backLogInBtn)
         val loginBtn : Button = findViewById(R.id.loginBtn)
         var username : EditText = findViewById(R.id.usernameEditText)
         var password : EditText = findViewById(R.id.passwordEditText)

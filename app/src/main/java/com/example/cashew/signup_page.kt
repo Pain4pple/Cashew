@@ -1,5 +1,6 @@
 package com.example.cashew
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
@@ -17,6 +18,8 @@ class signup_page  : AppCompatActivity() {
     private lateinit var editPwd: EditText
     private lateinit var editDoB: EditText
     private lateinit var rgtBtn: Button
+    private lateinit var logInBtn: Button
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,12 +31,22 @@ class signup_page  : AppCompatActivity() {
         editPwd = findViewById(R.id.editPassword)
         editDoB = findViewById(R.id.editDoB)
         rgtBtn = findViewById(R.id.registerBtn)
+        logInBtn = findViewById(R.id.backLogInBtn)
 
         dbRef = FirebaseDatabase.getInstance().getReference("Users")
 
         rgtBtn.setOnClickListener{
             saveUserData()
         }
+
+        logInBtn.setOnClickListener{
+            val intent = Intent(this, login_page::class.java)
+            startActivity(intent)
+        }
+
+
+
+
     }
 
     private fun saveUserData(){
@@ -52,5 +65,9 @@ class signup_page  : AppCompatActivity() {
             Toast.makeText(this, "Failed to register",Toast.LENGTH_LONG).show()
         }
 
+
+
     }
+
+
 }
