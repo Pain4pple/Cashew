@@ -17,7 +17,6 @@ class login_page : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
-        actionBar?.hide()
         setContentView(R.layout.activity_login_page)
 
 
