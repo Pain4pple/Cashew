@@ -367,17 +367,18 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
-    <ImageView
-        android:id="@+id/cashewlogo"
-        android:layout_width="46dp"
-        android:layout_height="48dp"
+    <ImageButton
+        android:id="@+id/cashewlogoBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="69dp"
+        android:layout_height="71dp"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintHorizontal_bias="0.028"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.011"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/cashew1" />
 
     <ImageButton
