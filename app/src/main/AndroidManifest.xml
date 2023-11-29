@@ -6,13 +6,15 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/cashew1"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/cashew1"
         android:supportsRtl="true"
         android:theme="@style/Theme.Cashew"
         tools:targetApi="31">
-
+        <activity
+            android:name=".dressup_page"
+            android:exported="false" />
         <activity
             android:name=".signup_page"
             android:exported="false" />
@@ -21,7 +23,8 @@
             android:exported="false" />
         <activity
             android:name=".login_page"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.Cashew">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
