@@ -8,29 +8,41 @@
     tools:context=".login_page">
 
 
-    <TextView
-        android:id="@+id/titleLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="monospace"
-        android:text="WELCOME"
-        android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="268dp"
+        android:layout_height="122dp"
+        android:layout_marginTop="152dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.214" />
+        app:srcCompat="@drawable/login" />
+
+    <Button
+        android:id="@+id/loginBtn"
+        android:layout_width="260dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="4dp"
+        android:backgroundTint="@color/black"
+        android:fontFamily="@font/poppins_bold"
+        android:text="login"
+        app:cornerRadius="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayoutA" />
 
     <LinearLayout
         android:id="@+id/linearLayoutA"
-        android:layout_width="267dp"
-        android:layout_height="193dp"
+        android:layout_width="260dp"
+        android:layout_height="157dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleLabel"
-        app:layout_constraintVertical_bias="0.181">
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.02">
 
         <EditText
             android:id="@+id/usernameEditText"
@@ -38,7 +50,7 @@
             android:layout_height="68dp"
             android:background="@drawable/custom_input"
             android:ems="10"
-            android:fontFamily="monospace"
+            android:fontFamily="@font/poppins_light"
             android:hint="Username"
             android:inputType="text"
             android:padding="16dp"
@@ -46,7 +58,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="28dp" />
+            android:layout_height="15dp" />
 
         <EditText
             android:id="@+id/passwordEditText"
@@ -54,7 +66,7 @@
             android:layout_height="68dp"
             android:background="@drawable/custom_input"
             android:ems="10"
-            android:fontFamily="monospace"
+            android:fontFamily="@font/poppins_light"
             android:hint="Password"
             android:inputType="textPassword"
             android:padding="16dp"
@@ -62,38 +74,28 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/loginBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:backgroundTint="@color/black"
-        android:fontFamily="monospace"
-        android:text="Login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayoutA" />
-
-    <Button
         android:id="@+id/backLogInBtn"
         style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="109dp"
+        android:layout_height="39dp"
         android:layout_marginTop="16dp"
-        android:fontFamily="monospace"
+        android:fontFamily="@font/poppins_light"
         android:text="Sign-up"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginBtn"
-        app:layout_constraintVertical_bias="0.729" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <pl.droidsonroids.gif.GifImageView
-        android:layout_width="87dp"
-        android:layout_height="132dp"
-        android:layout_marginTop="40dp"
+        android:id="@+id/gifImageView2"
+        android:layout_width="93dp"
+        android:layout_height="115dp"
+        android:layout_marginTop="72dp"
         android:src="@drawable/jumpycashew"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

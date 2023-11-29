@@ -8,20 +8,21 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="369dp"
-        android:layout_height="452dp"
+        android:layout_width="349dp"
+        android:layout_height="498dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.43">
+        app:layout_constraintVertical_bias="0.272">
 
         <TextView
             android:id="@+id/usernameLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="monospace"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/poppins_light"
             android:text="NAME"
             android:textSize="16sp" />
 
@@ -30,8 +31,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
+            android:background="@drawable/custom_input3"
             android:ems="10"
-            android:fontFamily="@font/dm_sans"
+            android:fontFamily="monospace"
             android:inputType="text"
             android:paddingHorizontal="12dp"
             android:paddingVertical="15dp"
@@ -41,7 +43,8 @@
             android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="monospace"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/poppins_light"
             android:text="USERNAME"
             android:textSize="16sp" />
 
@@ -50,8 +53,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
+            android:background="@drawable/custom_input3"
             android:ems="10"
-            android:fontFamily="@font/dm_sans"
+            android:fontFamily="monospace"
             android:inputType="text"
             android:paddingHorizontal="12dp"
             android:paddingVertical="15dp"
@@ -62,7 +66,8 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="monospace"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/poppins_light"
             android:text="EMAIL"
             android:textSize="16sp" />
 
@@ -71,8 +76,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
+            android:background="@drawable/custom_input3"
             android:ems="10"
-            android:fontFamily="@font/dm_sans"
+            android:fontFamily="monospace"
             android:inputType="text"
             android:paddingHorizontal="12dp"
             android:paddingVertical="15dp"
@@ -83,7 +89,8 @@
             android:id="@+id/passwordLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="monospace"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/poppins_light"
             android:text="PASSWORD"
             android:textSize="16sp" />
 
@@ -92,8 +99,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
+            android:background="@drawable/custom_input3"
             android:ems="10"
-            android:inputType="textPassword"
+            android:fontFamily="monospace"
             android:paddingHorizontal="12dp"
             android:paddingVertical="15dp" />
 
@@ -101,7 +109,8 @@
             android:id="@+id/dobLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="monospace"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/poppins_light"
             android:text="DATE OF BIRTH"
             android:textSize="16sp" />
 
@@ -109,7 +118,9 @@
             android:id="@+id/editDoB"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/custom_input3"
             android:ems="10"
+            android:fontFamily="monospace"
             android:inputType="date"
             android:paddingHorizontal="12dp"
             android:paddingVertical="15dp" />
@@ -120,7 +131,7 @@
         android:id="@+id/registerBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="@color/black"
         android:fontFamily="monospace"
         android:text="Register"
@@ -134,7 +145,6 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="23dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="monospace"
         android:text="Already Registered? Log in here."
@@ -144,7 +154,7 @@
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerBtn"
-        app:layout_constraintVertical_bias="0.729" />
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
