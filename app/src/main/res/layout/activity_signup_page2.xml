@@ -49,7 +49,7 @@
             android:inputType="text"
             android:paddingHorizontal="12dp"
             android:paddingVertical="15dp"
-            android:textAlignment="center"
+            android:textAlignment="viewStart"
             android:textAllCaps="false" />
 
         <TextView
@@ -72,7 +72,7 @@
             android:inputType="textPassword"
             android:paddingHorizontal="12dp"
             android:paddingVertical="15dp"
-            android:textAlignment="center" />
+            android:textAlignment="viewStart" />
 
         <TextView
             android:id="@+id/cnfrmpasswordLabel"
@@ -94,7 +94,7 @@
             android:inputType="textPassword"
             android:paddingHorizontal="12dp"
             android:paddingVertical="15dp"
-            android:textAlignment="center" />
+            android:textAlignment="viewStart" />
     </LinearLayout>
 
     <Button
