@@ -12,22 +12,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Cashew"
         tools:targetApi="31">
-
-
+        <activity
+            android:name=".dressup_page"
+            android:exported="false" />
         <activity
             android:name=".signup_page"
-            android:exported="false"/>
-
-
+            android:exported="false" />
         <activity
             android:name=".orderways_page"
-            android:exported="false"/>
-
-
+            android:exported="false" />
         <activity
             android:name=".login_page"
-            android:theme="@style/Theme.Cashew"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.Cashew">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
