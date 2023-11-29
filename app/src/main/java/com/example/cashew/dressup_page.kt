@@ -28,8 +28,8 @@ class dressup_page : AppCompatActivity() {
 
         // Determine which drawable resource ID to use based on the dice roll
         val drawableResource = when (1) {
-            1 -> R.drawable.smileycashew1
-            else -> R.drawable.sunniescashew
+            1 -> R.drawable.sunniescashew
+            else -> R.drawable.smileycashew1
         }
         // Update the ImageView with the correct drawable resource ID
         diceImage.setImageResource(drawableResource)

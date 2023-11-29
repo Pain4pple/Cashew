@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Cashew"
         tools:targetApi="31">
         <activity
+            android:name=".products_page"
+            android:exported="false"/>
+        <activity
             android:name=".dressup_page"
             android:exported="false" />
         <activity
