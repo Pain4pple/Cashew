@@ -64,6 +64,7 @@ class login_page : AppCompatActivity() {
                         if(userData!=null && userData.userPwd==password){
                             Toast.makeText(this@login_page,"Welcome, "+userData.userUname+"!",Toast.LENGTH_SHORT).show()
                             val intent = Intent(this@login_page, orderways_page::class.java)
+                            intent.putExtra("userUname",userData.userUname)
                             startActivity(intent)
                             finish()
                             return
