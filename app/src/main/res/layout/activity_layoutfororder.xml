@@ -4,6 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@android:color/white"
+    android:layout_margin="4dp"
+    android:foregroundGravity="center"
+    android:foreground="?android:attr/selectableItemBackground"
     android:layout_marginVertical="10dp"
     android:layout_marginHorizontal="10dp"
     app:cardCornerRadius="20dp"
@@ -11,18 +15,21 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="173dp">
+        android:layout_height="173dp"
+        android:background="@drawable/custom_input2">
 
         <ImageView
             android:id="@+id/recyclerImage"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="69dp"
+            android:layout_height="71dp"
             android:layout_marginStart="20dp"
+            android:layout_marginEnd="1dp"
             android:adjustViewBounds="true"
             android:padding="8dp"
             android:scaleType="fitXY"
             android:src="@drawable/ic_launcher_background"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/minuslistbutton"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"></ImageView>
 
@@ -32,9 +39,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
             android:layout_marginTop="40dp"
+            android:layout_marginEnd="198dp"
+            android:layout_marginBottom="10dp"
             android:fontFamily="monospace"
             android:text="ItemName"
             android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/itemprice"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/recyclerImage"
             app:layout_constraintTop_toTopOf="parent"></TextView>
 
@@ -44,9 +55,13 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
             android:layout_marginTop="72dp"
+            android:layout_marginEnd="188dp"
+            android:layout_marginBottom="6dp"
             android:fontFamily="monospace"
             android:text="ItemPrice"
             android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/editTextNumber"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/recyclerImage"
             app:layout_constraintTop_toTopOf="parent"></TextView>
 
@@ -57,12 +72,14 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="1dp"
             android:layout_marginBottom="16dp"
             android:background="@null"
             android:scaleType="fitXY"
             android:scaleX="1"
             android:scaleY="1"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/editTextNumber"
             app:layout_constraintStart_toEndOf="@+id/recyclerImage"
             app:layout_constraintTop_toBottomOf="@+id/itemprice"
             app:srcCompat="@drawable/minuslistbutton" />
@@ -82,8 +99,40 @@
             android:scaleY="1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/editTextNumber"
             app:layout_constraintTop_toBottomOf="@+id/itemprice"
             app:srcCompat="@drawable/addlistbutton" />
+
+        <EditText
+            android:id="@+id/editTextNumber"
+            android:layout_width="62dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginBottom="17dp"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/addlistbutton"
+            app:layout_constraintStart_toEndOf="@+id/minuslistbutton"
+            app:layout_constraintTop_toBottomOf="@+id/itemprice" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="107dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginBottom="18dp"
+            android:backgroundTint="@color/black"
+            android:fontFamily="@font/poppins_bold"
+            android:text="REMOVE"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/addlistbutton"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
