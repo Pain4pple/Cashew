@@ -7,6 +7,6 @@ data class cart_model(var userID:String?="",
 
 data class cart_items(var productID:String?="",
                       var productName: String?="",
-                      var productImage: String?="",
+                      var productImage: Int?=0,
                       var productPrice: String?="",
                       var productQty: Int?=1){}
