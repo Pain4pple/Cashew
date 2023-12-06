@@ -9,75 +9,48 @@
 
     <Button
         android:id="@+id/dineinBtn2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="144dp"
-        android:layout_marginBottom="14dp"
+        android:layout_width="342dp"
+        android:layout_height="57dp"
         android:backgroundTint="@color/black"
-        android:fontFamily="monospace"
+        android:fontFamily="@font/poppins_bold"
         android:text="Dine-in"
-        app:layout_constraintBottom_toTopOf="@+id/pickupBtn3"
+        app:cornerRadius="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleLable4" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <Button
         android:id="@+id/pickupBtn3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginEnd="144dp"
-        android:layout_marginBottom="86dp"
+        android:layout_width="342dp"
+        android:layout_height="56dp"
         android:backgroundTint="@color/black"
-        android:fontFamily="monospace"
+        android:fontFamily="@font/poppins_bold"
         android:text="Pick-up"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:cornerRadius="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/dineinBtn2" />
 
-    <TextView
-        android:id="@+id/titleLable4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="monospace"
-        android:gravity="center"
-        android:text="I WOULD LIKE TO KNOW \nIF YOUR ORDERING FOR DINE-IN \nOR PICK-UP?"
-        android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="275dp"
+        android:layout_height="477dp"
+        android:layout_marginTop="56dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.678" />
-
-    <TextView
-        android:id="@+id/titleLable2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="monospace"
-        android:gravity="center"
-        android:text="          WELCOME!
-         \nI AM YOUR PAWRSONAL \nASSISTANT"
-        android:textSize="18dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.544"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.198" />
+        app:srcCompat="@drawable/orderwaystext" />
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/gifImageView"
-        android:layout_width="196dp"
-        android:layout_height="229dp"
-        android:layout_marginTop="208dp"
+        android:layout_width="258dp"
+        android:layout_height="292dp"
+        android:layout_marginTop="148dp"
         android:src="@drawable/cashew1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.437"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.09" />
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -13,12 +13,10 @@ import com.google.firebase.database.FirebaseDatabase
 class signup_page  : AppCompatActivity() {
     private lateinit var dbRef: DatabaseReference
     private lateinit var editName: EditText
-    private lateinit var editUname: EditText
     private lateinit var editEmail: EditText
-    private lateinit var editPwd: EditText
     private lateinit var editDoB: EditText
-    private lateinit var rgtBtn: Button
     private lateinit var logInBtn: Button
+    private lateinit var nxtBtn: Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,17 +24,19 @@ class signup_page  : AppCompatActivity() {
         setContentView(R.layout.activity_signup_page)
 
         editName = findViewById(R.id.editName)
-        editUname = findViewById(R.id.editUname)
         editEmail = findViewById(R.id.editEmail)
-        editPwd = findViewById(R.id.editPassword)
         editDoB = findViewById(R.id.editDoB)
-        rgtBtn = findViewById(R.id.registerBtn)
+        nxtBtn = findViewById(R.id.nxtBtn)
         logInBtn = findViewById(R.id.backLogInBtn)
 
         dbRef = FirebaseDatabase.getInstance().getReference("Users")
 
-        rgtBtn.setOnClickListener{
-            saveUserData()
+        nxtBtn.setOnClickListener{
+            val intent = Intent(this, signup_page2::class.java)
+            intent.putExtra("editName", editName.text.toString()+"")
+            intent.putExtra("editEmail", editEmail.text.toString()+"")
+            intent.putExtra("editDoB", editDoB.text.toString()+"")
+            startActivity(intent)
         }
 
         logInBtn.setOnClickListener{
@@ -44,26 +44,6 @@ class signup_page  : AppCompatActivity() {
             startActivity(intent)
         }
 
-
-
-
-    }
-
-    private fun saveUserData(){
-        var userName = editName.text.toString()
-        var userEmail= editEmail.text.toString()
-        var userUname= editUname.text.toString()
-        var userPwd= editPwd.text.toString()
-        var userDob= editDoB.text.toString()
-
-        val userID = dbRef.push().key!!
-        val user = user_model(userID,userName,userEmail,userUname,userPwd,userDob)
-
-        dbRef.child("USER_"+userID).setValue(user).addOnSuccessListener {
-            Toast.makeText(this, "Successfully registered",Toast.LENGTH_LONG).show()
-        }.addOnFailureListener{
-            Toast.makeText(this, "Failed to register",Toast.LENGTH_LONG).show()
-        }
 
 
 

@@ -4,43 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".signup_page">
+    tools:context=".signup_page"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="12dp">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="330dp"
+        android:layout_height="156dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.518"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/create" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="333dp"
-        android:layout_height="476dp"
+        android:layout_width="327dp"
+        android:layout_height="305dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.272">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/usernameLabel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:fontFamily="@font/poppins_light"
-            android:text="NAME"
-            android:textSize="16sp" />
-
-        <EditText
-            android:id="@+id/editName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/custom_input3"
-            android:ems="10"
-            android:fontFamily="monospace"
-            android:inputType="text"
-            android:paddingHorizontal="12dp"
-            android:paddingVertical="15dp"
-            android:textAlignment="viewStart" />
-
-        <TextView
-            android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
@@ -55,30 +45,7 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/custom_input3"
             android:ems="10"
-            android:fontFamily="monospace"
-            android:inputType="text"
-            android:paddingHorizontal="12dp"
-            android:paddingVertical="15dp"
-            android:textAlignment="viewStart"
-            android:textAllCaps="false" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
             android:fontFamily="@font/poppins_light"
-            android:text="EMAIL"
-            android:textSize="16sp" />
-
-        <EditText
-            android:id="@+id/editEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            android:background="@drawable/custom_input3"
-            android:ems="10"
-            android:fontFamily="monospace"
             android:inputType="text"
             android:paddingHorizontal="12dp"
             android:paddingVertical="15dp"
@@ -101,30 +68,33 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/custom_input3"
             android:ems="10"
-            android:fontFamily="monospace"
+            android:fontFamily="@font/poppins_light"
+            android:inputType="textPassword"
             android:paddingHorizontal="12dp"
-            android:paddingVertical="15dp" />
+            android:paddingVertical="15dp"
+            android:textAlignment="viewStart" />
 
         <TextView
-            android:id="@+id/dobLabel"
+            android:id="@+id/cnfrmpasswordLabel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:fontFamily="@font/poppins_light"
-            android:text="DATE OF BIRTH"
+            android:text="CONFIRM PASSWORD"
             android:textSize="16sp" />
 
         <EditText
-            android:id="@+id/editDoB"
+            android:id="@+id/confirmPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
             android:background="@drawable/custom_input3"
             android:ems="10"
-            android:fontFamily="monospace"
-            android:inputType="date"
+            android:fontFamily="@font/poppins_light"
+            android:inputType="textPassword"
             android:paddingHorizontal="12dp"
-            android:paddingVertical="15dp" />
-
+            android:paddingVertical="15dp"
+            android:textAlignment="viewStart" />
     </LinearLayout>
 
     <Button
@@ -137,7 +107,7 @@
         android:text="register"
         app:cornerRadius="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 

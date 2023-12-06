@@ -21,6 +21,12 @@
         <activity
             android:name=".signup_page"
             android:exported="false" />
+
+
+        <activity
+            android:name=".signup_page2"
+            android:exported="false"/>
+
         <activity
             android:name=".orderways_page"
             android:exported="false" />
