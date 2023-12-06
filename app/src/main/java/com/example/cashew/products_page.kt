@@ -8,7 +8,7 @@ import com.example.cashew.models.user_model
 import com.example.cashew.objects.User
 
 class products_page : AppCompatActivity() {
-
+//var currentUser = User.currentUser
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_products)
@@ -17,15 +17,12 @@ class products_page : AppCompatActivity() {
         val cashewBtn: ImageButton = findViewById(R.id.cashewlogoBtn)
         val userName: TextView = findViewById(R.id.uNameDisplay)
         val cashewCoins: TextView = findViewById(R.id.cashewCoinsDisplay)
-        val user = User()
-        var uName = intent.extras?.getString("userUname")
-        var userData: user_model? = user.getUserData(uName.toString())
+        val sh = getSharedPreferences("currentUserDetails", MODE_PRIVATE)
 
 
-        Toast.makeText(this, "What would you like to do, $uName?", Toast.LENGTH_SHORT).show()
-        if (userData != null) {
-            userName.text = ""+userData.userUname
-            cashewCoins.text = ""+userData.userCashewCoins
+    if (sh.getString("ID","") != null) {
+            userName.text = ""+sh.getString("Username", "")
+            cashewCoins.text = ""+sh.getInt("Coins", 0)
         }
         else{
             userName.text = "who you?"

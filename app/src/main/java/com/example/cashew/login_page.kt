@@ -7,6 +7,8 @@ import com.example.cashew.models.user_model
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.example.cashew.models.current_user
+import com.example.cashew.objects.User
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -20,6 +22,9 @@ class login_page : AppCompatActivity() {
     private lateinit var firebaseDatabase: FirebaseDatabase
     private lateinit var username: EditText
     private lateinit var password: EditText
+    private lateinit var UserCon: User
+
+    var currentUser:current_user= current_user()
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -64,7 +69,20 @@ class login_page : AppCompatActivity() {
                         if(userData!=null && userData.userPwd==password){
                             Toast.makeText(this@login_page,"Welcome, "+userData.userUname+"!",Toast.LENGTH_SHORT).show()
                             val intent = Intent(this@login_page, orderways_page::class.java)
-                            intent.putExtra("userUname",userData.userUname)
+                                val sharedPreferences = getSharedPreferences("currentUserDetails", MODE_PRIVATE)
+                                val myEdit = sharedPreferences.edit()
+
+                                myEdit.putString("ID",userData.userID)
+                                myEdit.putString("Username",userData.userUname)
+                                myEdit.putString("Email",userData.userEmail)
+                                myEdit.putString("Name",userData.userName)
+                                myEdit.putString("Wardrobe",userData.userCashew)
+                                userData.userCashewCoins?.let { myEdit.putInt("Coins", it) }
+
+//                                UserCon.getUserData(userData.userUname.toString())
+
+//                            var currentUser = userSnapshot.getValue(user_model::class.java)
+                                myEdit.apply()
                             startActivity(intent)
                             finish()
                             return

@@ -10,3 +10,13 @@ data class user_model(var userID:String?="",
                       var userCashew:String? = "default") {
 
 }
+
+data class current_user(
+    var userID:String?="",
+    var userName: String?="",
+    var userEmail: String?="",
+    var userUname: String?="",
+    var userCashewCoins:Int? = 0,
+    var userCashew:String? = "default") {
+
+}

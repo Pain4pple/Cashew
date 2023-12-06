@@ -12,12 +12,12 @@ class orderways_page : AppCompatActivity(){
         setContentView(R.layout.activity_orderways)
 
         val dineInBtn : Button = findViewById(R.id.dineinBtn2)
-        var uName = intent.extras?.getString("userUname")
+        var sp = getSharedPreferences("currentUserDetails", MODE_PRIVATE)
+        var uName = sp.getString("Username","")
         Toast.makeText(this, "What would you like to do, $uName?", Toast.LENGTH_SHORT).show()
 
         dineInBtn.setOnClickListener{
             val intent = Intent(this, products_page::class.java)
-            intent.putExtra("userUname",uName)
             startActivity(intent)
         }
     }

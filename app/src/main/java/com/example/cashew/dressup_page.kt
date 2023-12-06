@@ -5,17 +5,25 @@ import android.os.Bundle
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
+import com.google.firebase.database.DatabaseReference
 
 class dressup_page : AppCompatActivity() {
+    lateinit var databaseRef : DatabaseReference
+    val sh = getSharedPreferences("currentUserDetails", MODE_PRIVATE)
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dressup_page)
         val glassesBtn: ImageButton = findViewById(R.id.glassesBtn)
+        var uID = sh.getString("ID","").toString()
 
         glassesBtn.setOnClickListener {
             changePicture()
-            val toastRolled = Toast.makeText(this, "Outfit Changed!", Toast.LENGTH_SHORT)
-            toastRolled.show()
+            var updateWardrobe = mapOf<String, String>("userCashew" to "glasses")
+            databaseRef.child( "Users").child(uID).setValue(updateWardrobe).addOnSuccessListener {
+                val toastRolled = Toast.makeText(this, "Outfit Changed!", Toast.LENGTH_SHORT)
+                toastRolled.show()
+            }
         }
     }
 
