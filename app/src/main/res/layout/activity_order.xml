@@ -63,7 +63,6 @@
         app:layout_constraintVertical_bias="0.029"
         app:srcCompat="@drawable/cashew1" />
 
-
     <ListView
         android:id="@+id/orderListView"
         android:layout_width="372dp"
@@ -74,7 +73,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.589"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
+
 
 
     <Button
@@ -158,6 +160,7 @@
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/lowborder"
         app:layout_constraintEnd_toStartOf="@+id/checkoutButton"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/orderListView"
         app:layout_constraintVertical_bias="0.615" />
