@@ -8,14 +8,17 @@
     tools:context=".products_page">
 
 
-    <androidx.cardview.widget.CardView
+    <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardElevation="10dp">
+        app:cardElevation="10dp"
+        app:strokeColor="#000000"
+        app:strokeWidth="0dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="#FFFFFF">
 
             <ImageButton
                 android:id="@+id/cashewlogoBtn"
@@ -59,7 +62,7 @@
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
 
     <TextView
         android:id="@+id/customerQuestion"
@@ -81,363 +84,19 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:layout_width="399dp"
+        android:layout_width="346dp"
         android:layout_height="554dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.676">
+        app:layout_constraintVertical_bias="0.659">
 
-        <GridLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/productsView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="26dp"
-            android:layout_marginEnd="30dp"
-            android:columnCount="2">
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/ChocolateCake"
-                android:layout_width="0dp"
-                android:layout_height="180dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="10dp"
-                app:cardBackgroundColor="#FFFFFF"
-                app:cardCornerRadius="14dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/ChocolateCakeLabel"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="Chocolate Cake"
-                        android:textSize="15dp" />
-
-                    <ImageView
-                        android:layout_width="83dp"
-                        android:layout_height="67dp"
-                        android:layout_centerInParent="true"
-                        android:scaleX="2"
-                        android:scaleY="2"
-                        app:srcCompat="@drawable/chocolate_cake" />
-
-                    <TextView
-                        android:id="@+id/ChocolateCakePrice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginBottom="164dp"
-                        android:text="₱140.00"
-                        android:textSize="12sp" />
-
-                    <ImageButton
-                        android:id="@+id/add"
-                        android:layout_width="40dp"
-                        android:layout_height="46dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginBottom="3dp"
-                        android:background="@null"
-                        android:scaleType="fitXY"
-                        android:scaleX="1"
-                        android:scaleY="1"
-                        app:srcCompat="@drawable/add" />
-
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/Macarons"
-                android:layout_width="0dp"
-                android:layout_height="180dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="10dp"
-                app:cardBackgroundColor="#FFFFFF"
-                app:cardCornerRadius="14dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/MacaronsLabel"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="Macarons"
-                        android:textSize="20dp" />
-
-                    <ImageView
-                        android:layout_width="98dp"
-                        android:layout_height="86dp"
-                        android:layout_centerInParent="true"
-                        android:scaleX="2"
-                        android:scaleY="2"
-                        app:srcCompat="@drawable/macarons" />
-
-                    <TextView
-                        android:id="@+id/ChocolateCakePrice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="₱160.00"
-                        android:textSize="12sp" />
-
-                    <ImageButton
-                        android:id="@+id/MacaronsAdd"
-                        android:layout_width="40dp"
-                        android:layout_height="46dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginBottom="3dp"
-                        android:background="@null"
-                        android:scaleType="fitXY"
-                        android:scaleX="1"
-                        android:scaleY="1"
-                        app:srcCompat="@drawable/add" />
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/Cookies"
-                android:layout_width="0dp"
-                android:layout_height="180dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="10dp"
-                app:cardBackgroundColor="#FFFFFF"
-                app:cardCornerRadius="14dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/CookiesLabel"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="Cookies"
-                        android:textSize="20dp" />
-
-                    <ImageView
-                        android:layout_width="86dp"
-                        android:layout_height="81dp"
-                        android:layout_centerInParent="true"
-                        android:scaleX="2"
-                        android:scaleY="2"
-                        app:srcCompat="@drawable/cookies" />
-
-                    <TextView
-                        android:id="@+id/ChocolateCakePrice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="₱125.00"
-                        android:textSize="12sp" />
-
-                    <ImageButton
-                        android:id="@+id/CookiesAdd"
-                        android:layout_width="40dp"
-                        android:layout_height="46dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginBottom="3dp"
-                        android:background="@null"
-                        android:scaleType="fitXY"
-                        android:scaleX="1"
-                        android:scaleY="1"
-                        app:srcCompat="@drawable/add" />
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/CarrotCupcake"
-                android:layout_width="0dp"
-                android:layout_height="180dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="10dp"
-                app:cardBackgroundColor="#FFFFFF"
-                app:cardCornerRadius="14dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/CarrotCupcakeLabel"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="monospace"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="Carrot Cupcake"
-                        android:textSize="15dp" />
-
-                    <ImageView
-                        android:layout_width="80dp"
-                        android:layout_height="63dp"
-                        android:layout_centerInParent="true"
-                        android:scaleX="2"
-                        android:scaleY="2"
-                        app:srcCompat="@drawable/carrot_cupcake" />
-
-                    <TextView
-                        android:id="@+id/ChocolateCakePrice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="₱70.00"
-                        android:textSize="12sp" />
-
-                    <ImageButton
-                        android:id="@+id/CarrotCupcakeAdd"
-                        android:layout_width="40dp"
-                        android:layout_height="46dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginBottom="3dp"
-                        android:background="@null"
-                        android:scaleType="fitXY"
-                        android:scaleX="1"
-                        android:scaleY="1"
-                        app:srcCompat="@drawable/add" />
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/BananaSplit"
-                android:layout_width="0dp"
-                android:layout_height="180dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="10dp"
-                app:cardBackgroundColor="#FFFFFF"
-                app:cardCornerRadius="14dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/BananaSplitLabel"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="Banana Split"
-                        android:textSize="16dp" />
-
-                    <ImageView
-                        android:layout_width="94dp"
-                        android:layout_height="82dp"
-                        android:layout_centerInParent="true"
-                        android:scaleX="2"
-                        android:scaleY="2"
-                        app:srcCompat="@drawable/banana_split" />
-
-                    <TextView
-                        android:id="@+id/ChocolateCakePrice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="₱200.00"
-                        android:textSize="12sp" />
-
-                    <ImageButton
-                        android:id="@+id/BananaSplitAdd"
-                        android:layout_width="40dp"
-                        android:layout_height="46dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginBottom="3dp"
-                        android:background="@null"
-                        android:scaleType="fitXY"
-                        android:scaleX="1"
-                        android:scaleY="1"
-                        app:srcCompat="@drawable/add" />
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/CinnamonRoll"
-                android:layout_width="0dp"
-                android:layout_height="180dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="10dp"
-                app:cardBackgroundColor="#FFFFFF"
-                app:cardCornerRadius="14dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:id="@+id/CinnamonRollLabel"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/poppins"
-                        android:gravity="center"
-                        android:padding="10dp"
-                        android:text="Cinnamon Roll"
-                        android:textSize="16dp" />
-
-                    <ImageView
-                        android:layout_width="69dp"
-                        android:layout_height="65dp"
-                        android:layout_centerInParent="true"
-                        android:scaleX="2"
-                        android:scaleY="2"
-                        app:srcCompat="@drawable/cinnamon_roll" />
-
-                    <TextView
-                        android:id="@+id/ChocolateCakePrice"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="₱120.00"
-                        android:textSize="12sp" />
-
-                    <ImageButton
-                        android:id="@+id/CinnamonRollAdd"
-                        android:layout_width="40dp"
-                        android:layout_height="46dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginRight="5dp"
-                        android:layout_marginBottom="3dp"
-                        android:background="@null"
-                        android:scaleType="fitXY"
-                        android:scaleX="1"
-                        android:scaleY="1"
-                        app:srcCompat="@drawable/add" />
-                </RelativeLayout>
-            </androidx.cardview.widget.CardView>
-
-            <androidx.cardview.widget.CardView
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_rowWeight="1"
-                android:layout_columnWeight="1"
-                android:layout_margin="10dp"
-                app:cardElevation="0dp" />
-        </GridLayout>
+            android:layout_height="wrap_content" />
     </ScrollView>
 
     <ImageView
