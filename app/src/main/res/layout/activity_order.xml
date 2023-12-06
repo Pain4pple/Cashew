@@ -48,7 +48,8 @@
         app:layout_constraintHorizontal_bias="0.705"
         app:layout_constraintStart_toEndOf="@+id/cashewlogo2"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="UnknownId" />
 
     <ImageView
         android:id="@+id/cashewlogo2"
@@ -63,45 +64,42 @@
         app:layout_constraintVertical_bias="0.029"
         app:srcCompat="@drawable/cashew1" />
 
-    <ListView
-        android:id="@+id/orderListView"
-        android:layout_width="372dp"
-        android:layout_height="380dp"
-        android:layout_marginTop="112dp"
-        android:divider="@android:color/darker_gray"
-        android:dividerHeight="1dp"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="386dp"
+        android:layout_height="429dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="17dp"
+        app:layout_constraintBottom_toTopOf="@+id/checkoutButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.589"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
-        />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/orderlist_Label"
+        tools:listitem="@layout/activity_layoutfororder" />
 
     <Button
         android:id="@+id/checkoutButton"
         android:layout_width="130dp"
         android:layout_height="60dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="36dp"
         android:backgroundTint="@color/black"
         android:fontFamily="@font/poppins_regular"
         android:text="Checkout"
         app:layout_constraintBottom_toTopOf="@+id/lowborder"
-        app:layout_constraintTop_toBottomOf="@+id/orderListView"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="265dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 
     <ImageView
         android:id="@+id/lowborder"
-        android:layout_width="911dp"
-        android:layout_height="373dp"
-        android:layout_marginTop="28dp"
+        android:layout_width="717dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="14dp"
         android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/orderListView"
+        app:layout_constraintTop_toBottomOf="@+id/checkoutButton"
         app:srcCompat="@drawable/lowborder" />
 
     <ImageButton
@@ -152,17 +150,16 @@
         android:id="@+id/totalamount"
         android:layout_width="118dp"
         android:layout_height="26dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="127dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="125dp"
+        android:layout_marginBottom="52dp"
         android:fontFamily="monospace"
         android:text="Total: $0.00"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/lowborder"
         app:layout_constraintEnd_toStartOf="@+id/checkoutButton"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/orderListView"
-        app:layout_constraintVertical_bias="0.615" />
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

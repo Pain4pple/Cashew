@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginVertical="10dp"
-    android:layout_marginHorizontal="10dp"
-    app:cardCornerRadius="20dp"
-    app:cardElevation="8dp">
+    android:layout_marginHorizontal="10sp"
+    android:layout_marginVertical="10sp"
+    app:cardCornerRadius="20sp"
+    app:cardElevation="8sp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="173dp">
+        android:layout_height="173dp"
+        android:background="@drawable/custom_input2">
 
         <ImageView
             android:id="@+id/recyclerImage"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="64dp"
+            android:layout_height="67dp"
             android:layout_marginStart="20dp"
             android:adjustViewBounds="true"
             android:padding="8dp"
@@ -52,29 +53,34 @@
 
         <ImageButton
             android:id="@+id/minuslistbutton"
-            android:layout_width="55dp"
-            android:layout_height="53dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
+            android:layout_marginStart="12dp"
             android:layout_marginTop="10dp"
+            android:layout_marginEnd="2dp"
             android:layout_marginBottom="16dp"
             android:background="@null"
             android:scaleType="fitXY"
             android:scaleX="1"
             android:scaleY="1"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/editTextNumber"
             app:layout_constraintStart_toEndOf="@+id/recyclerImage"
             app:layout_constraintTop_toBottomOf="@+id/itemprice"
+            app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/minuslistbutton" />
 
         <ImageButton
             android:id="@+id/addlistbutton"
-            android:layout_width="55dp"
-            android:layout_height="53dp"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
+            android:layout_marginStart="4dp"
             android:layout_marginTop="10dp"
-            android:layout_marginEnd="141dp"
+            android:layout_marginEnd="124dp"
             android:layout_marginBottom="16dp"
             android:background="@null"
             android:scaleType="fitXY"
@@ -82,8 +88,43 @@
             android:scaleY="1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/editTextNumber"
             app:layout_constraintTop_toBottomOf="@+id/itemprice"
+            app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/addlistbutton" />
+
+        <EditText
+            android:id="@+id/editTextNumber"
+            android:layout_width="59dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="20dp"
+            android:ems="10"
+            android:inputType="number"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/addlistbutton"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toEndOf="@+id/minuslistbutton"
+            app:layout_constraintTop_toBottomOf="@+id/itemprice" />
+
+        <Button
+            android:id="@+id/removebutton"
+            android:layout_width="100dp"
+            android:layout_height="49dp"
+            android:layout_marginStart="9dp"
+            android:layout_marginTop="105dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/black"
+            android:text="REMOVE"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/addlistbutton"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
