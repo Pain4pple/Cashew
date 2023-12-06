@@ -27,7 +27,7 @@
         android:layout_marginEnd="172dp"
         android:layout_marginBottom="52dp"
         android:text="Hi Rei Divine"
-        app:layout_constraintBottom_toTopOf="@+id/orderRecyclerView"
+        app:layout_constraintBottom_toTopOf="@+id/orderListView"
         app:layout_constraintEnd_toStartOf="@+id/productorderway2"
         app:layout_constraintStart_toEndOf="@+id/cashewlogo2"
         app:layout_constraintTop_toTopOf="parent" />
@@ -43,7 +43,7 @@
         android:fontFamily="monospace"
         android:text="Order List"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/orderRecyclerView"
+        app:layout_constraintBottom_toTopOf="@+id/orderListView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.705"
         app:layout_constraintStart_toEndOf="@+id/cashewlogo2"
@@ -63,15 +63,19 @@
         app:layout_constraintVertical_bias="0.029"
         app:srcCompat="@drawable/cashew1" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/orderRecyclerView"
-        android:layout_width="398dp"
-        android:layout_height="320dp"
+    <ListView
+        android:id="@+id/orderListView"
+        android:layout_width="372dp"
+        android:layout_height="380dp"
         android:layout_marginTop="112dp"
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="1dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.589"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/activity_layoutfororder" />
+
+        />
 
 
 
@@ -93,10 +97,12 @@
         android:id="@+id/lowborder"
         android:layout_width="911dp"
         android:layout_height="373dp"
+        android:layout_marginTop="28dp"
         android:scaleType="fitXY"
-        app:srcCompat="@drawable/lowborder"
-        tools:layout_editor_absoluteX="-158dp"
-        tools:layout_editor_absoluteY="523dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/orderListView"
+        app:srcCompat="@drawable/lowborder" />
 
     <ImageButton
         android:id="@+id/favoritebutton2"
@@ -147,16 +153,16 @@
         android:layout_width="118dp"
         android:layout_height="26dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="127dp"
-        android:layout_marginBottom="30dp"
         android:fontFamily="monospace"
         android:text="Total: $0.00"
         android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/lowborder"
         app:layout_constraintEnd_toStartOf="@+id/checkoutButton"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/orderRecyclerView" />
+        app:layout_constraintTop_toBottomOf="@+id/orderListView"
+        app:layout_constraintVertical_bias="0.615" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
