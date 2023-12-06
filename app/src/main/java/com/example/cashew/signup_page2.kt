@@ -19,6 +19,7 @@ class signup_page2  : AppCompatActivity() {
 //    private lateinit var editDoB: EditText
     private lateinit var rgtBtn: Button
     private lateinit var logInBtn: Button
+    private lateinit var dbRefNested: DatabaseReference
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,6 +32,7 @@ class signup_page2  : AppCompatActivity() {
         logInBtn = findViewById(R.id.backLogInBtn)
 
         dbRef = FirebaseDatabase.getInstance().getReference("Users")
+        //dbRefNested = FirebaseDatabase.getInstance().getReference("Purchases")
 
         rgtBtn.setOnClickListener{
             saveUserData()
@@ -66,6 +68,8 @@ class signup_page2  : AppCompatActivity() {
         }.addOnFailureListener{
             Toast.makeText(this, "Failed to register",Toast.LENGTH_LONG).show()
         }
+        dbRefNested = FirebaseDatabase.getInstance().getReference("Purchases")
+        val path = dbRefNested.child("USER_$userID")
 
 
 

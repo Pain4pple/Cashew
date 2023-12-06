@@ -14,7 +14,7 @@ class products_page : AppCompatActivity() {
         setContentView(R.layout.activity_products)
 
         //DECLARATIONS
-        val cashewBtn: ImageButton = findViewById(R.id.cashewlogoBtn)
+        val cashewBtn: ImageButton = findViewById(R.id.favoritebutton)
         val userName: TextView = findViewById(R.id.uNameDisplay)
         val cashewCoins: TextView = findViewById(R.id.cashewCoinsDisplay)
         val user = User()
