@@ -13,11 +13,11 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="165dp"
         android:layout_height="35dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="56dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.148"
+        app:layout_constraintHorizontal_bias="0.085"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainCashew"
+        app:layout_constraintTop_toBottomOf="@+id/userCashewWardrobe"
         app:srcCompat="@drawable/sunnies" />
 
     <ImageButton
@@ -25,13 +25,13 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="128dp"
         android:layout_height="59dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="28dp"
         android:adjustViewBounds="true"
         android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.206"
+        app:layout_constraintHorizontal_bias="0.123"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainCashew"
+        app:layout_constraintTop_toBottomOf="@+id/sunniesBtn"
         app:srcCompat="@drawable/octoglasses" />
 
     <ImageButton
@@ -39,18 +39,18 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="168dp"
         android:layout_height="88dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="28dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.833"
+        app:layout_constraintHorizontal_bias="0.888"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainCashew"
+        app:layout_constraintTop_toBottomOf="@+id/userCashewWardrobe"
         app:srcCompat="@drawable/mcdohat" />
 
     <ImageButton
         android:id="@+id/exitBtn"
         style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="74dp"
-        android:layout_height="72dp"
+        android:layout_width="65dp"
+        android:layout_height="66dp"
         android:layout_marginTop="16dp"
         android:adjustViewBounds="true"
         android:scaleType="centerInside"
@@ -65,38 +65,40 @@
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="148dp"
         android:layout_height="66dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="4dp"
         android:adjustViewBounds="true"
         android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.822"
+        app:layout_constraintHorizontal_bias="0.847"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainCashew"
+        app:layout_constraintTop_toBottomOf="@+id/mchatBtn"
         app:srcCompat="@drawable/bowtie" />
 
-    <ImageView
-        android:id="@+id/mainCashew"
-        android:layout_width="214dp"
-        android:layout_height="389dp"
-        android:layout_marginTop="96dp"
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/userCashewWardrobe"
+        android:layout_width="234dp"
+        android:layout_height="237dp"
+        android:src="@drawable/cashew1"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.481"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/smileycashew1" />
+        app:layout_constraintVertical_bias="0.356" />
 
     <Button
         android:id="@+id/updateBtn"
         android:layout_width="137dp"
         android:layout_height="47dp"
-        android:layout_marginTop="208dp"
         android:backgroundTint="@color/black"
         android:fontFamily="@font/poppins_bold"
         android:text="CHANGE"
         android:textSize="18dp"
         app:cornerRadius="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainCashew" />
+        app:layout_constraintTop_toBottomOf="@+id/userCashewWardrobe"
+        app:layout_constraintVertical_bias="0.804" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,10 +15,12 @@ class products_page : AppCompatActivity() {
     //var currentUser = User.currentUser
     private lateinit var recyclerView : RecyclerView
     private var productList : ArrayList<product_model> = ArrayList()
+    private var drawableResource : Int? = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_products)
+
         productList.add(product_model("1","Chocolate Cake",R.drawable.chocolate_cake,500))
         productList.add(product_model("2","Cookies",R.drawable.cookies,600))
         productList.add(product_model("3","Cinnamon Roll",R.drawable.cinnamon_roll,200))
@@ -30,15 +32,24 @@ class products_page : AppCompatActivity() {
         recyclerView.adapter = productRecycler
 
         //DECLARATIONS
-        val cashewGif:GifImageView = findViewById(R.id.userCashew)
+        val cashewGif:GifImageView = findViewById(R.id.userCashewProducts)
         val cashewBtn: ImageButton = findViewById(R.id.favoritebutton)
         val userName: TextView = findViewById(R.id.uNameDisplay)
         val cashewCoins: TextView = findViewById(R.id.cashewCoinsDisplay)
-        val avatarCashew : ImageView = findViewById(R.id.avatarImg)
         val sh = getSharedPreferences("currentUserDetails", MODE_PRIVATE)
+        val userCashew = sh.getString("Wardrobe", "").toString()
 
+        drawableResource = when (userCashew) {
+            "sunnies" -> R.drawable.sunniescashew
+            "octo" -> R.drawable.octocashew
+            "bow" -> R.drawable.bowcashew
+            "mcdo" -> R.drawable.macdo_slave
+            "default" -> R.drawable.smileycashew1
+            else -> R.drawable.smileycashew1
+        }
+        cashewGif.setImageResource(drawableResource!!)
 
-    if (sh.getString("ID","") != null) {
+        if (sh.getString("ID","") != null) {
             userName.text = "Hi! "+sh.getString("Username", "")
             cashewCoins.text = ""+sh.getInt("Coins", 0)
         }

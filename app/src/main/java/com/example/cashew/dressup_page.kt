@@ -12,6 +12,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import pl.droidsonroids.gif.GifImageView
 
 class dressup_page : AppCompatActivity() {
 
@@ -20,7 +21,10 @@ class dressup_page : AppCompatActivity() {
     private lateinit var firebaseDatabase: FirebaseDatabase
     private lateinit var updateIconBtn : Button
     private var drawableResource : Int? = 0
-    private var drawedImage : Int? = 0
+    private var drawedImage : String = ""
+    private var userCashew:String = ""
+    private var currentCashew:String = ""
+    private var userID:String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +32,9 @@ class dressup_page : AppCompatActivity() {
 
         firebaseDatabase = FirebaseDatabase.getInstance()
         dbRef = firebaseDatabase.reference.child("Users")
+        val sh = getSharedPreferences("currentUserDetails", MODE_PRIVATE)
+        currentCashew = sh.getString("Wardrobe", "").toString()
+        userID = sh.getString("ID", "").toString()
 
 
         // WARDROBE VARIABLES
@@ -44,12 +51,12 @@ class dressup_page : AppCompatActivity() {
         }
 
         updateIconBtn.setOnClickListener {
-            updateAvatar()
+                updateAvatar()
         }
 
 
 
-        sunniesBtn.setOnClickListener {
+        /*sunniesBtn.setOnClickListener {
             val image_id : Int = 1
             changePicture(image_id)
             val toastRolled = Toast.makeText(this, "Outfit Changed!", Toast.LENGTH_SHORT)
@@ -75,14 +82,40 @@ class dressup_page : AppCompatActivity() {
             changePicture(image_id)
             val toastRolled = Toast.makeText(this, "Outfit Changed!", Toast.LENGTH_SHORT)
             toastRolled.show()
+        }*/
+
+        sunniesBtn.setOnClickListener {
+            userCashew = "sunnies"
+            changePicture(userCashew)
+            val toastRolled = Toast.makeText(this, "Outfit Changed!", Toast.LENGTH_SHORT)
+            toastRolled.show()
         }
 
+        octoBtn.setOnClickListener {
+            userCashew = "octo"
+            changePicture(userCashew)
+            val toastRolled = Toast.makeText(this, "Outfit Changed!", Toast.LENGTH_SHORT)
+            toastRolled.show()
+        }
 
+        bowBtn.setOnClickListener {
+            userCashew = "bow"
+            changePicture(userCashew)
+            val toastRolled = Toast.makeText(this, "Outfit Changed!", Toast.LENGTH_SHORT)
+            toastRolled.show()
+        }
+
+        mchatBtn.setOnClickListener {
+            userCashew = "mcdo"
+            changePicture(userCashew)
+            val toastRolled = Toast.makeText(this, "Outfit Changed!", Toast.LENGTH_SHORT)
+            toastRolled.show()
+        }
 
 
     }
 
-    private fun changePicture(image_id: Int) {
+/*    private fun changePicture(image_id: Int) {
 
         // Update the cashew
         val mainCashew: ImageView = findViewById(R.id.mainCashew)
@@ -102,25 +135,52 @@ class dressup_page : AppCompatActivity() {
         //Pass value of drawableResource to drawedImage
         drawedImage = image_id
 
-    }
+    }*/
+    private fun changePicture(userCashew: String) {
 
-    private fun updateAvatar() {
+        // Update the cashew
+        val mainCashew: GifImageView = findViewById(R.id.userCashewWardrobe)
 
-        val userCashew = drawedImage
-        Log.i("amado", userCashew.toString())
-
-        dbRef.child("userCashew").setValue(userCashew).addOnSuccessListener {
-            Toast.makeText(this, "Successfully uploaded",Toast.LENGTH_LONG).show()
-        }.addOnFailureListener{
-            Toast.makeText(this, "Failed to register",Toast.LENGTH_LONG).show()
+        // Determine which drawable resource ID to use based on the image_id selected
+        drawableResource = when (userCashew) {
+            "sunnies" -> R.drawable.sunniescashew
+            "octo" -> R.drawable.octocashew
+            "bow" -> R.drawable.bowcashew
+            "mcdo" -> R.drawable.macdo_slave
+            "default" -> R.drawable.smileycashew1
+            else -> R.drawable.smileycashew1
         }
 
+        // Update the ImageView with the correct drawable resource ID
+        mainCashew.setImageResource(drawableResource!!)
 
+        //Pass value of drawableResource to drawedImage
+        drawedImage = userCashew
 
+    }
+    private fun updateAvatar() {
+        val sh = getSharedPreferences("currentUserDetails", MODE_PRIVATE)
+        val myEdit = sh.edit()
 
+        if(userCashew.equals(currentCashew)){
+            Toast.makeText(this, "Err, you haven't changed anything!", Toast.LENGTH_SHORT)
+        }
+        else {
 
+            val userCashew = drawedImage
+            Log.i("Cashew", "Outfit: " + userCashew)
 
+            dbRef.child(userID).child("userCashew").setValue(userCashew).addOnSuccessListener {
+                Toast.makeText(this, "Successfully uploaded", Toast.LENGTH_SHORT).show()
+                myEdit.putString("Wardrobe", userCashew)
+                currentCashew = sh.getString("Wardrobe","").toString()
+                myEdit.apply()
 
+            }.addOnFailureListener {
+                Toast.makeText(this, "Failed to change", Toast.LENGTH_SHORT).show()
+            }
+
+        }
     }
 
 }
