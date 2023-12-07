@@ -36,7 +36,7 @@ class products_page : AppCompatActivity() {
 
 
     if (sh.getString("ID","") != null) {
-            userName.text = ""+sh.getString("Username", "")
+            userName.text = "Hi! "+sh.getString("Username", "")
             cashewCoins.text = ""+sh.getInt("Coins", 0)
         }
         else{
