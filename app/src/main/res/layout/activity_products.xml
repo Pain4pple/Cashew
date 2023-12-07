@@ -160,7 +160,7 @@
         app:srcCompat="@drawable/favorite" />
 
     <ImageButton
-        android:id="@+id/orderlistbasket"
+        android:id="@+id/productsBtn"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginBottom="2dp"
@@ -174,7 +174,7 @@
         app:srcCompat="@drawable/basket" />
 
     <ImageButton
-        android:id="@+id/userbutton1"
+        android:id="@+id/profileBtn"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginBottom="2dp"

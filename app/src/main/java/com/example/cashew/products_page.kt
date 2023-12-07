@@ -34,6 +34,8 @@ class products_page : AppCompatActivity() {
         //DECLARATIONS
         val cashewGif:GifImageView = findViewById(R.id.userCashewProducts)
         val cashewBtn: ImageButton = findViewById(R.id.favoritebutton)
+        val productsBtn : ImageButton = findViewById(R.id.productsBtn)
+        val profileBtn : ImageButton = findViewById(R.id.profileBtn)
         val userName: TextView = findViewById(R.id.uNameDisplay)
         val cashewCoins: TextView = findViewById(R.id.cashewCoinsDisplay)
         val sh = getSharedPreferences("currentUserDetails", MODE_PRIVATE)
@@ -62,6 +64,18 @@ class products_page : AppCompatActivity() {
             val intent = Intent(this, dressup_page::class.java)
             startActivity(intent)
         }
+
+        productsBtn.setOnClickListener {
+            val intent = Intent(this, products_page::class.java)
+            startActivity(intent)
+        }
+
+
+        profileBtn.setOnClickListener {
+            val intent = Intent(this, profile_page::class.java)
+            startActivity(intent)
+        }
+
     }
 
 
