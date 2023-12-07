@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cashew.models.product_model
 import com.example.cashew.objects.product_recycler
+import pl.droidsonroids.gif.GifImageView
 
 
 class products_page : AppCompatActivity() {
@@ -18,9 +19,9 @@ class products_page : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_products)
-        productList.add(product_model("1","Lemon Cake",R.drawable.lemon_cake,500))
-        productList.add(product_model("2","Pancake",R.drawable.pancake,600))
-        productList.add(product_model("3","Cinnamon Roll",R.drawable.cinnamonroll,200))
+        productList.add(product_model("1","Chocolate Cake",R.drawable.chocolate_cake,500))
+        productList.add(product_model("2","Cookies",R.drawable.cookies,600))
+        productList.add(product_model("3","Cinnamon Roll",R.drawable.cinnamon_roll,200))
         productList.add(product_model("4","Strawberry",R.drawable.strawberrysandwich,600))
 
         recyclerView = findViewById(R.id.productsView)
@@ -29,6 +30,7 @@ class products_page : AppCompatActivity() {
         recyclerView.adapter = productRecycler
 
         //DECLARATIONS
+        val cashewGif:GifImageView = findViewById(R.id.userCashew)
         val cashewBtn: ImageButton = findViewById(R.id.favoritebutton)
         val userName: TextView = findViewById(R.id.uNameDisplay)
         val cashewCoins: TextView = findViewById(R.id.cashewCoinsDisplay)

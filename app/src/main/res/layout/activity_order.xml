@@ -82,7 +82,7 @@
             android:background="#FFFFFF">
 
             <pl.droidsonroids.gif.GifImageView
-                android:id="@+id/gifImageView3"
+                android:id="@+id/userCashew"
                 android:layout_width="65dp"
                 android:layout_height="57dp"
                 android:src="@drawable/cashew1"
@@ -98,7 +98,7 @@
                 android:layout_height="41dp"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/gifImageView3"
+                app:layout_constraintStart_toEndOf="@+id/userCashew"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <LinearLayout
