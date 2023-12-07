@@ -35,7 +35,17 @@ class dressup_page : AppCompatActivity() {
         val sh = getSharedPreferences("currentUserDetails", MODE_PRIVATE)
         currentCashew = sh.getString("Wardrobe", "").toString()
         userID = sh.getString("ID", "").toString()
+        val mainCashew: GifImageView = findViewById(R.id.userCashewWardrobe)
 
+        drawableResource = when (currentCashew) {
+            "sunnies" -> R.drawable.sunniescashew
+            "octo" -> R.drawable.octocashew
+            "bow" -> R.drawable.bowcashew
+            "mcdo" -> R.drawable.macdo_slave
+            "default" -> R.drawable.cashew1
+            else -> R.drawable.cashew1
+        }
+        mainCashew.setImageResource(drawableResource!!)
 
         // WARDROBE VARIABLES
         val exitBtn : ImageButton = findViewById(R.id.exitBtn)
@@ -118,7 +128,6 @@ class dressup_page : AppCompatActivity() {
 /*    private fun changePicture(image_id: Int) {
 
         // Update the cashew
-        val mainCashew: ImageView = findViewById(R.id.mainCashew)
 
         // Determine which drawable resource ID to use based on the image_id selected
         drawableResource = when (image_id) {
