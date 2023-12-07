@@ -32,6 +32,7 @@ class products_page : AppCompatActivity() {
         val cashewBtn: ImageButton = findViewById(R.id.favoritebutton)
         val userName: TextView = findViewById(R.id.uNameDisplay)
         val cashewCoins: TextView = findViewById(R.id.cashewCoinsDisplay)
+        val avatarCashew : ImageView = findViewById(R.id.avatarImg)
         val sh = getSharedPreferences("currentUserDetails", MODE_PRIVATE)
 
 

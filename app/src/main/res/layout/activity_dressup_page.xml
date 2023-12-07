@@ -7,14 +7,15 @@
     android:background="@color/white2"
     tools:context=".dressup_page">
 
+
     <ImageButton
         android:id="@+id/sunniesBtn"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="165dp"
         android:layout_height="35dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.072"
+        app:layout_constraintHorizontal_bias="0.148"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mainCashew"
         app:srcCompat="@drawable/sunnies" />
@@ -22,24 +23,25 @@
     <ImageButton
         android:id="@+id/octoBtn"
         style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
+        android:layout_width="128dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="100dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.153"
+        app:layout_constraintHorizontal_bias="0.206"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mainCashew"
         app:srcCompat="@drawable/octoglasses" />
-
 
     <ImageButton
         android:id="@+id/mchatBtn"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="168dp"
         android:layout_height="88dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.84"
+        app:layout_constraintHorizontal_bias="0.833"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mainCashew"
         app:srcCompat="@drawable/mcdohat" />
@@ -61,11 +63,13 @@
     <ImageButton
         android:id="@+id/bowBtn"
         style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="203dp"
-        android:layout_height="117dp"
+        android:layout_width="148dp"
+        android:layout_height="66dp"
         android:layout_marginTop="104dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.902"
+        app:layout_constraintHorizontal_bias="0.822"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/mainCashew"
         app:srcCompat="@drawable/bowtie" />
@@ -80,5 +84,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/smileycashew1" />
+
+    <Button
+        android:id="@+id/updateBtn"
+        android:layout_width="137dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="208dp"
+        android:backgroundTint="@color/black"
+        android:fontFamily="@font/poppins_bold"
+        android:text="CHANGE"
+        android:textSize="18dp"
+        app:cornerRadius="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainCashew" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -32,7 +32,7 @@ class login_page : AppCompatActivity() {
 
         // DECLARATIONS
         val signupBtn : Button = findViewById(R.id.backLogInBtn)
-        val loginBtn : Button = findViewById(R.id.loginBtn)
+        val loginBtn : Button = findViewById(R.id.updateBtn)
         username = findViewById(R.id.usernameEditText)
         password = findViewById(R.id.passwordEditText)
 

@@ -31,6 +31,7 @@
             android:layout_height="match_parent"
             android:background="#FFFFFF">
 
+<<<<<<< Updated upstream
             <pl.droidsonroids.gif.GifImageView
                 android:id="@+id/gifImageView3"
                 android:layout_width="65dp"
@@ -49,6 +50,17 @@
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/gifImageView3"
+=======
+            <LinearLayout
+                android:id="@+id/linearLayout3"
+                android:layout_width="289dp"
+                android:layout_height="48dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/avatarImg"
+>>>>>>> Stashed changes
                 app:layout_constraintTop_toTopOf="parent">
 
                 <LinearLayout
@@ -106,6 +118,14 @@
                 </LinearLayout>
 
             </LinearLayout>
+
+            <ImageView
+                android:id="@+id/avatarImg"
+                android:layout_width="58dp"
+                android:layout_height="62dp"
+
+                tools:layout_editor_absoluteX="6dp"
+                tools:layout_editor_absoluteY="2dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
