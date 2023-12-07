@@ -24,8 +24,8 @@ class orderways_page : AppCompatActivity(){
             "octo" -> R.drawable.octocashew
             "bow" -> R.drawable.bowcashew
             "mcdo" -> R.drawable.macdo_slave
-            "default" -> R.drawable.smileycashew1
-            else -> R.drawable.smileycashew1
+            "default" -> R.drawable.cashew1
+            else -> R.drawable.cashew1
         }
         cashewGif.setImageResource(drawableResource!!)
 

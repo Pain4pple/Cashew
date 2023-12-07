@@ -22,7 +22,7 @@ class dressup_page : AppCompatActivity() {
     private lateinit var updateIconBtn : Button
     private var drawableResource : Int? = 0
     private var drawedImage : String = ""
-    private var userCashew:String = ""
+    private var userCashew:String = "default"
     private var currentCashew:String = ""
     private var userID:String = ""
 
@@ -147,8 +147,8 @@ class dressup_page : AppCompatActivity() {
             "octo" -> R.drawable.octocashew
             "bow" -> R.drawable.bowcashew
             "mcdo" -> R.drawable.macdo_slave
-            "default" -> R.drawable.smileycashew1
-            else -> R.drawable.smileycashew1
+            "default" -> R.drawable.cashew1
+            else -> R.drawable.cashew1
         }
 
         // Update the ImageView with the correct drawable resource ID
