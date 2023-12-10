@@ -49,6 +49,10 @@ class product_recycler(private val products: ArrayList<product_model>) :
         viewHolder.productName.text = currentProduct.productName
         viewHolder.productPrice.text = "₱"+currentProduct.productPrice.toString()
         viewHolder.productImage.setImageResource(currentProduct.productImage)
+
+        viewHolder.addButton.setOnClickListener{
+
+        }
     }
 
     // Return the size of your dataset (invoked by the layout manager)
