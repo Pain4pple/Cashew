@@ -18,49 +18,67 @@
             android:id="@+id/orderIDlabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="31dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="251dp"
+            android:layout_marginBottom="10dp"
             android:fontFamily="monospace"
+            android:gravity="center"
             android:text="Order ID:"
+            android:textColor="@color/orange"
             android:textSize="20sp"
             android:textStyle="bold"
-            android:gravity="center"
-            android:textColor="@color/orange"
-            tools:layout_editor_absoluteX="26dp"
-            tools:layout_editor_absoluteY="16dp"></TextView>
+            app:layout_constraintBottom_toTopOf="@+id/datetime"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></TextView>
 
         <TextView
             android:id="@+id/datetime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="31dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="180dp"
             android:fontFamily="monospace"
             android:text="09 Dec 2023 11:11pm"
             android:textSize="16sp"
-            tools:layout_editor_absoluteX="26dp"
-            tools:layout_editor_absoluteY="51dp"></TextView>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/orderIDlabel"></TextView>
 
         <TextView
             android:id="@+id/totalprice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="31dp"
+            android:layout_marginTop="42dp"
+            android:layout_marginEnd="27dp"
+            android:layout_marginBottom="35dp"
             android:fontFamily="monospace"
-            android:text="Total Price:  "
+            android:text="Total Price: ₱250.00"
             android:textSize="16sp"
-            tools:layout_editor_absoluteX="26dp"
-            tools:layout_editor_absoluteY="83dp"></TextView>
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/vieworderdetails"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/datetime"
+            app:layout_constraintVertical_bias="1.0"></TextView>
 
         <Button
-            android:id="@+id/removebutton"
-            android:layout_width="100dp"
-            android:layout_height="49dp"
+            android:id="@+id/vieworderdetails"
+            android:layout_width="124dp"
+            android:layout_height="46dp"
             android:layout_marginTop="105dp"
-            android:layout_marginEnd="6dp"
+            android:layout_marginEnd="16dp"
             android:layout_marginBottom="20dp"
-            android:backgroundTint="@color/black"
-            android:text="REMOVE"
-            android:textSize="13sp"
+            android:backgroundTint="@color/orange"
+            android:fontFamily="@font/poppins"
+            android:text="View Details"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="1.0" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

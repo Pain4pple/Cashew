@@ -110,7 +110,7 @@
             app:layout_constraintTop_toBottomOf="@+id/datetime" />
 
         <Button
-            android:id="@+id/removebutton"
+            android:id="@+id/vieworderdetails"
             android:layout_width="100dp"
             android:layout_height="49dp"
             android:layout_marginStart="9dp"
