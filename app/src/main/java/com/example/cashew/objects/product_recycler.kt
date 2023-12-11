@@ -1,16 +1,26 @@
 package com.example.cashew.objects
 
+import android.content.Context
+import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cashew.R
+import com.example.cashew.login_page
+import com.example.cashew.models.cart_item
+import com.example.cashew.models.cart_model
 import com.example.cashew.models.product_model
+import com.example.cashew.models.user_model
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 
-class product_recycler(private val products: ArrayList<product_model>) :
+class product_recycler(private val products: ArrayList<product_model>,private val userID:String,private val context: Context) :
     RecyclerView.Adapter<product_recycler.ViewHolder>() {
+    private lateinit var dbRef: DatabaseReference
 
     /**
      * Provide a reference to the type of views that you are using
@@ -49,9 +59,19 @@ class product_recycler(private val products: ArrayList<product_model>) :
         viewHolder.productName.text = currentProduct.productName
         viewHolder.productPrice.text = "₱"+currentProduct.productPrice.toString()
         viewHolder.productImage.setImageResource(currentProduct.productImage)
+        dbRef = FirebaseDatabase.getInstance().getReference("Cart")
 
         viewHolder.addButton.setOnClickListener{
-
+            Log.d("action","Added "+currentProduct.productName)
+            val cart_item = cart_item(currentProduct.productID,currentProduct.productName,+1)
+//            val cart_items=null
+//            cart_items.add(cart_item)
+            val cart_model = cart_model(userID,)
+            dbRef.child("cartItems_"+userID).childByAutoID(cart_item).addOnSuccessListener {
+                Toast.makeText(context, "Added "+currentProduct.productName,Toast.LENGTH_LONG).show()
+            }.addOnFailureListener{
+                Toast.makeText(context, "Failed to add",Toast.LENGTH_LONG).show()
+            }
         }
     }
 

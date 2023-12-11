@@ -27,9 +27,7 @@ class products_page : AppCompatActivity() {
         productList.add(product_model("4","Strawberry",R.drawable.strawberrysandwich,600))
 
         recyclerView = findViewById(R.id.productsView)
-        recyclerView.setLayoutManager(GridLayoutManager(this, 2))
-        val productRecycler = product_recycler(productList)
-        recyclerView.adapter = productRecycler
+
 
         //DECLARATIONS
         val cashewGif:GifImageView = findViewById(R.id.userCashewProducts)
@@ -40,6 +38,10 @@ class products_page : AppCompatActivity() {
         val cashewCoins: TextView = findViewById(R.id.cashewCoinsDisplay)
         val sh = getSharedPreferences("currentUserDetails", MODE_PRIVATE)
         val userCashew = sh.getString("Wardrobe", "").toString()
+
+        recyclerView.setLayoutManager(GridLayoutManager(this, 2))
+        val productRecycler = product_recycler(productList,sh.getString("ID","").toString(),this)
+        recyclerView.adapter = productRecycler
 
         drawableResource = when (userCashew) {
             "sunnies" -> R.drawable.sunniescashew

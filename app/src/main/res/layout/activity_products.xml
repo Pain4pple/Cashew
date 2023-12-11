@@ -46,8 +46,8 @@
 
             <LinearLayout
                 android:id="@+id/linearLayout3"
-                android:layout_width="318dp"
-                android:layout_height="46dp"
+                android:layout_width="291dp"
+                android:layout_height="48dp"
                 android:layout_marginBottom="8dp"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -63,7 +63,7 @@
 
                     <TextView
                         android:id="@+id/uNameDisplay"
-                        android:layout_width="194dp"
+                        android:layout_width="145dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/retropix"
                         android:gravity="center"
@@ -75,7 +75,7 @@
 
                     <TextView
                         android:id="@+id/orderWay"
-                        android:layout_width="194dp"
+                        android:layout_width="146dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/retropix"
@@ -100,7 +100,7 @@
 
                     <TextView
                         android:id="@+id/cashewCoinsDisplay"
-                        android:layout_width="295dp"
+                        android:layout_width="271dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/retropix"
                         android:paddingStart="2dp"
