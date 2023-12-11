@@ -9,18 +9,23 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import com.example.cashew.models.outfit_model
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import pl.droidsonroids.gif.GifImageView
 
 class dressup_page : AppCompatActivity() {
 
     //DECLARE DATABASE TO SAVE ICON UPON CHANGE
     private lateinit var dbRef : DatabaseReference
+    private lateinit var dbRef2 : DatabaseReference
     private lateinit var firebaseDatabase: FirebaseDatabase
     private lateinit var updateIconBtn : Button
     private var cashewCurrentPrice : Int = 0
     private var cashewCurrentOutfit : String = ""
+    private var cashewCurrentID : String = ""
     private var counter:Int=0
     private var outfitList : ArrayList<outfit_model> = ArrayList()
     private var drawableResource : Int? = 0
@@ -40,6 +45,8 @@ class dressup_page : AppCompatActivity() {
 
         firebaseDatabase = FirebaseDatabase.getInstance()
         dbRef = firebaseDatabase.reference.child("Users")
+        dbRef2 = FirebaseDatabase.getInstance().getReference("Users").child("purchasedOutfits")
+
         val sh = getSharedPreferences("currentUserDetails", MODE_PRIVATE)
         currentCashew = sh.getString("Wardrobe", "").toString()
         cashewCurrentOutfit = currentCashew
@@ -113,6 +120,7 @@ class dressup_page : AppCompatActivity() {
             changePicture(userCashew)
             cashewCurrentPrice = currentOutfit.outfitPrice!!
             cashewCurrentOutfit = currentOutfit.outfitName!!
+            cashewCurrentID = currentOutfit.outfitID!!
             Log.d("Compare",cashewCurrentOutfit)
 
         }
@@ -165,7 +173,7 @@ class dressup_page : AppCompatActivity() {
                 Log.i("Cashew", "Outfit: " + userCashew)
 
                 dbRef.child(userID).child("userCashew").setValue(userCashew).addOnSuccessListener {
-                    Toast.makeText(this, "Successfully uploaded", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Woof!", Toast.LENGTH_SHORT).show()
                     myEdit.putString("Wardrobe", userCashew)
                     myEdit.apply()
                     currentCashew = sh.getString("Wardrobe","").toString()
@@ -173,6 +181,17 @@ class dressup_page : AppCompatActivity() {
                 }.addOnFailureListener {
                     Toast.makeText(this, "Failed to change", Toast.LENGTH_SHORT).show()
                 }
+                dbRef2.child("purchasedOutfits").addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        dbRef2.child("purchasedOutfits").child(cashewCurrentID).setValue(userCashew).addOnSuccessListener {
+
+                        }.addOnCanceledListener {
+                        }
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                    }
+                })
             }
         }
     }
