@@ -7,7 +7,7 @@
     android:theme="@style/ThemeOverlay.AppCompat"
     tools:context=".profile_page">
 
-<ImageView
+    <ImageView
 android:id="@+id/navBg"
 android:layout_width="456dp"
 android:layout_height="68dp"
@@ -63,8 +63,10 @@ app:srcCompat="@drawable/user" />
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="@+id/navBg"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/orderHistoryBtn"

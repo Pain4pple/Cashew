@@ -9,13 +9,13 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cashew.R
-import com.example.cashew.login_page
-import com.example.cashew.models.cart_item
 import com.example.cashew.models.cart_model
 import com.example.cashew.models.product_model
-import com.example.cashew.models.user_model
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 
 class product_recycler(private val products: ArrayList<product_model>,private val userID:String,private val context: Context) :
@@ -59,19 +59,52 @@ class product_recycler(private val products: ArrayList<product_model>,private va
         viewHolder.productName.text = currentProduct.productName
         viewHolder.productPrice.text = "₱"+currentProduct.productPrice.toString()
         viewHolder.productImage.setImageResource(currentProduct.productImage)
-        dbRef = FirebaseDatabase.getInstance().getReference("Cart")
+        dbRef = FirebaseDatabase.getInstance().getReference("Cart").child("cartItems_"+userID)
 
         viewHolder.addButton.setOnClickListener{
             Log.d("action","Added "+currentProduct.productName)
+
+/*            dbRef
             val cart_item = cart_item(currentProduct.productID,currentProduct.productName,+1)
-//            val cart_items=null
-//            cart_items.add(cart_item)
-            val cart_model = cart_model(userID,)
-            dbRef.child("cartItems_"+userID).childByAutoID(cart_item).addOnSuccessListener {
-                Toast.makeText(context, "Added "+currentProduct.productName,Toast.LENGTH_LONG).show()
-            }.addOnFailureListener{
-                Toast.makeText(context, "Failed to add",Toast.LENGTH_LONG).show()
-            }
+            val cart_items=null
+            cart_items.add(cart_item)*/
+            val cart_model = cart_model()
+            dbRef.child(currentProduct.productID!!).addListenerForSingleValueEvent(object :ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    if(snapshot.exists()){
+                        val cartModel = snapshot.getValue(cart_model::class.java)
+                        val updateData:MutableMap<String,Any> = HashMap()
+                        cartModel!!.productQty = cartModel!!.productQty+1
+                        updateData["productQty"] = cartModel!!.productQty
+                        updateData["totalPriceOf"] = (cartModel!!.productQty * cartModel!!.productPrice!!).toFloat()
+                        dbRef.child(currentProduct.productID!!).updateChildren(updateData).addOnSuccessListener {
+                            Toast.makeText(context,"Added "+currentProduct.productName,Toast.LENGTH_SHORT).show()
+                        }.addOnCanceledListener {
+                            Toast.makeText(context,"Failed to add "+currentProduct.productName,Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                    else{
+                        val cartModel = cart_model()
+                        cartModel.productID = currentProduct.productID
+                        cartModel.productName = currentProduct.productName
+                        cartModel.productImage = currentProduct.productImage
+                        cartModel.productPrice = currentProduct.productPrice
+                        cartModel.productQty = 1
+                        cartModel.totalPriceOf = currentProduct.productPrice!!.toFloat()
+
+                        dbRef.child(currentProduct.productID!!).setValue(cartModel).addOnSuccessListener {
+                            Toast.makeText(context,"Added "+currentProduct.productName,Toast.LENGTH_SHORT).show()
+
+                        }.addOnCanceledListener {
+                            Toast.makeText(context,"Failed to add "+currentProduct.productName,Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Log.d("action","Error: "+error)
+                }
+            })
         }
     }
 

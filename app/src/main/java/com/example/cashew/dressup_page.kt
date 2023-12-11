@@ -9,7 +9,9 @@ import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
+import com.example.cashew.models.outfit_model
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import pl.droidsonroids.gif.GifImageView
@@ -20,6 +22,8 @@ class dressup_page : AppCompatActivity() {
     private lateinit var dbRef : DatabaseReference
     private lateinit var firebaseDatabase: FirebaseDatabase
     private lateinit var updateIconBtn : Button
+    private var counter:Int=0
+    private var outfitList : ArrayList<outfit_model> = ArrayList()
     private var drawableResource : Int? = 0
     private var drawedImage : String = ""
     private var userCashew:String = "default"
@@ -29,6 +33,11 @@ class dressup_page : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dressup_page)
+
+        outfitList.add(outfit_model("1","sunnies",R.drawable.sunnies,100))
+        outfitList.add(outfit_model("2","octo",R.drawable.octoglasses,200))
+        outfitList.add(outfit_model("3","bow",R.drawable.bowtie,150))
+        outfitList.add(outfit_model("4","mcdo",R.drawable.mcdohat,300))
 
         firebaseDatabase = FirebaseDatabase.getInstance()
         dbRef = firebaseDatabase.reference.child("Users")
@@ -47,13 +56,19 @@ class dressup_page : AppCompatActivity() {
         }
         mainCashew.setImageResource(drawableResource!!)
 
+
         // WARDROBE VARIABLES
         val exitBtn : ImageButton = findViewById(R.id.exitBtn)
-        val sunniesBtn : ImageButton = findViewById(R.id.sunniesBtn)
-        val octoBtn : ImageButton = findViewById(R.id.octoBtn)
-        val bowBtn : ImageButton = findViewById(R.id.bowBtn)
-        val mchatBtn : ImageButton = findViewById(R.id.mchatBtn)
         val updateIconBtn : Button = findViewById(R.id.updateBtn)
+        val price : TextView = findViewById(R.id.priceOutfit)
+
+        val outfitBtn : ImageButton = findViewById(R.id.outfitBtn)
+        val nextBtn : ImageButton = findViewById(R.id.nextBtn)
+        val prevBtn : ImageButton = findViewById(R.id.prevBtn)
+
+        var currentOutfit = outfitList.get(counter)
+        outfitBtn.setImageResource(currentOutfit.outfitDrawable)
+        price.text = ""+currentOutfit.outfitPrice
 
         exitBtn.setOnClickListener {
             val intent = Intent(this, products_page::class.java)
@@ -64,8 +79,35 @@ class dressup_page : AppCompatActivity() {
                 updateAvatar()
         }
 
+        nextBtn.setOnClickListener{
+            if(outfitList.size-1!=counter){
+                counter+=1
+            }
+            else{
+                counter=0
+            }
+            var currentOutfit = outfitList.get(counter)
+            outfitBtn.setImageResource(currentOutfit.outfitDrawable)
+            price.text = ""+currentOutfit.outfitPrice
+        }
 
+        prevBtn.setOnClickListener {
+            if(counter!=0){
+                counter-=1
+            }
+            else{
+                counter=outfitList.size-1
+            }
+            var currentOutfit = outfitList.get(counter)
+            outfitBtn.setImageResource(currentOutfit.outfitDrawable)
+            price.text = ""+currentOutfit.outfitPrice
+        }
 
+        outfitBtn.setOnClickListener{
+            var currentOutfit = outfitList.get(counter)
+            userCashew = currentOutfit.outfitName!!
+            changePicture(userCashew)
+        }
         /*sunniesBtn.setOnClickListener {
             val image_id : Int = 1
             changePicture(image_id)
@@ -94,33 +136,6 @@ class dressup_page : AppCompatActivity() {
             toastRolled.show()
         }*/
 
-        sunniesBtn.setOnClickListener {
-            userCashew = "sunnies"
-            changePicture(userCashew)
-            val toastRolled = Toast.makeText(this, "Outfit Changed!", Toast.LENGTH_SHORT)
-            toastRolled.show()
-        }
-
-        octoBtn.setOnClickListener {
-            userCashew = "octo"
-            changePicture(userCashew)
-            val toastRolled = Toast.makeText(this, "Outfit Changed!", Toast.LENGTH_SHORT)
-            toastRolled.show()
-        }
-
-        bowBtn.setOnClickListener {
-            userCashew = "bow"
-            changePicture(userCashew)
-            val toastRolled = Toast.makeText(this, "Outfit Changed!", Toast.LENGTH_SHORT)
-            toastRolled.show()
-        }
-
-        mchatBtn.setOnClickListener {
-            userCashew = "mcdo"
-            changePicture(userCashew)
-            val toastRolled = Toast.makeText(this, "Outfit Changed!", Toast.LENGTH_SHORT)
-            toastRolled.show()
-        }
 
 
     }
