@@ -8,19 +8,36 @@
     tools:context=".dressup_page">
 
 
-    <ImageButton
-        android:id="@+id/exitBtn"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="65dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="16dp"
-        android:adjustViewBounds="true"
-        android:scaleType="centerInside"
+    <LinearLayout
+        android:id="@+id/outfitPriceLayout"
+        android:layout_width="133dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="148dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.96"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/exitbtn" />
+        app:layout_constraintTop_toBottomOf="@+id/userCashewWardrobe">
+
+        <ImageView
+            android:id="@+id/coinPrice"
+            android:layout_width="25dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/cashewcoins" />
+
+        <TextView
+            android:id="@+id/outfitPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="@font/retro_computer"
+            android:gravity="center_vertical"
+            android:paddingStart="4dp"
+            android:text="300"
+            android:textColor="#000000"
+            android:textSize="29sp" />
+    </LinearLayout>
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/userCashewWardrobe"
@@ -49,27 +66,41 @@
         app:layout_constraintTop_toBottomOf="@+id/userCashewWardrobe"
         app:layout_constraintVertical_bias="0.867" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout5"
-        android:layout_width="133dp"
-        android:layout_height="36dp"
-        android:layout_marginBottom="20dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/updateBtn"
+    <ImageButton
+        android:id="@+id/exitBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="60dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="36dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintHorizontal_bias="0.954"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/exitbtn" />
+
+    <LinearLayout
+        android:id="@+id/userCoins"
+        android:layout_width="131dp"
+        android:layout_height="23dp"
+        android:layout_marginBottom="76dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/userCashewWardrobe"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="25dp"
-            android:layout_height="match_parent"
+            android:layout_width="8dp"
+            android:layout_height="23dp"
             android:layout_weight="1"
             app:srcCompat="@drawable/cashewcoins" />
 
         <TextView
-            android:id="@+id/priceOutfit"
-            android:layout_width="wrap_content"
+            android:id="@+id/coinBalance"
+            android:layout_width="100dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:fontFamily="@font/retro_computer"
@@ -77,23 +108,25 @@
             android:paddingStart="4dp"
             android:text="300"
             android:textColor="#000000"
-            android:textSize="29sp" />
+            android:textSize="16sp" />
     </LinearLayout>
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="149dp"
-        android:layout_height="58dp"
+        android:layout_width="278dp"
+        android:layout_height="21dp"
         android:fontFamily="@font/retro_computer"
         android:text="Cashew's WARDROBE"
-        android:textAlignment="center"
+        android:textAlignment="textStart"
         android:textColor="#000000"
         android:textColorHighlight="#000000"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/userCashewWardrobe"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.21"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.296" />
 
     <ImageButton
         android:id="@+id/outfitBtn"
@@ -113,25 +146,25 @@
         android:id="@+id/nextBtn"
         android:layout_width="28dp"
         android:layout_height="46dp"
-        android:layout_marginTop="72dp"
-        android:layout_marginEnd="76dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="64dp"
         android:background="#00000000"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userCashewWardrobe"
-        app:layout_constraintVertical_bias="0.065"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/rightarrow" />
 
     <ImageButton
         android:id="@+id/prevBtn"
         android:layout_width="28dp"
         android:layout_height="46dp"
-        android:layout_marginStart="68dp"
+        android:layout_marginStart="64dp"
         android:layout_marginTop="76dp"
         android:background="#00000000"
         android:scaleType="fitCenter"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout5"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userCashewWardrobe"
         app:layout_constraintVertical_bias="0.0"

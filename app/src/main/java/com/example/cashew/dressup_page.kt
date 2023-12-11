@@ -1,14 +1,11 @@
 package com.example.cashew
 
 import android.content.Intent
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Layout
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
-import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import com.example.cashew.models.outfit_model
@@ -22,11 +19,13 @@ class dressup_page : AppCompatActivity() {
     private lateinit var dbRef : DatabaseReference
     private lateinit var firebaseDatabase: FirebaseDatabase
     private lateinit var updateIconBtn : Button
+    private var cashewCurrentPrice : Int = 0
+    private var cashewCurrentOutfit : String = ""
     private var counter:Int=0
     private var outfitList : ArrayList<outfit_model> = ArrayList()
     private var drawableResource : Int? = 0
     private var drawedImage : String = ""
-    private var userCashew:String = "default"
+    private var userCashew:String = ""
     private var currentCashew:String = ""
     private var userID:String = ""
 
@@ -34,15 +33,17 @@ class dressup_page : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dressup_page)
 
-        outfitList.add(outfit_model("1","sunnies",R.drawable.sunnies,100))
-        outfitList.add(outfit_model("2","octo",R.drawable.octoglasses,200))
-        outfitList.add(outfit_model("3","bow",R.drawable.bowtie,150))
-        outfitList.add(outfit_model("4","mcdo",R.drawable.mcdohat,300))
+        outfitList.add(outfit_model("1","sunnies",R.drawable.sunnies,100,R.drawable.sunniescashew))
+        outfitList.add(outfit_model("2","octo",R.drawable.octoglasses,200,R.drawable.octocashew))
+        outfitList.add(outfit_model("3","bow",R.drawable.bowtie,150,R.drawable.bowcashew))
+        outfitList.add(outfit_model("4","mcdo",R.drawable.mcdohat,300,R.drawable.macdo_slave))
 
         firebaseDatabase = FirebaseDatabase.getInstance()
         dbRef = firebaseDatabase.reference.child("Users")
         val sh = getSharedPreferences("currentUserDetails", MODE_PRIVATE)
         currentCashew = sh.getString("Wardrobe", "").toString()
+        cashewCurrentOutfit = currentCashew
+        Log.d("Compare",currentCashew)
         userID = sh.getString("ID", "").toString()
         val mainCashew: GifImageView = findViewById(R.id.userCashewWardrobe)
 
@@ -56,11 +57,11 @@ class dressup_page : AppCompatActivity() {
         }
         mainCashew.setImageResource(drawableResource!!)
 
-
         // WARDROBE VARIABLES
         val exitBtn : ImageButton = findViewById(R.id.exitBtn)
         val updateIconBtn : Button = findViewById(R.id.updateBtn)
-        val price : TextView = findViewById(R.id.priceOutfit)
+        val price : TextView = findViewById(R.id.outfitPrice)
+        val txtBalance : TextView = findViewById(R.id.coinBalance)
 
         val outfitBtn : ImageButton = findViewById(R.id.outfitBtn)
         val nextBtn : ImageButton = findViewById(R.id.nextBtn)
@@ -69,6 +70,8 @@ class dressup_page : AppCompatActivity() {
         var currentOutfit = outfitList.get(counter)
         outfitBtn.setImageResource(currentOutfit.outfitDrawable)
         price.text = ""+currentOutfit.outfitPrice
+        var balance = sh.getInt("Coins",0)!!
+        txtBalance.text = ""+balance
 
         exitBtn.setOnClickListener {
             val intent = Intent(this, products_page::class.java)
@@ -76,7 +79,8 @@ class dressup_page : AppCompatActivity() {
         }
 
         updateIconBtn.setOnClickListener {
-                updateAvatar()
+            updateAvatar()
+            txtBalance.text = sh.getInt("Coins",0).toString()
         }
 
         nextBtn.setOnClickListener{
@@ -107,59 +111,13 @@ class dressup_page : AppCompatActivity() {
             var currentOutfit = outfitList.get(counter)
             userCashew = currentOutfit.outfitName!!
             changePicture(userCashew)
+            cashewCurrentPrice = currentOutfit.outfitPrice!!
+            cashewCurrentOutfit = currentOutfit.outfitName!!
+            Log.d("Compare",cashewCurrentOutfit)
+
         }
-        /*sunniesBtn.setOnClickListener {
-            val image_id : Int = 1
-            changePicture(image_id)
-            val toastRolled = Toast.makeText(this, "Outfit Changed!", Toast.LENGTH_SHORT)
-            toastRolled.show()
-        }
-
-        octoBtn.setOnClickListener {
-            val image_id : Int = 2
-            changePicture(image_id)
-            val toastRolled = Toast.makeText(this, "Outfit Changed!", Toast.LENGTH_SHORT)
-            toastRolled.show()
-        }
-
-        bowBtn.setOnClickListener {
-            val image_id : Int = 3
-            changePicture(image_id)
-            val toastRolled = Toast.makeText(this, "Outfit Changed!", Toast.LENGTH_SHORT)
-            toastRolled.show()
-        }
-
-        mchatBtn.setOnClickListener {
-            val image_id : Int = 4
-            changePicture(image_id)
-            val toastRolled = Toast.makeText(this, "Outfit Changed!", Toast.LENGTH_SHORT)
-            toastRolled.show()
-        }*/
-
-
-
     }
 
-/*    private fun changePicture(image_id: Int) {
-
-        // Update the cashew
-
-        // Determine which drawable resource ID to use based on the image_id selected
-        drawableResource = when (image_id) {
-            1 -> R.drawable.sunniescashew
-            2 -> R.drawable.octocashew
-            3 -> R.drawable.bowcashew
-            4 -> R.drawable.mcdocashew
-            else -> R.drawable.smileycashew1
-        }
-
-        // Update the ImageView with the correct drawable resource ID
-        mainCashew.setImageResource(drawableResource!!)
-
-        //Pass value of drawableResource to drawedImage
-        drawedImage = image_id
-
-    }*/
     private fun changePicture(userCashew: String) {
 
         // Update the cashew
@@ -185,25 +143,37 @@ class dressup_page : AppCompatActivity() {
     private fun updateAvatar() {
         val sh = getSharedPreferences("currentUserDetails", MODE_PRIVATE)
         val myEdit = sh.edit()
+        currentCashew = sh.getString("Wardrobe","").toString()
+        Log.d("Compare",cashewCurrentOutfit +" = "+currentCashew)
 
-        if(userCashew.equals(currentCashew)){
-            Toast.makeText(this, "Err, you haven't changed anything!", Toast.LENGTH_SHORT)
+
+        if(cashewCurrentOutfit.equals(currentCashew)){
+            Toast.makeText(this, "Err, you haven't changed anything!", Toast.LENGTH_SHORT).show()
         }
         else {
 
-            val userCashew = drawedImage
-            Log.i("Cashew", "Outfit: " + userCashew)
+            var balance = sh.getInt("Coins",0)!!
 
-            dbRef.child(userID).child("userCashew").setValue(userCashew).addOnSuccessListener {
-                Toast.makeText(this, "Successfully uploaded", Toast.LENGTH_SHORT).show()
-                myEdit.putString("Wardrobe", userCashew)
-                currentCashew = sh.getString("Wardrobe","").toString()
-                myEdit.apply()
-
-            }.addOnFailureListener {
-                Toast.makeText(this, "Failed to change", Toast.LENGTH_SHORT).show()
+            if(balance<cashewCurrentPrice!!){
+                Toast.makeText(this,"You don't have enough money!",Toast.LENGTH_SHORT).show()
             }
+            else{
+                var newBal = balance - cashewCurrentPrice!!
+                myEdit.putInt("Coins", newBal)
+                myEdit.apply()
+                val userCashew = drawedImage
+                Log.i("Cashew", "Outfit: " + userCashew)
 
+                dbRef.child(userID).child("userCashew").setValue(userCashew).addOnSuccessListener {
+                    Toast.makeText(this, "Successfully uploaded", Toast.LENGTH_SHORT).show()
+                    myEdit.putString("Wardrobe", userCashew)
+                    myEdit.apply()
+                    currentCashew = sh.getString("Wardrobe","").toString()
+
+                }.addOnFailureListener {
+                    Toast.makeText(this, "Failed to change", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
     }
 
