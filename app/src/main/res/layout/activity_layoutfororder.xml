@@ -28,7 +28,7 @@
             app:layout_constraintTop_toTopOf="parent"></ImageView>
 
         <TextView
-            android:id="@+id/itemName"
+            android:id="@+id/orderIDlabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
@@ -40,7 +40,7 @@
             app:layout_constraintTop_toTopOf="parent"></TextView>
 
         <TextView
-            android:id="@+id/itemprice"
+            android:id="@+id/datetime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
@@ -68,7 +68,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/editTextNumber"
             app:layout_constraintStart_toEndOf="@+id/recyclerImage"
-            app:layout_constraintTop_toBottomOf="@+id/itemprice"
+            app:layout_constraintTop_toBottomOf="@+id/datetime"
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/minuslistbutton" />
 
@@ -89,7 +89,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/editTextNumber"
-            app:layout_constraintTop_toBottomOf="@+id/itemprice"
+            app:layout_constraintTop_toBottomOf="@+id/datetime"
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/addlistbutton" />
 
@@ -107,7 +107,7 @@
             app:layout_constraintEnd_toStartOf="@+id/addlistbutton"
             app:layout_constraintHorizontal_bias="0.4"
             app:layout_constraintStart_toEndOf="@+id/minuslistbutton"
-            app:layout_constraintTop_toBottomOf="@+id/itemprice" />
+            app:layout_constraintTop_toBottomOf="@+id/datetime" />
 
         <Button
             android:id="@+id/removebutton"

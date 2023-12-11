@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="10sp"
+    android:layout_marginVertical="10sp"
+    app:cardCornerRadius="20sp"
+    app:cardElevation="8sp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="173dp"
+        android:background="@drawable/custom_input2">
+
+        <TextView
+            android:id="@+id/orderIDlabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:text="Order ID:"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="@color/orange"
+            tools:layout_editor_absoluteX="26dp"
+            tools:layout_editor_absoluteY="16dp"></TextView>
+
+        <TextView
+            android:id="@+id/datetime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:text="09 Dec 2023 11:11pm"
+            android:textSize="16sp"
+            tools:layout_editor_absoluteX="26dp"
+            tools:layout_editor_absoluteY="51dp"></TextView>
+
+        <TextView
+            android:id="@+id/totalprice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:text="Total Price:  "
+            android:textSize="16sp"
+            tools:layout_editor_absoluteX="26dp"
+            tools:layout_editor_absoluteY="83dp"></TextView>
+
+        <Button
+            android:id="@+id/removebutton"
+            android:layout_width="100dp"
+            android:layout_height="49dp"
+            android:layout_marginTop="105dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginBottom="20dp"
+            android:backgroundTint="@color/black"
+            android:text="REMOVE"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
