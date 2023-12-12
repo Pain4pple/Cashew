@@ -35,9 +35,12 @@ class products_page : AppCompatActivity() {
         val productsBtn : ImageButton = findViewById(R.id.productsBtn)
         val profileBtn : ImageButton = findViewById(R.id.profileBtn)
         val userName: TextView = findViewById(R.id.uNameDisplay)
+        val orderWay:TextView = findViewById(R.id.orderWay)
         val cashewCoins: TextView = findViewById(R.id.cashewCoinsDisplay)
         val sh = getSharedPreferences("currentUserDetails", MODE_PRIVATE)
         val userCashew = sh.getString("Wardrobe", "").toString()
+        val orderSh = getSharedPreferences("orderDetails", MODE_PRIVATE)
+        orderWay.text = orderSh.getString("OrderWay", "").toString()
 
         recyclerView.setLayoutManager(GridLayoutManager(this, 2))
         val productRecycler = product_recycler(productList,sh.getString("ID","").toString(),this)
@@ -68,7 +71,7 @@ class products_page : AppCompatActivity() {
         }
 
         productsBtn.setOnClickListener {
-            val intent = Intent(this, products_page::class.java)
+            val intent = Intent(this, cart_page::class.java)
             startActivity(intent)
         }
 
