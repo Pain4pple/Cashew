@@ -1,80 +1,199 @@
 package com.example.cashew
 
 import android.content.Intent
-import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Button
 import android.widget.ImageButton
-import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
+import com.example.cashew.models.outfit_model
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
+import pl.droidsonroids.gif.GifImageView
 
 class dressup_page : AppCompatActivity() {
+
+    //DECLARE DATABASE TO SAVE ICON UPON CHANGE
+    private lateinit var dbRef : DatabaseReference
+    private lateinit var dbRef2 : DatabaseReference
+    private lateinit var firebaseDatabase: FirebaseDatabase
+    private lateinit var updateIconBtn : Button
+    private var cashewCurrentPrice : Int = 0
+    private var cashewCurrentOutfit : String = ""
+    private var cashewCurrentID : String = ""
+    private var counter:Int=0
+    private var outfitList : ArrayList<outfit_model> = ArrayList()
+    private var drawableResource : Int? = 0
+    private var drawedImage : String = ""
+    private var userCashew:String = ""
+    private var currentCashew:String = ""
+    private var userID:String = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dressup_page)
 
+        outfitList.add(outfit_model("1","sunnies",R.drawable.sunnies,100,R.drawable.sunniescashew))
+        outfitList.add(outfit_model("2","octo",R.drawable.octoglasses,200,R.drawable.octocashew))
+        outfitList.add(outfit_model("3","bow",R.drawable.bowtie,150,R.drawable.bowcashew))
+        outfitList.add(outfit_model("4","mcdo",R.drawable.mcdohat,300,R.drawable.macdo_slave))
+
+        firebaseDatabase = FirebaseDatabase.getInstance()
+        dbRef = firebaseDatabase.reference.child("Users")
+        dbRef2 = FirebaseDatabase.getInstance().getReference("Users").child("purchasedOutfits")
+
+        val sh = getSharedPreferences("currentUserDetails", MODE_PRIVATE)
+        currentCashew = sh.getString("Wardrobe", "").toString()
+        cashewCurrentOutfit = currentCashew
+        Log.d("Compare",currentCashew)
+        userID = sh.getString("ID", "").toString()
+        val mainCashew: GifImageView = findViewById(R.id.userCashewWardrobe)
+
+        drawableResource = when (currentCashew) {
+            "sunnies" -> R.drawable.sunniescashew
+            "octo" -> R.drawable.octocashew
+            "bow" -> R.drawable.bowcashew
+            "mcdo" -> R.drawable.macdo_slave
+            "default" -> R.drawable.cashew1
+            else -> R.drawable.cashew1
+        }
+        mainCashew.setImageResource(drawableResource!!)
+
         // WARDROBE VARIABLES
         val exitBtn : ImageButton = findViewById(R.id.exitBtn)
-        val sunniesBtn : ImageButton = findViewById(R.id.sunniesBtn)
-        val octoBtn : ImageButton = findViewById(R.id.octoBtn)
-        val bowBtn : ImageButton = findViewById(R.id.bowBtn)
-        val mchatBtn : ImageButton = findViewById(R.id.mchatBtn)
+        val updateIconBtn : Button = findViewById(R.id.updateBtn)
+        val price : TextView = findViewById(R.id.outfitPrice)
+        val txtBalance : TextView = findViewById(R.id.coinBalance)
+
+        val outfitBtn : ImageButton = findViewById(R.id.outfitBtn)
+        val nextBtn : ImageButton = findViewById(R.id.nextBtn)
+        val prevBtn : ImageButton = findViewById(R.id.prevBtn)
+
+        var currentOutfit = outfitList.get(counter)
+        outfitBtn.setImageResource(currentOutfit.outfitDrawable)
+        price.text = ""+currentOutfit.outfitPrice
+        var balance = sh.getInt("Coins",0)!!
+        txtBalance.text = ""+balance
 
         exitBtn.setOnClickListener {
             val intent = Intent(this, products_page::class.java)
             startActivity(intent)
         }
 
-
-
-        sunniesBtn.setOnClickListener {
-            val image_id : Int = 1
-            changePicture(image_id)
-            val toastRolled = Toast.makeText(this, "Outfit Changed!", Toast.LENGTH_SHORT)
-            toastRolled.show()
+        updateIconBtn.setOnClickListener {
+            updateAvatar()
+            txtBalance.text = sh.getInt("Coins",0).toString()
         }
 
-        octoBtn.setOnClickListener {
-            val image_id : Int = 2
-            changePicture(image_id)
-            val toastRolled = Toast.makeText(this, "Outfit Changed!", Toast.LENGTH_SHORT)
-            toastRolled.show()
+        nextBtn.setOnClickListener{
+            if(outfitList.size-1!=counter){
+                counter+=1
+            }
+            else{
+                counter=0
+            }
+            var currentOutfit = outfitList.get(counter)
+            outfitBtn.setImageResource(currentOutfit.outfitDrawable)
+            price.text = ""+currentOutfit.outfitPrice
         }
 
-        bowBtn.setOnClickListener {
-            val image_id : Int = 3
-            changePicture(image_id)
-            val toastRolled = Toast.makeText(this, "Outfit Changed!", Toast.LENGTH_SHORT)
-            toastRolled.show()
+        prevBtn.setOnClickListener {
+            if(counter!=0){
+                counter-=1
+            }
+            else{
+                counter=outfitList.size-1
+            }
+            var currentOutfit = outfitList.get(counter)
+            outfitBtn.setImageResource(currentOutfit.outfitDrawable)
+            price.text = ""+currentOutfit.outfitPrice
         }
 
-        mchatBtn.setOnClickListener {
-            val image_id : Int = 4
-            changePicture(image_id)
-            val toastRolled = Toast.makeText(this, "Outfit Changed!", Toast.LENGTH_SHORT)
-            toastRolled.show()
+        outfitBtn.setOnClickListener{
+            var currentOutfit = outfitList.get(counter)
+            userCashew = currentOutfit.outfitName!!
+            changePicture(userCashew)
+            cashewCurrentPrice = currentOutfit.outfitPrice!!
+            cashewCurrentOutfit = currentOutfit.outfitName!!
+            cashewCurrentID = currentOutfit.outfitID!!
+            Log.d("Compare",cashewCurrentOutfit)
+
         }
-
-
     }
 
-    private fun changePicture(image_id: Int) {
+    private fun changePicture(userCashew: String) {
 
         // Update the cashew
-        val mainCashew: ImageView = findViewById(R.id.mainCashew)
+        val mainCashew: GifImageView = findViewById(R.id.userCashewWardrobe)
 
         // Determine which drawable resource ID to use based on the image_id selected
-        val drawableResource = when (image_id) {
-            1 -> R.drawable.sunniescashew
-            2 -> R.drawable.octocashew
-            3 -> R.drawable.bowcashew
-            4 -> R.drawable.mcdocashew
-            else -> R.drawable.smileycashew1
+        drawableResource = when (userCashew) {
+            "sunnies" -> R.drawable.sunniescashew
+            "octo" -> R.drawable.octocashew
+            "bow" -> R.drawable.bowcashew
+            "mcdo" -> R.drawable.macdo_slave
+            "default" -> R.drawable.cashew1
+            else -> R.drawable.cashew1
         }
 
         // Update the ImageView with the correct drawable resource ID
-        mainCashew.setImageResource(drawableResource)
+        mainCashew.setImageResource(drawableResource!!)
 
+        //Pass value of drawableResource to drawedImage
+        drawedImage = userCashew
+
+    }
+    private fun updateAvatar() {
+        val sh = getSharedPreferences("currentUserDetails", MODE_PRIVATE)
+        val myEdit = sh.edit()
+        currentCashew = sh.getString("Wardrobe","").toString()
+        Log.d("Compare",cashewCurrentOutfit +" = "+currentCashew)
+
+
+        if(cashewCurrentOutfit.equals(currentCashew)){
+            Toast.makeText(this, "Err, you haven't changed anything!", Toast.LENGTH_SHORT).show()
+        }
+        else {
+
+            var balance = sh.getInt("Coins",0)!!
+
+            if(balance<cashewCurrentPrice!!){
+                Toast.makeText(this,"You don't have enough money!",Toast.LENGTH_SHORT).show()
+            }
+            else{
+                var newBal = balance - cashewCurrentPrice!!
+                myEdit.putInt("Coins", newBal)
+                myEdit.apply()
+                val userCashew = drawedImage
+                Log.i("Cashew", "Outfit: " + userCashew)
+
+                dbRef.child(userID).child("userCashew").setValue(userCashew).addOnSuccessListener {
+                    Toast.makeText(this, "Woof!", Toast.LENGTH_SHORT).show()
+                    myEdit.putString("Wardrobe", userCashew)
+                    myEdit.apply()
+                    currentCashew = sh.getString("Wardrobe","").toString()
+
+                }.addOnFailureListener {
+                    Toast.makeText(this, "Failed to change", Toast.LENGTH_SHORT).show()
+                }
+                dbRef2.child("purchasedOutfits").addListenerForSingleValueEvent(object : ValueEventListener {
+                    override fun onDataChange(snapshot: DataSnapshot) {
+                        dbRef2.child("purchasedOutfits").child(cashewCurrentID).setValue(userCashew).addOnSuccessListener {
+
+                        }.addOnCanceledListener {
+                        }
+                    }
+
+                    override fun onCancelled(error: DatabaseError) {
+                    }
+                })
+            }
+        }
     }
 
 }

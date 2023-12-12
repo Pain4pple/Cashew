@@ -58,10 +58,10 @@ class signup_page2  : AppCompatActivity() {
         var userEmail= intent.extras?.getString("editEmail") ?: "No Email"
         var userName= intent.extras?.getString("editName") ?: "No Username"
 
-        val userID = dbRef.push().key!!
+        val userID = "USER_"+dbRef.push().key!!
         val user = user_model(userID,userName,userEmail,userUname,userPwd,userDob)
 
-        dbRef.child("USER_"+userID).setValue(user).addOnSuccessListener {
+        dbRef.child(userID).setValue(user).addOnSuccessListener {
             Toast.makeText(this, "Successfully registered",Toast.LENGTH_LONG).show()
             val intent = Intent(this, login_page::class.java)
             startActivity(intent)
@@ -69,7 +69,7 @@ class signup_page2  : AppCompatActivity() {
             Toast.makeText(this, "Failed to register",Toast.LENGTH_LONG).show()
         }
         dbRefNested = FirebaseDatabase.getInstance().getReference("Purchases")
-        val path = dbRefNested.child("USER_$userID")
+        val path = dbRefNested.child(userID)
 
 
 

@@ -4,81 +4,177 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white2"
+    android:background="#00FEFEFE"
     tools:context=".dressup_page">
 
-    <ImageButton
-        android:id="@+id/sunniesBtn"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="165dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="56dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.072"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainCashew"
-        app:srcCompat="@drawable/sunnies" />
 
-    <ImageButton
-        android:id="@+id/octoBtn"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
+    <LinearLayout
+        android:id="@+id/outfitPriceLayout"
+        android:layout_width="133dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="148dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.153"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainCashew"
-        app:srcCompat="@drawable/octoglasses" />
+        app:layout_constraintTop_toBottomOf="@+id/userCashewWardrobe">
 
+        <ImageView
+            android:id="@+id/coinPrice"
+            android:layout_width="25dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/cashewcoins" />
 
-    <ImageButton
-        android:id="@+id/mchatBtn"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="168dp"
-        android:layout_height="88dp"
-        android:layout_marginTop="32dp"
+        <TextView
+            android:id="@+id/outfitPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="@font/retro_computer"
+            android:gravity="center_vertical"
+            android:paddingStart="4dp"
+            android:text="300"
+            android:textColor="#000000"
+            android:textSize="29sp" />
+    </LinearLayout>
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/userCashewWardrobe"
+        android:layout_width="234dp"
+        android:layout_height="237dp"
+        android:src="@drawable/cashew1"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.84"
+        app:layout_constraintHorizontal_bias="0.481"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainCashew"
-        app:srcCompat="@drawable/mcdohat" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.356" />
+
+    <Button
+        android:id="@+id/updateBtn"
+        android:layout_width="137dp"
+        android:layout_height="47dp"
+        android:backgroundTint="@color/black"
+        android:fontFamily="@font/poppins_bold"
+        android:text="CHANGE"
+        android:textSize="18dp"
+        app:cornerRadius="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userCashewWardrobe"
+        app:layout_constraintVertical_bias="0.867" />
 
     <ImageButton
         android:id="@+id/exitBtn"
         style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="74dp"
-        android:layout_height="72dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="60dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="36dp"
         android:adjustViewBounds="true"
         android:scaleType="centerInside"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.96"
+        app:layout_constraintHorizontal_bias="0.954"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/exitbtn" />
 
-    <ImageButton
-        android:id="@+id/bowBtn"
-        style="@style/Widget.AppCompat.Button.Borderless"
-        android:layout_width="203dp"
-        android:layout_height="117dp"
-        android:layout_marginTop="104dp"
+    <LinearLayout
+        android:id="@+id/userCoins"
+        android:layout_width="131dp"
+        android:layout_height="23dp"
+        android:layout_marginBottom="76dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/userCashewWardrobe"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.902"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainCashew"
-        app:srcCompat="@drawable/bowtie" />
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent">
 
-    <ImageView
-        android:id="@+id/mainCashew"
-        android:layout_width="214dp"
-        android:layout_height="389dp"
-        android:layout_marginTop="96dp"
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="8dp"
+            android:layout_height="23dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/cashewcoins" />
+
+        <TextView
+            android:id="@+id/coinBalance"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="@font/retro_computer"
+            android:gravity="center_vertical"
+            android:paddingStart="4dp"
+            android:text="300"
+            android:textColor="#000000"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="278dp"
+        android:layout_height="21dp"
+        android:fontFamily="@font/retro_computer"
+        android:text="Cashew's WARDROBE"
+        android:textAlignment="textStart"
+        android:textColor="#000000"
+        android:textColorHighlight="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/userCashewWardrobe"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.21"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/smileycashew1" />
+        app:layout_constraintVertical_bias="0.296" />
+
+    <ImageButton
+        android:id="@+id/outfitBtn"
+        android:layout_width="152dp"
+        android:layout_height="73dp"
+        android:background="#FFFFFF"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/updateBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userCashewWardrobe"
+        app:layout_constraintVertical_bias="0.345"
+        app:srcCompat="@drawable/mcdohat" />
+
+    <ImageButton
+        android:id="@+id/nextBtn"
+        android:layout_width="28dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="64dp"
+        android:background="#00000000"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userCashewWardrobe"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/rightarrow" />
+
+    <ImageButton
+        android:id="@+id/prevBtn"
+        android:layout_width="28dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="76dp"
+        android:background="#00000000"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userCashewWardrobe"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/leftarrow" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="535dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

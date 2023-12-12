@@ -1,13 +1,14 @@
 package com.example.cashew
 
+import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.cashew.models.user_model
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.cashew.models.current_user
+import com.example.cashew.models.user_model
 import com.example.cashew.objects.User
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -32,7 +33,7 @@ class login_page : AppCompatActivity() {
 
         // DECLARATIONS
         val signupBtn : Button = findViewById(R.id.backLogInBtn)
-        val loginBtn : Button = findViewById(R.id.loginBtn)
+        val loginBtn : Button = findViewById(R.id.updateBtn)
         username = findViewById(R.id.usernameEditText)
         password = findViewById(R.id.passwordEditText)
 
@@ -59,6 +60,11 @@ class login_page : AppCompatActivity() {
         }
 
 
+    }
+    @SuppressLint("MissingSuperCall")
+    @Override
+    override fun onBackPressed() {
+        Toast.makeText(applicationContext, "No! Woof! You cannot go back!", Toast.LENGTH_SHORT).show()
     }
     private fun loginUser(username:String,password:String){
         dbRef.orderByChild("userUname").equalTo(username).addListenerForSingleValueEvent(object :ValueEventListener{
