@@ -74,7 +74,8 @@ class login_page : AppCompatActivity() {
                        val userData = userSnapshot.getValue((user_model::class.java))
                         if(userData!=null && userData.userPwd==password){
                             Toast.makeText(this@login_page,"Welcome, "+userData.userUname+"!",Toast.LENGTH_SHORT).show()
-                            val intent = Intent(this@login_page, orderways_page::class.java)
+                            //val intent = Intent(this@login_page, orderways_page::class.java)
+                            val intent = Intent(this@login_page, cart_page::class.java)
                                 val sharedPreferences = getSharedPreferences("currentUserDetails", MODE_PRIVATE)
                                 val myEdit = sharedPreferences.edit()
 

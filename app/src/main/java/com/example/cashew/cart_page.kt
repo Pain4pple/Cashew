@@ -23,6 +23,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
+import com.example.cashew.orderSummary_dialog
 import pl.droidsonroids.gif.GifImageView
 
 class cart_page : AppCompatActivity() {
@@ -136,7 +137,7 @@ class cart_page : AppCompatActivity() {
     fun showDialog() {
         val fragmentManager = supportFragmentManager
         val newFragment = orderSummary_dialog()
-        newFragment.show(supportFragmentManager, "check-out")
+        newFragment.show(supportFragmentManager, "orderSummary_dialog")
 
     }
 }
