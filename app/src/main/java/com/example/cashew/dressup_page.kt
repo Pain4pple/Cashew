@@ -45,7 +45,7 @@ class dressup_page : AppCompatActivity() {
 
         firebaseDatabase = FirebaseDatabase.getInstance()
         dbRef = firebaseDatabase.reference.child("Users")
-        dbRef2 = FirebaseDatabase.getInstance().getReference("Users").child("purchasedOutfits")
+        dbRef2 = FirebaseDatabase.getInstance().getReference("Users").child(userID)
 
         val sh = getSharedPreferences("currentUserDetails", MODE_PRIVATE)
         currentCashew = sh.getString("Wardrobe", "").toString()
@@ -181,9 +181,9 @@ class dressup_page : AppCompatActivity() {
                 }.addOnFailureListener {
                     Toast.makeText(this, "Failed to change", Toast.LENGTH_SHORT).show()
                 }
-                dbRef2.child("purchasedOutfits").addListenerForSingleValueEvent(object : ValueEventListener {
+                dbRef.child(userID).child("purchasedOutfits").addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
-                        dbRef2.child("purchasedOutfits").child(cashewCurrentID).setValue(userCashew).addOnSuccessListener {
+                        dbRef2.child(userID).child("purchasedOutfits").child(cashewCurrentID).setValue(userCashew).addOnSuccessListener {
 
                         }.addOnCanceledListener {
                         }

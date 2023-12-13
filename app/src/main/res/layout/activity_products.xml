@@ -35,6 +35,7 @@
                 android:id="@+id/userCashewProducts"
                 android:layout_width="65dp"
                 android:layout_height="57dp"
+                android:clickable="true"
                 android:src="@drawable/cashew1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -46,9 +47,9 @@
 
             <LinearLayout
                 android:id="@+id/linearLayout3"
-                android:layout_width="291dp"
-                android:layout_height="48dp"
-                android:layout_marginBottom="8dp"
+                android:layout_width="276dp"
+                android:layout_height="43dp"
+                android:layout_marginBottom="12dp"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -63,7 +64,7 @@
 
                     <TextView
                         android:id="@+id/uNameDisplay"
-                        android:layout_width="145dp"
+                        android:layout_width="209dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/retropix"
                         android:gravity="center"
@@ -75,7 +76,7 @@
 
                     <TextView
                         android:id="@+id/orderWay"
-                        android:layout_width="146dp"
+                        android:layout_width="71dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/retropix"
@@ -92,22 +93,37 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:id="@+id/imageView6"
+                        android:id="@+id/imageView7"
                         android:layout_width="14dp"
                         android:layout_height="16dp"
                         android:layout_weight="1"
                         app:srcCompat="@drawable/cashewcoins" />
 
                     <TextView
-                        android:id="@+id/cashewCoinsDisplay"
-                        android:layout_width="271dp"
+                        android:id="@+id/cashewCoinsDisplay3"
+                        android:layout_width="185dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:fontFamily="@font/retropix"
                         android:paddingStart="2dp"
                         android:text="500"
                         android:textAlignment="viewStart"
                         android:textColor="#000000"
                         android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/changeOption"
+                        android:layout_width="58dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:fontFamily="@font/poppins_light"
+                        android:paddingEnd="2dp"
+                        android:text="change "
+                        android:textAlignment="viewEnd"
+                        android:textColor="#E1772E"
+                        android:textSize="10sp"
+                        android:textStyle="bold|italic" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -147,20 +163,19 @@
         app:srcCompat="@drawable/lowborder" />
 
     <ImageButton
-        android:id="@+id/favoritebutton"
+        android:id="@+id/productButton"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="2dp"
         android:background="@null"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/favorite" />
+        app:srcCompat="@drawable/icecream" />
 
     <ImageButton
-        android:id="@+id/productsBtn"
+        android:id="@+id/cartButton"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_marginBottom="2dp"
@@ -169,7 +184,7 @@
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.943"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/basket" />
 
@@ -177,14 +192,13 @@
         android:id="@+id/profileBtn"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="2dp"
         android:background="@null"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.951"
+        app:layout_constraintHorizontal_bias="0.051"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/user" />
+        app:srcCompat="@drawable/cashewbtn" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline6"
@@ -207,6 +221,13 @@
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="676dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

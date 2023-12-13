@@ -1,65 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:scrollbarSize="0dp"
-    android:scrollbarStyle="outsideOverlay"
-    app:layout_scrollEffect="none">
+    android:layout_height="match_parent">
+
 
     <ImageView
-        android:id="@+id/navBg4"
-        android:layout_width="456dp"
-        android:layout_height="68dp"
-        android:background="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/lowborder" />
-
-    <ImageButton
-        android:id="@+id/favoritebutton2"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="2dp"
-        android:background="@null"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.051"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/favorite" />
-
-    <ImageButton
-        android:id="@+id/orderlistbasket2"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="2dp"
-        android:background="@null"
-        android:clickable="false"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/basket" />
-
-    <ImageButton
-        android:id="@+id/userbutton"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="2dp"
-        android:background="@null"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.951"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/user" />
-
-    <ImageView
-        android:id="@+id/navBg3"
+        android:id="@+id/navBg7"
         android:layout_width="495dp"
         android:layout_height="73dp"
         android:background="#000000"
@@ -82,9 +31,10 @@
             android:background="#FFFFFF">
 
             <pl.droidsonroids.gif.GifImageView
-                android:id="@+id/userCashew"
+                android:id="@+id/userCashewProducts"
                 android:layout_width="65dp"
                 android:layout_height="57dp"
+                android:clickable="true"
                 android:src="@drawable/cashew1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -92,13 +42,18 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
+            =======
+
             <LinearLayout
                 android:id="@+id/linearLayout3"
-                android:layout_width="309dp"
-                android:layout_height="41dp"
+                android:layout_width="276dp"
+                android:layout_height="43dp"
+                android:layout_marginBottom="12dp"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/userCashew"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/userCashewProducts">>>>>>> Stashed changes
                 app:layout_constraintTop_toTopOf="parent">
 
                 <LinearLayout
@@ -108,7 +63,7 @@
 
                     <TextView
                         android:id="@+id/uNameDisplay"
-                        android:layout_width="194dp"
+                        android:layout_width="209dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/retropix"
                         android:gravity="center"
@@ -120,7 +75,7 @@
 
                     <TextView
                         android:id="@+id/orderWay"
-                        android:layout_width="194dp"
+                        android:layout_width="71dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/retropix"
@@ -145,7 +100,7 @@
 
                     <TextView
                         android:id="@+id/cashewCoinsDisplay"
-                        android:layout_width="295dp"
+                        android:layout_width="185dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/retropix"
                         android:paddingStart="2dp"
@@ -153,13 +108,27 @@
                         android:textAlignment="viewStart"
                         android:textColor="#000000"
                         android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/changeOption2"
+                        android:layout_width="58dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:clickable="true"
+                        android:fontFamily="@font/poppins_light"
+                        android:paddingEnd="2dp"
+                        android:text="change "
+                        android:textAlignment="viewEnd"
+                        android:textColor="#E1772E"
+                        android:textSize="10sp"
+                        android:textStyle="bold|italic" />
                 </LinearLayout>
 
             </LinearLayout>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
-
 
     <TextView
         android:id="@+id/orderlist_Label"
@@ -172,18 +141,69 @@
         android:textColor="#000000"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/materialCardView" />
 
+    <ImageView
+        android:id="@+id/navBg6"
+        android:layout_width="456dp"
+        android:layout_height="68dp"
+        android:background="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/lowborder" />
+
+    <ImageButton
+        android:id="@+id/productButton2"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@null"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/icecream" />
+
+    <ImageButton
+        android:id="@+id/cartButton2"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="2dp"
+        android:background="@null"
+        android:clickable="false"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.943"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/basket" />
+
+    <ImageButton
+        android:id="@+id/profileBtn2"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@null"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/cashewbtn" />
+
     <ScrollView
-        android:layout_width="382dp"
-        android:layout_height="477dp"
+        android:id="@+id/scrollView3"
+        android:layout_width="329dp"
+        android:layout_height="471dp"
         android:overScrollMode="always"
         android:scrollbarSize="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/navBg6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/orderlist_Label">
+        app:layout_constraintTop_toBottomOf="@+id/orderlist_Label"
+        app:layout_constraintVertical_bias="0.078">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/orderRecyclerView"
@@ -194,34 +214,33 @@
             tools:listitem="@layout/activity_layoutfororder" />
     </ScrollView>
 
-    <Button
-        android:id="@+id/checkoutButton"
-        android:layout_width="223dp"
-        android:layout_height="56dp"
-        android:layout_marginBottom="4dp"
-        android:backgroundTint="@color/black"
-        android:fontFamily="@font/poppins_bold"
-        android:text="checkout"
-        android:textSize="16sp"
-        app:cornerRadius="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/navBg4"
+    <LinearLayout
+        android:layout_width="333dp"
+        android:layout_height="61dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/navBg6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.92"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/totalamount"
-        android:layout_width="118dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="35dp"
-        android:layout_marginEnd="127dp"
-        android:fontFamily="monospace"
-        android:text="Total: $0.00"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toStartOf="@+id/checkoutButton"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/orderRecyclerView" />
+        app:layout_constraintTop_toBottomOf="@+id/scrollView3">
+
+        <TextView
+            android:id="@+id/totalamount"
+            android:layout_width="158dp"
+            android:layout_height="32dp"
+            android:fontFamily="@font/retro_computer"
+            android:paddingStart="4dp"
+            android:text="Total: 3000"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/checkoutButton"
+            android:layout_width="165dp"
+            android:layout_height="56dp"
+            android:backgroundTint="@color/black"
+            android:fontFamily="@font/poppins_bold"
+            android:text="checkout"
+            android:textSize="16sp"
+            app:cornerRadius="10dp" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

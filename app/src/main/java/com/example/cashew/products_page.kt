@@ -31,13 +31,17 @@ class products_page : AppCompatActivity() {
 
         //DECLARATIONS
         val cashewGif:GifImageView = findViewById(R.id.userCashewProducts)
-        val cashewBtn: ImageButton = findViewById(R.id.favoritebutton)
-        val productsBtn : ImageButton = findViewById(R.id.productsBtn)
+        val productButton: ImageButton = findViewById(R.id.productButton)
+        val cartButton : ImageButton = findViewById(R.id.cartButton)
         val profileBtn : ImageButton = findViewById(R.id.profileBtn)
         val userName: TextView = findViewById(R.id.uNameDisplay)
-        val cashewCoins: TextView = findViewById(R.id.cashewCoinsDisplay)
+        val orderWay:TextView = findViewById(R.id.orderWay)
+        val changeOption:TextView = findViewById(R.id.changeOption)
+        val cashewCoins: TextView = findViewById(R.id.cashewCoinsDisplay3)
         val sh = getSharedPreferences("currentUserDetails", MODE_PRIVATE)
         val userCashew = sh.getString("Wardrobe", "").toString()
+        val orderSh = getSharedPreferences("orderDetails", MODE_PRIVATE)
+        orderWay.text = orderSh.getString("OrderWay", "").toString()
 
         recyclerView.setLayoutManager(GridLayoutManager(this, 2))
         val productRecycler = product_recycler(productList,sh.getString("ID","").toString(),this)
@@ -62,19 +66,24 @@ class products_page : AppCompatActivity() {
             cashewCoins.text = "you have no money"
         }
 
-        cashewBtn.setOnClickListener {
-            val intent = Intent(this, dressup_page::class.java)
+        changeOption.setOnClickListener{
+            val intent = Intent(this, orderways_page::class.java)
             startActivity(intent)
         }
+        productButton.setOnClickListener {
+            /*val intent = Intent(this, productButton::class.java)
+            startActivity(intent)*/
+            Toast.makeText(this,"You are already here!",Toast.LENGTH_SHORT).show()
+        }
 
-        productsBtn.setOnClickListener {
-            val intent = Intent(this, products_page::class.java)
+        cartButton.setOnClickListener {
+            val intent = Intent(this, cart_page::class.java)
             startActivity(intent)
         }
 
 
         profileBtn.setOnClickListener {
-            val intent = Intent(this, profile_page::class.java)
+            val intent = Intent(this, dressup_page::class.java)
             startActivity(intent)
         }
 
