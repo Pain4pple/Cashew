@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -43,6 +44,14 @@ class cart_page : AppCompatActivity() {
         val changeOption:TextView = findViewById(R.id.changeOption2)
         val orderSh = getSharedPreferences("orderDetails", MODE_PRIVATE)
         recyclerView = findViewById(R.id.orderRecyclerView)
+
+        // DECLARATION FOR CHECK OUT BUTTON
+        val checkOutBtn : Button = findViewById(R.id.checkoutButton)
+
+        // Check Out Dialog
+        checkOutBtn.setOnClickListener() {
+            showDialog()
+        }
 
 
         orderWay.setText(orderSh.getString("OrderWay", "").toString())
@@ -122,5 +131,12 @@ class cart_page : AppCompatActivity() {
 
     public fun refreshCart(){
         recyclerView.adapter?.notifyDataSetChanged()
+    }
+
+    fun showDialog() {
+        val fragmentManager = supportFragmentManager
+        val newFragment = orderSummary_dialog()
+        newFragment.show(supportFragmentManager, "check-out")
+
     }
 }
