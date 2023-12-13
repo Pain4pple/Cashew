@@ -91,6 +91,10 @@ class cart_page : AppCompatActivity() {
 
 
         profileBtn.setOnClickListener {
+            val intent = Intent(this, profile_page::class.java)
+            startActivity(intent)
+        }
+        cashewGif.setOnClickListener{
             val intent = Intent(this, dressup_page::class.java)
             startActivity(intent)
         }

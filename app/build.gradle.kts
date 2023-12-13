@@ -46,11 +46,8 @@ dependencies {
     implementation("com.google.firebase:firebase-database-ktx:20.3.0")
     implementation ("com.google.android.material:material:1.0.0")
     implementation("com.google.firebase:firebase-auth:22.3.0")
-<<<<<<< HEAD
     implementation("androidx.compose.ui:ui-graphics-android:1.5.4")
     implementation("androidx.cardview:cardview:1.0.0")
-=======
->>>>>>> e85bc432f9e23304d4b9536d403819a75dd2bfc3
     testImplementation("junit:junit:4.13.2")
     implementation(platform("com.google.firebase:firebase-bom:32.6.0"))
     implementation("com.google.firebase:firebase-analytics")
