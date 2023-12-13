@@ -30,6 +30,7 @@ class cart_page : AppCompatActivity() {
     private var drawableResource : Int? = 0
     private lateinit var dbRef: DatabaseReference
     private lateinit var firebaseDatabase: FirebaseDatabase
+    public var totalCart:Float = 0f
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_order)
@@ -52,11 +53,8 @@ class cart_page : AppCompatActivity() {
         val userCashew = sh.getString("Wardrobe", "").toString()
 
 
-        getCart(sh.getString("ID","").toString())
-
+        getCart(sh.getString("ID","").toString(),this)
         recyclerView.setLayoutManager(LinearLayoutManager(this,RecyclerView.VERTICAL, false))
-        val cartRecycler = cart_recycler(cartList,sh.getString("ID","").toString(),this)
-        recyclerView.adapter = cartRecycler
 
         drawableResource = when (userCashew) {
             "sunnies" -> R.drawable.sunniescashew
@@ -100,23 +98,25 @@ class cart_page : AppCompatActivity() {
         }
 
     }
-    public fun getCart(userID:String): ArrayList<cart_model> {
-        cartList.clear()
+    public fun getCart(userID:String,context: Context) {
         dbRef = FirebaseDatabase.getInstance().getReference("Cart")
         dbRef.child("cartItems_"+userID).addValueEventListener(object :
             ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()){
+                    cartList.clear()
                     for(cartSnapshot in snapshot.children){
                         var cartModel = cartSnapshot.getValue(cart_model::class.java)
                          cartList.add(cartModel!!)
                     }
+                    val cartRecycler = cart_recycler(cartList,userID,context)
+                    recyclerView.adapter = cartRecycler
                 }
             }
             override fun onCancelled(error: DatabaseError) {
 
             }
         })
-        return cartList
+        Log.d("Cart",""+cartList)
     }
 }
