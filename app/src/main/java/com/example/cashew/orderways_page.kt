@@ -1,7 +1,10 @@
 package com.example.cashew
 
+import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
+import android.transition.Explode
+import android.view.Window
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -10,6 +13,13 @@ import pl.droidsonroids.gif.GifImageView
 class orderways_page : AppCompatActivity(){
     private var drawableResource : Int? = 0
     override fun onCreate(savedInstanceState: Bundle?) {
+        with(window) {
+            requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS)
+
+            // Set an exit transition
+            exitTransition = Explode()
+        }
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_orderways)
 
@@ -21,7 +31,6 @@ class orderways_page : AppCompatActivity(){
         var myEdit = orderSP.edit()
         var uName = sp.getString("Username","")
         val userCashew = sp.getString("Wardrobe", "").toString()
-
         drawableResource = when (userCashew) {
             "sunnies" -> R.drawable.sunniescashew
             "octo" -> R.drawable.octocashew
@@ -42,9 +51,9 @@ class orderways_page : AppCompatActivity(){
         }
         pickupBtn.setOnClickListener{
             val intent = Intent(this, products_page::class.java)
-            myEdit.putString("OrderWay","dine-in")
+            myEdit.putString("OrderWay","pick-up")
             myEdit.apply()
-            startActivity(intent)
+            startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
         }
     }
 }
