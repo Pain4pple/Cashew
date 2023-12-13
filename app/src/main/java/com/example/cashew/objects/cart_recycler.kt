@@ -128,9 +128,10 @@ class cart_recycler(private val cartItem: ArrayList<cart_model>, private val use
             dbRef.child(currentItem.productID!!).addListenerForSingleValueEvent(object :ValueEventListener{
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if(snapshot.exists()){
+                        val cartModel = snapshot.getValue(com.example.cashew.models.cart_model::class.java)
+                        if(cartModel!!.productQty>=0){
                             dbRef.child(currentItem.productID!!).removeValue().addOnSuccessListener {
                                 Toast.makeText(context,"Removed "+currentItem.productName,Toast.LENGTH_SHORT).show()
-                                cartItem.drop(cartItem.indexOf(currentItem))
                                 val cartObject = cart_page()
                                 if((cartObject.totalCart - currentItem!!.productPrice!!).toInt() <0){
                                     cartObject.totalCart -= currentItem!!.productPrice!!
@@ -142,9 +143,10 @@ class cart_recycler(private val cartItem: ArrayList<cart_model>, private val use
                             }.addOnCanceledListener {
                                 Toast.makeText(context,"Failed to remove "+currentItem.productName,Toast.LENGTH_SHORT).show()
                             }
+                        }
                     }
                     else{
-                        Toast.makeText(context,"Failed to remove  "+currentItem.productName,Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context,"Failed to remove "+currentItem.productName,Toast.LENGTH_SHORT).show()
                     }
                 }
 
@@ -152,9 +154,8 @@ class cart_recycler(private val cartItem: ArrayList<cart_model>, private val use
                     Log.d("action","Error: "+error)
                 }
             })
-          /*  var cartObject = cart_page()
-            cartObject.getCart(userID,context)*/
-            notifyDataSetChanged()
+            notifyItemChanged(cartItem.indexOf(currentItem));
+
         }
         viewHolder.addButton.setOnClickListener{
 //            val cart_model = cart_model()

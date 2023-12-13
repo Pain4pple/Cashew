@@ -119,4 +119,8 @@ class cart_page : AppCompatActivity() {
         })
         Log.d("Cart",""+cartList)
     }
+
+    public fun refreshCart(){
+        recyclerView.adapter?.notifyDataSetChanged()
+    }
 }
