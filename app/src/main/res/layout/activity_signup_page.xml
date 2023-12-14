@@ -72,17 +72,34 @@
             android:text="DATE OF BIRTH"
             android:textSize="16sp" />
 
-        <EditText
-            android:id="@+id/editDoB"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/custom_input3"
-            android:ems="10"
-            android:fontFamily="@font/poppins_light"
-            android:inputType="date"
-            android:paddingHorizontal="12dp"
-            android:paddingVertical="15dp"
-            android:textAlignment="viewStart" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/editDoB"
+                android:layout_width="262dp"
+                android:layout_height="wrap_content"
+                android:allowClickWhenDisabled="true"
+                android:background="@drawable/custom_input3"
+                android:editable="false"
+                android:ems="10"
+                android:fontFamily="@font/poppins_light"
+                android:inputType="date"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="15dp"
+                android:textAlignment="viewStart" />
+
+            <ImageButton
+                android:id="@+id/datePickerBtn"
+                android:layout_width="55dp"
+                android:layout_height="53dp"
+                android:layout_weight="1"
+                android:background="#00D6D6D6"
+                android:scaleType="centerCrop"
+                app:srcCompat="@android:drawable/ic_menu_my_calendar" />
+        </LinearLayout>
 
     </LinearLayout>
 
