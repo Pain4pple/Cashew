@@ -109,7 +109,8 @@
                 android:layout_alignParentStart="true"
                 android:layout_marginEnd="40dp"
                 android:backgroundTint="@color/black"
-                android:fontFamily="@font/poppins_bold"
+                android:fontFamily="@font/poppins_regular"
+                android:textStyle="bold"
                 android:gravity="center"
                 android:padding="12dp"
                 android:text="Pay with Cash"
@@ -124,7 +125,7 @@
                 android:layout_alignParentEnd="true"
                 android:backgroundTint="@color/black"
                 android:fontFamily="@font/poppins_regular"
-
+                android:textStyle="bold"
                 android:gravity="center"
                 android:padding="12dp"
                 android:text="Pay with Card"
