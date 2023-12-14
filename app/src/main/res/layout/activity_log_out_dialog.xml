@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    app:cardCornerRadius="16dp"
+    app:cardBackgroundColor="#FFFFFF"
 
-    tools:context=".logOut_dialog"
-    >
+    app:strokeColor="#000000"
+    app:strokeWidth="3dp"
+    app:cardCornerRadius="0dp"
+    tools:context=".logOut_dialog">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -18,33 +20,37 @@
             android:id="@+id/confirmLogoutLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/retro_computer"
             android:text="Confirm Logout"
+            android:textColor="#000000"
             android:textSize="13dp"
-            android:layout_marginTop="25dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/LogOutTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Are you sure you want to logout?"
-            android:textSize="16dp"
-            android:layout_marginTop="10dp"
+            android:layout_width="272dp"
+            android:layout_height="43dp"
             android:layout_marginStart="24dp"
+            android:layout_marginTop="8dp"
             android:layout_marginEnd="24dp"
+            android:fontFamily="@font/retro_computer"
+            android:text="Are you sure you want to logout?"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="16dp"
             app:layout_constraintEnd_toEndOf="@id/confirmLogoutLabel"
             app:layout_constraintStart_toStartOf="@id/confirmLogoutLabel"
-            app:layout_constraintTop_toBottomOf="@id/confirmLogoutLabel"
-            />
+            app:layout_constraintTop_toBottomOf="@id/confirmLogoutLabel" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="16dp"
             android:orientation="horizontal"
-            android:layout_marginTop="32dp"
-            android:layout_marginBottom="32dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -55,36 +61,30 @@
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="10dp"
-                android:padding="12dp"
-                android:textSize="12sp"
                 android:backgroundTint="@color/black"
                 android:fontFamily="@font/poppins_bold"
+                android:padding="12dp"
                 android:text="Log out"
-                app:cornerRadius="16dp"
-                />
+                android:textSize="12sp"
+                app:cornerRadius="10dp" />
 
             <Button
                 android:id="@+id/cancelBtn"
                 android:layout_width="100dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="10dp"
-                android:padding="12dp"
-                android:textSize="12sp"
                 android:backgroundTint="@color/white2"
-                android:textColor="@color/black"
                 android:fontFamily="@font/poppins_bold"
+                android:padding="12dp"
                 android:text="Cancel"
-                app:cornerRadius="16dp"
-                />
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:cornerRadius="16dp" />
 
         </LinearLayout>
-
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
-
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>

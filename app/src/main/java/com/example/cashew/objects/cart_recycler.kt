@@ -134,10 +134,10 @@ class cart_recycler(private val cartItem: ArrayList<cart_model>, private val use
                                 Toast.makeText(context,"Removed "+currentItem.productName,Toast.LENGTH_SHORT).show()
                                 val cartObject = cart_page()
                                 if((cartObject.totalCart - currentItem!!.productPrice!!).toInt() <0){
-                                    cartObject.totalCart -= currentItem!!.productPrice!!
+                                    cartObject.totalCart = 0f
                                 }
                                 else{
-                                    cartObject.totalCart = 0f
+                                    cartObject.totalCart -= currentItem!!.productPrice!!
                                 }
 
                             }.addOnCanceledListener {

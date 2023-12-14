@@ -39,7 +39,7 @@ class CartAdapter(private val context: Context, private val cartList: List<cart_
         } else {
             viewHolder = view.tag as ViewHolder
         }
-*/
+
         // Set data to views
         val cartItem = cartList[position]
         viewHolder.itemNameTextView.text = cartItem.productName

@@ -12,9 +12,10 @@
         android:layout_width="495dp"
         android:layout_height="73dp"
         android:background="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/lowborder"
-        tools:layout_editor_absoluteX="-38dp" />
+        app:srcCompat="@drawable/lowborder" />
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/materialCardView"
@@ -22,6 +23,9 @@
         android:layout_height="71dp"
         app:cardCornerRadius="1dp"
         app:cardElevation="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:strokeColor="#000000"
         app:strokeWidth="0dp">
 
@@ -29,6 +33,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#FFFFFF">
+
+            =======
 
             <pl.droidsonroids.gif.GifImageView
                 android:id="@+id/userCashewProducts"
@@ -38,11 +44,9 @@
                 android:src="@drawable/cashew1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.02"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            =======
 
             <LinearLayout
                 android:id="@+id/linearLayout3"
@@ -52,7 +56,7 @@
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="0.031"
                 app:layout_constraintStart_toEndOf="@+id/userCashewProducts">>>>>>> Stashed changes
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -63,7 +67,7 @@
 
                     <TextView
                         android:id="@+id/uNameDisplay"
-                        android:layout_width="209dp"
+                        android:layout_width="153dp"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/retropix"
                         android:gravity="center"
@@ -75,7 +79,7 @@
 
                     <TextView
                         android:id="@+id/orderWay"
-                        android:layout_width="71dp"
+                        android:layout_width="104dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:fontFamily="@font/retropix"

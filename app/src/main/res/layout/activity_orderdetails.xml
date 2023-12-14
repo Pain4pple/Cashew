@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@drawable/custom_input2"
-    tools:context=".orderSummary_dialog"
-    >
+    app:cardBackgroundColor="#FFFFFF"
+    app:cardCornerRadius="0dp"
+    app:strokeColor="#000000"
+    app:strokeWidth="3dp"
+    tools:context=".orderSummary_dialog">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="393dp"
@@ -19,8 +22,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:fontFamily="monospace"
+            android:fontFamily="@font/retro_computer"
             android:text="Order Summary"
+            android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -35,8 +39,9 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/orderDetailsTitle"
             android:layout_marginTop="12dp"
-            android:fontFamily="monospace"
+            android:fontFamily="@font/retropix"
             android:text="Date and Time:"
+            android:textColor="#000000"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -74,19 +79,20 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/orderDetailsListView"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="52dp"
-            android:fontFamily="monospace"
+            android:layout_marginTop="64dp"
+            android:fontFamily="@font/retro_computer"
             android:text="Total: ₱"
-            android:textSize="30dp"
+            android:textColor="#000000"
+            android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.361"
+            app:layout_constraintHorizontal_bias="0.366"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/orderDetailsListView" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="311dp"
+            android:layout_height="54dp"
             android:layout_marginTop="124dp"
             android:layout_marginBottom="12dp"
             android:orientation="horizontal"
@@ -101,12 +107,13 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/orderDetailsListView"
                 android:layout_alignParentStart="true"
+                android:layout_marginEnd="40dp"
                 android:backgroundTint="@color/black"
                 android:fontFamily="@font/poppins_regular"
-                android:layout_marginEnd="40dp"
-                android:padding="12dp"
                 android:gravity="center"
-                android:text="Pay with Cash" />
+                android:padding="12dp"
+                android:text="Pay with Cash"
+                app:cornerRadius="10dp" />
 
             <Button
                 android:id="@+id/cardButton"
@@ -118,11 +125,12 @@
                 android:backgroundTint="@color/black"
                 android:fontFamily="@font/poppins_regular"
 
-                android:padding="12dp"
                 android:gravity="center"
-                android:text="Pay with Card" />
+                android:padding="12dp"
+                android:text="Pay with Card"
+                app:cornerRadius="10dp" />
 
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>

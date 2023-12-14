@@ -20,10 +20,10 @@
 
     <TextView
         android:id="@+id/orderHistoryLabel"
-        android:layout_width="205dp"
-        android:layout_height="32dp"
+        android:layout_width="278dp"
+        android:layout_height="35dp"
         android:layout_marginBottom="44dp"
-        android:fontFamily="monospace"
+        android:fontFamily="@font/retro_computer"
         android:gravity="center"
         android:text="My Order History"
         android:textColor="@color/white"
