@@ -49,7 +49,7 @@ class orderSummary_dialog : DialogFragment() {
         myadapter = CartAdapter(requireContext(), cartList)
         listView.adapter = myadapter
 
-        totalAmount = viewLayout.findViewById(R.id.totalAmount)
+
 
 
         sh = requireActivity().applicationContext!!.getSharedPreferences("currentUserDetails", AppCompatActivity.MODE_PRIVATE)
@@ -88,8 +88,6 @@ class orderSummary_dialog : DialogFragment() {
                     if (cartItem != null) {
                         cartList.add(cartItem)
                     }
-                    
-
 
 
                 }
