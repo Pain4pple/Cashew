@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.LinearLayout
@@ -33,6 +34,8 @@ class cart_page : AppCompatActivity() {
     private lateinit var dbRef: DatabaseReference
     private lateinit var firebaseDatabase: FirebaseDatabase
     public var totalCart:Float = 0f
+    lateinit var totalAmount :TextView
+    lateinit var cartEmpty:TextView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_order)
@@ -45,6 +48,8 @@ class cart_page : AppCompatActivity() {
         val changeOption:TextView = findViewById(R.id.changeOption2)
         val orderSh = getSharedPreferences("orderDetails", MODE_PRIVATE)
         recyclerView = findViewById(R.id.orderRecyclerView)
+        totalAmount = findViewById(R.id.totalAmount)
+        cartEmpty = findViewById(R.id.cartEmpty)
 
         // DECLARATION FOR CHECK OUT BUTTON
         val checkOutBtn : Button = findViewById(R.id.checkoutButton)
@@ -114,13 +119,23 @@ class cart_page : AppCompatActivity() {
             ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if(snapshot.exists()){
+                    totalCart = 0f
                     cartList.clear()
                     for(cartSnapshot in snapshot.children){
                         var cartModel = cartSnapshot.getValue(cart_model::class.java)
                          cartList.add(cartModel!!)
+                        totalCart += cartModel.totalPriceOf!!
                     }
                     val cartRecycler = cart_recycler(cartList,userID,context)
                     recyclerView.adapter = cartRecycler
+                    totalAmount.text = "Total:\n₱"+totalCart.toString()
+                }
+                else{
+                    cartList.clear()
+                    val cartRecycler = cart_recycler(cartList,userID,context)
+                    recyclerView.adapter = cartRecycler
+                    cartEmpty.setVisibility(View.VISIBLE)
+                    totalAmount.text = "Total:\n₱0"
                 }
             }
             override fun onCancelled(error: DatabaseError) {

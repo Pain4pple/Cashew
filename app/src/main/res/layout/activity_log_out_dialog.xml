@@ -79,7 +79,9 @@
                 android:text="Cancel"
                 android:textColor="@color/black"
                 android:textSize="12sp"
-                app:cornerRadius="16dp" />
+                app:cornerRadius="10dp"
+                app:strokeColor="#000000"
+                app:strokeWidth="1dp" />
 
         </LinearLayout>
 

@@ -76,13 +76,6 @@ class cart_recycler(private val cartItem: ArrayList<cart_model>, private val use
                         if(cartModel!!.productQty==1){
                             dbRef.child(currentItem.productID!!).removeValue().addOnSuccessListener {
                                 Toast.makeText(context,"Removed "+currentItem.productName,Toast.LENGTH_SHORT).show()
-                                val cartObject = cart_page()
-                                if((cartObject.totalCart - currentItem!!.productPrice!!).toInt() <0){
-                                    cartObject.totalCart -= currentItem!!.productPrice!!
-                                }
-                                else{
-                                    cartObject.totalCart = 0f
-                                }
 
                             }.addOnCanceledListener {
                                 Toast.makeText(context,"Failed to remove "+currentItem.productName,Toast.LENGTH_SHORT).show()
@@ -95,13 +88,6 @@ class cart_recycler(private val cartItem: ArrayList<cart_model>, private val use
                             updateData["totalPriceOf"] = (cartModel!!.productQty * cartModel!!.productPrice!!).toFloat()
                             dbRef.child(currentItem.productID!!).updateChildren(updateData).addOnSuccessListener {
                                 Toast.makeText(context,"Removed 1 "+currentItem.productName,Toast.LENGTH_SHORT).show()
-                                val cartObject = cart_page()
-                                if((cartObject.totalCart - currentItem!!.productPrice!!).toInt() <0){
-                                    cartObject.totalCart -= currentItem!!.productPrice!!
-                                }
-                                else{
-                                    cartObject.totalCart = 0f
-                                }
 
                             }.addOnCanceledListener {
                                 Toast.makeText(context,"Failed to remove "+currentItem.productName,Toast.LENGTH_SHORT).show()
@@ -132,13 +118,6 @@ class cart_recycler(private val cartItem: ArrayList<cart_model>, private val use
                         if(cartModel!!.productQty>=0){
                             dbRef.child(currentItem.productID!!).removeValue().addOnSuccessListener {
                                 Toast.makeText(context,"Removed "+currentItem.productName,Toast.LENGTH_SHORT).show()
-                                val cartObject = cart_page()
-                                if((cartObject.totalCart - currentItem!!.productPrice!!).toInt() <0){
-                                    cartObject.totalCart = 0f
-                                }
-                                else{
-                                    cartObject.totalCart -= currentItem!!.productPrice!!
-                                }
 
                             }.addOnCanceledListener {
                                 Toast.makeText(context,"Failed to remove "+currentItem.productName,Toast.LENGTH_SHORT).show()
@@ -170,8 +149,6 @@ class cart_recycler(private val cartItem: ArrayList<cart_model>, private val use
                         dbRef.child(currentItem.productID!!).updateChildren(updateData).addOnSuccessListener {
                             Toast.makeText(context,"Added "+currentItem.productName,Toast.LENGTH_SHORT).show()
                             viewHolder.itemQty.text = cartModel!!.productQty.toString()
-                            val cartObject = cart_page()
-                            cartObject.totalCart += cartModel!!.productPrice!!
                         }.addOnCanceledListener {
                             Toast.makeText(context,"Failed to add "+currentItem.productName,Toast.LENGTH_SHORT).show()
                         }

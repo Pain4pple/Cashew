@@ -57,8 +57,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.031"
-                app:layout_constraintStart_toEndOf="@+id/userCashewProducts">>>>>>> Stashed changes
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintStart_toEndOf="@+id/userCashewProducts">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -159,6 +158,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/lowborder" />
 
+    <TextView
+        android:id="@+id/cartEmpty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/retro_computer"
+        android:text="ฅ ^ • ﻌ • ^ ฅ woof! empty cart!"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/navBg6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/navBg7" />
+
     <ImageButton
         android:id="@+id/productButton2"
         android:layout_width="60dp"
@@ -219,27 +230,44 @@
     </ScrollView>
 
     <LinearLayout
-        android:layout_width="333dp"
-        android:layout_height="61dp"
+        android:id="@+id/linearLayout4"
+        android:layout_width="329dp"
+        android:layout_height="55dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/navBg6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView3">
 
-        <TextView
-            android:id="@+id/totalamount"
-            android:layout_width="158dp"
+        <LinearLayout
+            android:layout_width="116dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="5dp" />
+
+            <TextView
+                android:id="@+id/totalAmount"
+                android:layout_width="match_parent"
+                android:layout_height="39dp"
+                android:fontFamily="@font/retro_computer"
+                android:paddingStart="4dp"
+                android:text="Total: 3000"
+                android:textColor="#000000"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <Space
+            android:layout_width="30dp"
             android:layout_height="32dp"
-            android:fontFamily="@font/retro_computer"
-            android:paddingStart="4dp"
-            android:text="Total: 3000"
-            android:textSize="16sp" />
+            android:layout_weight="1" />
 
         <Button
             android:id="@+id/checkoutButton"
-            android:layout_width="165dp"
-            android:layout_height="56dp"
+            android:layout_width="164dp"
+            android:layout_height="match_parent"
             android:backgroundTint="@color/black"
             android:fontFamily="@font/poppins_bold"
             android:text="checkout"

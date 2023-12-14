@@ -11,25 +11,23 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="173dp"
+        android:layout_height="150dp"
         android:background="@drawable/custom_input2">
 
         <TextView
             android:id="@+id/orderIDlabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="31dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="251dp"
             android:layout_marginBottom="10dp"
-            android:fontFamily="monospace"
+            android:fontFamily="@font/retro_computer"
             android:gravity="center"
             android:text="Order ID:"
             android:textColor="@color/orange"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/datetime"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"></TextView>
 
@@ -37,13 +35,11 @@
             android:id="@+id/datetime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="31dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="180dp"
-            android:fontFamily="monospace"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/poppins"
             android:text="09 Dec 2023 11:11pm"
             android:textSize="16sp"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/orderIDlabel"></TextView>
 
@@ -51,34 +47,32 @@
             android:id="@+id/totalprice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="31dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="42dp"
-            android:layout_marginEnd="27dp"
             android:layout_marginBottom="35dp"
-            android:fontFamily="monospace"
-            android:text="Total Price: ₱250.00"
+            android:fontFamily="@font/poppins"
+            android:text="Total Price:\n₱250.00"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/vieworderdetails"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/datetime"
-            app:layout_constraintVertical_bias="1.0"></TextView>
+            app:layout_constraintVertical_bias="0.629"></TextView>
 
         <Button
             android:id="@+id/vieworderdetails"
-            android:layout_width="124dp"
-            android:layout_height="46dp"
-            android:layout_marginTop="105dp"
+            android:layout_width="150dp"
+            android:layout_height="47dp"
             android:layout_marginEnd="16dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="16dp"
             android:backgroundTint="@color/orange"
-            android:fontFamily="@font/poppins"
+            android:fontFamily="@font/poppins_bold"
             android:text="View Details"
-            android:textSize="12sp"
+            android:textSize="16sp"
+            app:cornerRadius="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
+            app:strokeColor="#000000"
+            app:strokeWidth="0dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
