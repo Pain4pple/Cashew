@@ -12,7 +12,7 @@ import android.widget.ListView
 import androidx.fragment.app.DialogFragment
 import com.example.cashew.models.cart_model
 import com.google.firebase.database.*
-import generate_page
+
 
 
 class orderSummary_dialog : DialogFragment() {
