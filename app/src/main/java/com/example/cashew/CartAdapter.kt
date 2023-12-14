@@ -6,6 +6,7 @@ import android.widget.BaseAdapter
 import android.widget.TextView
 import com.example.cashew.R
 import com.example.cashew.models.cart_model
+import com.example.cashew.models.order_model
 
 class CartAdapter(private val context: Context, private val cartList: List<cart_model>) : BaseAdapter() {
 
