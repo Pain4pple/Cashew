@@ -7,4 +7,7 @@ data class cart_model(var productID:String?=null,
                       var productQty: Int=0,
                       var totalPriceOf: Float? = 0f){
 
+    constructor() : this("", "", 0, 0, 0, 0f)
 }
+
+
