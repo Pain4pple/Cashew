@@ -50,7 +50,7 @@ class orderSummary_dialog : DialogFragment() {
         }
 
 
-        //retrieveCartDetails()
+        //getCartDetails()
 
         val cancelBtn: ImageButton = viewLayout.findViewById(R.id.cancelBtn2)
         cancelBtn.setOnClickListener {
@@ -63,7 +63,7 @@ class orderSummary_dialog : DialogFragment() {
         return viewLayout
     }
 
-    private fun retrieveCartDetails() {
+    private fun getCartDetails() {
         dbRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 cartList.clear()
