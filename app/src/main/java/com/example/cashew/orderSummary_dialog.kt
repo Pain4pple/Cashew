@@ -1,11 +1,13 @@
 package com.example.cashew
 
 import CartAdapter
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.ListView
 import androidx.fragment.app.DialogFragment
 import com.example.cashew.models.cart_model
@@ -39,6 +41,13 @@ class orderSummary_dialog : DialogFragment() {
 
 
         retrieveCartDetails()
+
+        val cancelBtn: ImageButton = viewLayout.findViewById(R.id.cancelBtn2)
+        cancelBtn.setOnClickListener {
+            // Close the current activity
+            dismiss()
+
+        }
 
         // Return the inflated layout
         return viewLayout
