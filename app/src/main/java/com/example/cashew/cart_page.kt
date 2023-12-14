@@ -56,7 +56,12 @@ class cart_page : AppCompatActivity() {
 
         // Check Out Dialog
         checkOutBtn.setOnClickListener() {
-            showDialog()
+            if(totalCart>0){
+                showDialog()
+            }
+            else{
+                Toast.makeText(this,"Please add items to your cart",Toast.LENGTH_SHORT).show()
+            }
         }
 
 

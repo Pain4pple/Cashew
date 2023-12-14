@@ -87,7 +87,7 @@ class cart_recycler(private val cartItem: ArrayList<cart_model>, private val use
                             updateData["productQty"] = cartModel!!.productQty
                             updateData["totalPriceOf"] = (cartModel!!.productQty * cartModel!!.productPrice!!).toFloat()
                             dbRef.child(currentItem.productID!!).updateChildren(updateData).addOnSuccessListener {
-                                Toast.makeText(context,"Removed 1 "+currentItem.productName,Toast.LENGTH_SHORT).show()
+//                                Toast.makeText(context,"Removed 1 "+currentItem.productName,Toast.LENGTH_SHORT).show()
 
                             }.addOnCanceledListener {
                                 Toast.makeText(context,"Failed to remove "+currentItem.productName,Toast.LENGTH_SHORT).show()
@@ -147,7 +147,7 @@ class cart_recycler(private val cartItem: ArrayList<cart_model>, private val use
                         updateData["productQty"] = cartModel!!.productQty
                         updateData["totalPriceOf"] = (cartModel!!.productQty * cartModel!!.productPrice!!).toFloat()
                         dbRef.child(currentItem.productID!!).updateChildren(updateData).addOnSuccessListener {
-                            Toast.makeText(context,"Added "+currentItem.productName,Toast.LENGTH_SHORT).show()
+//                            Toast.makeText(context,"Added "+currentItem.productName,Toast.LENGTH_SHORT).show()
                             viewHolder.itemQty.text = cartModel!!.productQty.toString()
                         }.addOnCanceledListener {
                             Toast.makeText(context,"Failed to add "+currentItem.productName,Toast.LENGTH_SHORT).show()
