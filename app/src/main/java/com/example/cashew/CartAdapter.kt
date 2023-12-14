@@ -8,7 +8,7 @@ import com.example.cashew.R
 import com.example.cashew.models.cart_model
 import com.example.cashew.models.order_model
 
-class CartAdapter(private val context: Context, private val cartList: List<cart_model>) : BaseAdapter() {
+class CartAdapter(private val context: Context, private val cartList: ArrayList<cart_model>) : BaseAdapter() {
 
     override fun getCount(): Int {
         return cartList.size

@@ -41,12 +41,15 @@ class cart_page : AppCompatActivity() {
         setContentView(R.layout.activity_order)
         val cashewGif: GifImageView = findViewById(R.id.userCashewProducts)
 
+
+        //TOP MENU
         val productButton: ImageButton = findViewById(R.id.productButton2)
         val cartButton : ImageButton = findViewById(R.id.cartButton2)
         val profileBtn : ImageButton = findViewById(R.id.profileBtn2)
         val orderWay: TextView = findViewById(R.id.orderWay)
         val changeOption:TextView = findViewById(R.id.changeOption2)
         val orderSh = getSharedPreferences("orderDetails", MODE_PRIVATE)
+
         recyclerView = findViewById(R.id.orderRecyclerView)
         totalAmount = findViewById(R.id.totalAmount)
         cartEmpty = findViewById(R.id.cartEmpty)

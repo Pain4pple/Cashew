@@ -10,11 +10,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textStyle="bold"
+        android:hint="ItemName"
         android:textSize="16sp"/>
 
     <TextView
         android:id="@+id/textViewItemPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:hint="ItemPrice"
         android:layout_marginTop="8dp"/>
 </LinearLayout>
