@@ -43,7 +43,8 @@ class CartAdapter(private val context: Context, private val cartList: List<cart_
         // Set data to views
         val cartItem = cartList[position]
         viewHolder.itemNameTextView.text = cartItem.productName
-        viewHolder.itemPriceTextView.text = "${cartItem.productPrice} USD"
+        var getPrice = cartItem.productPrice?.times(cartItem.productQty)
+        viewHolder.itemPriceTextView.text = "${getPrice} USD"
         // Set more data as needed
 
         return view!!
