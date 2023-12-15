@@ -104,7 +104,7 @@
         android:layout_marginTop="20dp"
         android:backgroundTint="@color/black"
         android:fontFamily="@font/poppins_bold"
-        android:text="register"
+        android:text="Register"
         app:cornerRadius="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"

@@ -214,7 +214,7 @@
         android:layout_marginTop="12dp"
         android:fontFamily="@font/poppins_bold"
         android:gravity="center"
-        android:text="add products"
+        android:text="Add Products"
         android:textColor="#000000"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"

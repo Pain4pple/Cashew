@@ -12,12 +12,12 @@
         android:id="@+id/mainCashew"
         android:layout_width="268dp"
         android:layout_height="122dp"
-        android:layout_marginTop="152dp"
+        android:layout_marginTop="168dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/login" />
+        app:srcCompat="@drawable/maincashew2" />
 
     <Button
         android:id="@+id/updateBtn"
@@ -26,7 +26,7 @@
         android:layout_marginTop="4dp"
         android:backgroundTint="@color/black"
         android:fontFamily="@font/poppins_bold"
-        android:text="login"
+        android:text="Login"
         app:cornerRadius="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -92,10 +92,9 @@
         android:id="@+id/gifImageView2"
         android:layout_width="93dp"
         android:layout_height="115dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="60dp"
         android:src="@drawable/jumpycashew"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
