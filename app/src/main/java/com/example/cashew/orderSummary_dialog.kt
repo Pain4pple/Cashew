@@ -1,7 +1,9 @@
 package com.example.cashew
 
 import CartAdapter
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,6 +12,8 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.Button
 import android.widget.ListView
+import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
 import com.example.cashew.models.cart_model
 import com.google.firebase.database.*
@@ -22,9 +26,11 @@ class orderSummary_dialog : DialogFragment() {
     private lateinit var firebaseDatabase: FirebaseDatabase
     private lateinit var dbRef: DatabaseReference
     private lateinit var myadapter: CartAdapter
-    //private var cartList: ArrayList<cart_model> = ArrayList()
-    private var cartList = mutableListOf<cart_model>()
+    private var cartList: ArrayList<cart_model> = ArrayList()
+    //private var cartList = mutableListOf<cart_model>()
     private lateinit var payCash : Button
+    private lateinit var sh : SharedPreferences
+    lateinit var totalAmount : TextView
 
 
 
@@ -43,14 +49,20 @@ class orderSummary_dialog : DialogFragment() {
         myadapter = CartAdapter(requireContext(), cartList)
         listView.adapter = myadapter
 
+
+
+
+        sh = requireActivity().applicationContext!!.getSharedPreferences("currentUserDetails", AppCompatActivity.MODE_PRIVATE)
+
         payCash.setOnClickListener() {
             var intent = Intent(context, generate_page::class.java)
             startActivity(intent)
-            dismiss()
+
         }
 
+        // Call function to populate ListView
+        getCartDetails(sh.getString("ID","").toString())
 
-        //retrieveCartDetails()
 
         val cancelBtn: ImageButton = viewLayout.findViewById(R.id.cancelBtn2)
         cancelBtn.setOnClickListener {
@@ -59,20 +71,25 @@ class orderSummary_dialog : DialogFragment() {
 
         }
 
+
         // Return the inflated layout
         return viewLayout
     }
 
-    private fun retrieveCartDetails() {
-        dbRef.addValueEventListener(object : ValueEventListener {
+    private fun getCartDetails(userID:String) {
+        dbRef.child("cartItems_"+userID).addValueEventListener(object :
+            ValueEventListener {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 cartList.clear()
 
                 for (snapshot in dataSnapshot.children) {
+
                     val cartItem = snapshot.getValue(cart_model::class.java)
                     if (cartItem != null) {
-                        cartList.add(cartItem!!)
+                        cartList.add(cartItem)
                     }
+
+
                 }
 
                 myadapter.notifyDataSetChanged()
