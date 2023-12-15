@@ -17,6 +17,7 @@ class signup_page2  : AppCompatActivity() {
 //    private lateinit var editEmail: EditText
     private lateinit var editPwd: EditText
 //    private lateinit var editDoB: EditText
+    private lateinit var editconfirmPwd : EditText
     private lateinit var rgtBtn: Button
     private lateinit var logInBtn: Button
     private lateinit var dbRefNested: DatabaseReference
@@ -28,6 +29,7 @@ class signup_page2  : AppCompatActivity() {
 
         editUname = findViewById(R.id.editUname)
         editPwd = findViewById(R.id.editPassword)
+        editconfirmPwd = findViewById(R.id.confirmPassword)
         rgtBtn = findViewById(R.id.registerBtn)
         logInBtn = findViewById(R.id.backLogInBtn)
 
@@ -35,7 +37,24 @@ class signup_page2  : AppCompatActivity() {
         //dbRefNested = FirebaseDatabase.getInstance().getReference("Purchases")
 
         rgtBtn.setOnClickListener{
-            saveUserData()
+
+            val username = editUname.text.toString()
+            val password = editPwd.text.toString()
+            val confirmPwd = editconfirmPwd.toString()
+
+
+
+            if (isValidInput(username, password, confirmPwd) )  {
+
+                saveUserData()
+
+
+
+
+            }
+            //saveUserData()
+
+
         }
 
         logInBtn.setOnClickListener{
@@ -46,6 +65,49 @@ class signup_page2  : AppCompatActivity() {
 
 
 
+    }
+
+    private fun isValidInput(username : String, password : String, confirmPwd : String): Boolean {
+
+
+        if (username.isEmpty()) {
+            showError("Name cannot be empty.")
+
+
+            if (username.length < 3) {
+                showError("Name must be at least 3 characters long.")
+
+            }
+            return false
+        }
+
+        if (confirmPwd.isEmpty() ) {
+            showError("Re-type password to confirm.")
+            return false
+        }
+
+        if (password.isEmpty() || password.length < 6) {
+            showError("Password must be at least 6 characters long.")
+            return false
+        }
+
+        if (password != confirmPwd) {
+            showError("Passwords do not match.")
+            return false
+        }
+
+
+
+        return true
+    }
+
+
+    private fun showError(message: String) {
+        showToast(message)
+    }
+
+    private fun showToast(message: String) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
     private fun saveUserData(){
