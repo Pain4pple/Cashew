@@ -12,7 +12,7 @@
     tools:context=".orderSummary_dialog">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="393dp"
+        android:layout_width="344dp"
         android:layout_height="match_parent"
         android:padding="16dp">
 
@@ -62,29 +62,16 @@
 
         <ListView
             android:id="@+id/orderDetailsListView"
-            android:layout_width="wrap_content"
-            android:layout_height="354dp"
+            android:layout_width="295dp"
+            android:layout_height="270dp"
             android:layout_below="@+id/orderDateTime"
-            android:layout_marginTop="92dp"
+            android:layout_marginTop="84dp"
             android:divider="@android:color/darker_gray"
             android:dividerHeight="1dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.531"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/cashewlogo2"
-            android:layout_width="78dp"
-            android:layout_height="77dp"
-            android:scaleType="fitXY"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.003"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.828"
-            app:srcCompat="@drawable/cashew1" />
 
         <TextView
             android:id="@+id/TotalAmount"
@@ -92,30 +79,45 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/orderDetailsListView"
             android:layout_alignParentStart="true"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="36dp"
             android:fontFamily="@font/retro_computer"
-            android:text="Total: ₱"
+            android:text="Total:\n₱"
             android:textColor="#000000"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.366"
+            app:layout_constraintHorizontal_bias="0.339"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/orderDetailsListView" />
 
+        <ImageView
+            android:id="@+id/cashewlogo2"
+            android:layout_width="70dp"
+            android:layout_height="68dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/orderDetailsListView"
+            app:layout_constraintVertical_bias="0.191"
+            app:srcCompat="@drawable/cashew1" />
+
         <LinearLayout
-            android:layout_width="311dp"
-            android:layout_height="54dp"
+            android:layout_width="287dp"
+            android:layout_height="51dp"
             android:layout_marginTop="124dp"
             android:layout_marginBottom="12dp"
             android:orientation="horizontal"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.368"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/orderDetailsListView">
+            app:layout_constraintTop_toBottomOf="@+id/orderDetailsListView"
+            app:layout_constraintVertical_bias="0.0">
 
             <Button
-                android:id="@+id/cashButton"
+                android:id="@+id/cancelButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/orderDetailsListView"
@@ -123,25 +125,26 @@
                 android:layout_marginEnd="40dp"
                 android:backgroundTint="@color/black"
                 android:fontFamily="@font/poppins_regular"
-                android:textStyle="bold"
                 android:gravity="center"
                 android:padding="12dp"
                 android:text="Pay with Cash"
+                android:textStyle="bold"
+                android:visibility="invisible"
                 app:cornerRadius="10dp" />
 
             <Button
-                android:id="@+id/cardButton"
-                android:layout_width="wrap_content"
+                android:id="@+id/cashButton"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/orderDetailsListView"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentEnd="true"
                 android:backgroundTint="@color/black"
                 android:fontFamily="@font/poppins_regular"
-                android:textStyle="bold"
                 android:gravity="center"
                 android:padding="12dp"
-                android:text="Pay with Card"
+                android:text="Proceed"
+                android:textStyle="bold"
                 app:cornerRadius="10dp" />
 
         </LinearLayout>

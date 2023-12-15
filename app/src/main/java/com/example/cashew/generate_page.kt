@@ -35,15 +35,15 @@ class generate_page : AppCompatActivity() {
 
 
         val order = order_model(orderID = "123456", orderDate = null)
-        generateQRCode(order)
+//        generateQRCode(order)
     }
 
     private fun generateQRCode(order: order_model) {
-        val barcodeEncoder = BarcodeEncoder()
+ /*       val barcodeEncoder = BarcodeEncoder()
         val bitmap: Bitmap =
             barcodeEncoder.encodeBitmap(order.orderID, BarcodeFormat.QR_CODE, 400, 400)
         val imageView: ImageView = findViewById(R.id.qrCodeImageView)
-        imageView.setImageBitmap(bitmap)
+        imageView.setImageBitmap(bitmap)*/
     }
 
 }
