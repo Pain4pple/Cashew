@@ -65,12 +65,12 @@ class profile_page : AppCompatActivity() {
         }
 
         orderHistoryBtn.setOnClickListener {
-            val intent = Intent(this, dressup_page::class.java)
+            val intent = Intent(this, orderhistory_page::class.java)
             startActivity(intent)
         }
 
         changePasswordBtn.setOnClickListener {
-            val intent = Intent(this, products_page::class.java)
+            val intent = Intent(this, dressup_page::class.java)
             startActivity(intent)
         }
 

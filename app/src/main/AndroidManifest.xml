@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Cashew"
         tools:targetApi="31">
         <activity
+            android:name=".orderhistory_page"
+            android:exported="false" />
+        <activity
             android:name=".generate_page"
             android:exported="false" />
         <activity

@@ -1,8 +1,10 @@
 package com.example.cashew.objects
 
 import android.content.Context
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
@@ -11,9 +13,10 @@ import com.example.cashew.R
 import com.example.cashew.models.order_model
 import com.example.cashew.models.product_model
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
-class order_recycler (private val products: ArrayList<order_model>, private val userID:String, private val context: Context) :
-    RecyclerView.Adapter<product_recycler.ViewHolder>() {
+class order_recycler (private val orders: ArrayList<order_model>, private val userID:String, private val context: Context) :
+    RecyclerView.Adapter<order_recycler.ViewHolder>() {
     private lateinit var dbRef: DatabaseReference
 
     /**
@@ -21,29 +24,38 @@ class order_recycler (private val products: ArrayList<order_model>, private val 
      * (custom ViewHolder)
      */
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val productName: TextView
-        val productPrice: TextView
-        val productImage: ImageView
-        val addButton: ImageButton
+        val orderIDlabel: TextView
+        val datetime: TextView
+        val totalprice: TextView
+        val vieworderdetails: Button
 
         init {
             // Define click listener for the ViewHolder's View
-            productName = view.findViewById(R.id.productName)
-            productPrice = view.findViewById(R.id.productPrice)
-            productImage = view.findViewById(R.id.productImage)
-            addButton = view.findViewById(R.id.addToCart)
+            orderIDlabel = view.findViewById(R.id.orderIDlabel)
+            datetime = view.findViewById(R.id.datetime)
+            totalprice = view.findViewById(R.id.totalprice)
+            vieworderdetails = view.findViewById(R.id.vieworderdetails)
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): product_recycler.ViewHolder {
-        TODO("Not yet implemented")
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): order_recycler.ViewHolder {
+        // Create a new view, which defines the UI of the list item
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.activity_layoutfororderhistory, parent, false)
+
+        return order_recycler.ViewHolder(view)
+    }
+    override fun onBindViewHolder(holder: order_recycler.ViewHolder, position: Int) {
+        val currentOrder = orders[position]
+        val counter = position
+        holder.orderIDlabel.text = "Order ID: Order_"+counter+1
+        holder.datetime.text = currentOrder.orderDate
+        holder.totalprice.text = "Total Price:\n₱"+currentOrder.totalAmount.toString()
+//        holder.vieworderdetails.setImageResource(currentItem.productImage!!)
+//        dbRef = FirebaseDatabase.getInstance().getReference("Cart").child("cartItems_"+userID)
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun getItemCount() = orders.size
 
-    override fun onBindViewHolder(holder: product_recycler.ViewHolder, position: Int) {
-        TODO("Not yet implemented")
-    }
+
 }

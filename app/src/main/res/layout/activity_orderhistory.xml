@@ -42,17 +42,6 @@
         app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/activity_layoutfororderhistory" />
 
-    <Button
-        android:id="@+id/backtohomebutton"
-        android:layout_width="103dp"
-        android:layout_height="46dp"
-        android:backgroundTint="@color/black"
-        android:fontFamily="@font/poppins"
-        android:text="Back"
-        android:textSize="16sp"
-        tools:layout_editor_absoluteX="154dp"
-        tools:layout_editor_absoluteY="669dp" />
-
     <ImageView
         android:id="@+id/navBg4"
         android:layout_width="456dp"
@@ -100,4 +89,15 @@
         app:layout_constraintHorizontal_bias="0.051"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/cashewbtn" />
+
+    <TextView
+        android:id="@+id/orderEmpty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ฅ ^ • ﻌ • ^ ฅ woof! no orders yet!"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/navBg4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

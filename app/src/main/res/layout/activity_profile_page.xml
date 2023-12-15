@@ -100,7 +100,7 @@
             android:layout_marginTop="4dp"
             android:background="@drawable/custom_button1"
             android:fontFamily="@font/poppins_bold"
-            android:text="Change Password"
+            android:text="Wardrobe"
             app:cornerRadius="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
