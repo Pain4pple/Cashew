@@ -9,6 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.cashew.models.user_model
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import android.util.Log
+
 
 class signup_page2  : AppCompatActivity() {
     private lateinit var dbRef: DatabaseReference
@@ -17,7 +19,8 @@ class signup_page2  : AppCompatActivity() {
 //    private lateinit var editEmail: EditText
     private lateinit var editPwd: EditText
 //    private lateinit var editDoB: EditText
-    private lateinit var editconfirmPwd : EditText
+    
+//  private lateinit var editconfirmpasswd : EditText
     private lateinit var rgtBtn: Button
     private lateinit var logInBtn: Button
     private lateinit var dbRefNested: DatabaseReference
@@ -29,7 +32,7 @@ class signup_page2  : AppCompatActivity() {
 
         editUname = findViewById(R.id.editUname)
         editPwd = findViewById(R.id.editPassword)
-        editconfirmPwd = findViewById(R.id.confirmPassword)
+        val editconfirmpasswd : EditText = findViewById(R.id.editConfirm)
         rgtBtn = findViewById(R.id.registerBtn)
         logInBtn = findViewById(R.id.backLogInBtn)
 
@@ -40,7 +43,7 @@ class signup_page2  : AppCompatActivity() {
 
             val username = editUname.text.toString()
             val password = editPwd.text.toString()
-            val confirmPwd = editconfirmPwd.toString()
+            val confirmPwd  = editconfirmpasswd.text.toString()
 
 
 
@@ -69,37 +72,56 @@ class signup_page2  : AppCompatActivity() {
 
     private fun isValidInput(username : String, password : String, confirmPwd : String): Boolean {
 
-
         if (username.isEmpty()) {
             showError("Name cannot be empty.")
 
 
             if (username.length < 3) {
                 showError("Name must be at least 3 characters long.")
+                return false
 
             }
             return false
         }
+
 
         if (confirmPwd.isEmpty() ) {
             showError("Re-type password to confirm.")
             return false
         }
 
+
         if (password.isEmpty() || password.length < 6) {
             showError("Password must be at least 6 characters long.")
+
+
             return false
         }
 
+
+
         if (password != confirmPwd) {
             showError("Passwords do not match.")
+
+            Log.i("PasswordValidation", "Entered Password: $password")
+            Log.i("PasswordValidation", "Entered Confirm Password: $confirmPwd")
             return false
         }
+
+        Log.i("PasswordValidation", "Entered Password: $password")
+        Log.i("PasswordValidation", "Entered Confirm Password: $confirmPwd")
+
+
+
+
+
+
 
 
 
         return true
     }
+
 
 
     private fun showError(message: String) {
