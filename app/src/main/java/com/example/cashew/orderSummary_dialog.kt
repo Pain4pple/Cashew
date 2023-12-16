@@ -67,19 +67,19 @@ class orderSummary_dialog : DialogFragment() {
 
         dbRef2 = firebaseDatabase.getReference("Order").child("order_"+userID)
 
-/*        payCash.setOnClickListener() {
+        payCash.setOnClickListener() {
             var intent = Intent(context, generate_page::class.java)
             startActivity(intent)
 
-        }*/
+        }
 
-        payCash.setOnClickListener() {
+       /* payCash.setOnClickListener() {
             saveOrderData(userID,orderWay)
             var intent = Intent(context, generate_page::class.java)
             startActivity(intent)
 
 
-        }
+        }*/
 
         // Call function to populate ListView
         getCartDetails(userID)
