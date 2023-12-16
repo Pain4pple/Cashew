@@ -78,8 +78,8 @@ class signup_page2  : AppCompatActivity() {
 
             if (username.length < 3) {
                 showError("Name must be at least 3 characters long.")
-                return false
 
+                return false
             }
             return false
         }

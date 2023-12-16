@@ -8,6 +8,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.cashew.models.order_model
 import com.google.firebase.database.DataSnapshot
@@ -103,7 +104,9 @@ class generate_page : AppCompatActivity() {
         val currentOrder = dbRef.child("order_$userID").child(orderID)
         //val currentCart = dbRef.child("cartItems_$userID")
 
-        currentOrder.removeValue()
+        currentOrder.removeValue().addOnSuccessListener {
+            Toast.makeText(this, "Order cancelled", Toast.LENGTH_SHORT).show()
+        }
         val intent = Intent(this,cart_page::class.java)
         startActivity(intent)
 

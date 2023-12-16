@@ -14,10 +14,10 @@
         android:src="@drawable/cashew1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.442"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.169" />
+        app:layout_constraintVertical_bias="0.081" />
 
     <ImageView
         android:id="@+id/navBg3"
@@ -68,8 +68,8 @@
         app:srcCompat="@drawable/cashewbtn" />
 
     <LinearLayout
-        android:layout_width="266dp"
-        android:layout_height="250dp"
+        android:layout_width="278dp"
+        android:layout_height="325dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
@@ -94,7 +94,7 @@
             android:layout_height="10dp" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/changePasswordBtn"
+            android:id="@+id/wardrobeBtn"
             android:layout_width="match_parent"
             android:layout_height="66dp"
             android:layout_marginTop="4dp"
@@ -106,6 +106,23 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayoutA" />
 
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/changeBtn"
+            android:layout_width="match_parent"
+            android:layout_height="66dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/custom_button1"
+            android:fontFamily="@font/poppins_bold"
+            android:text="CHANGE PASSWORD"
+            app:cornerRadius="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayoutA" />
 
         <Space
             android:layout_width="match_parent"

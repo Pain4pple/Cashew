@@ -26,7 +26,8 @@ class profile_page : AppCompatActivity() {
         val cashewGif: GifImageView = findViewById(R.id.userCashewWardrobe2)
         val orderHistoryBtn: Button = findViewById(R.id.orderHistoryBtn)
         val user: TextView = findViewById(R.id.user)
-        val changePasswordBtn: Button = findViewById(R.id.changePasswordBtn)
+        val changePasswordBtn: Button = findViewById(R.id.changeBtn)
+        val wardrobeBtn : Button = findViewById(R.id.wardrobeBtn)
         val logOutBtn: Button = findViewById(R.id.logOutBtn)
 
         val productButton : ImageButton = findViewById(R.id.productButton3)
@@ -69,8 +70,13 @@ class profile_page : AppCompatActivity() {
             startActivity(intent)
         }
 
-        changePasswordBtn.setOnClickListener {
+        wardrobeBtn.setOnClickListener {
             val intent = Intent(this, dressup_page::class.java)
+            startActivity(intent)
+        }
+
+        changePasswordBtn.setOnClickListener {
+            val intent = Intent(this, changepassword_page::class.java)
             startActivity(intent)
         }
 
