@@ -75,6 +75,9 @@ class orderSummary_dialog : DialogFragment() {
 
         payCash.setOnClickListener() {
             saveOrderData(userID,orderWay)
+            var intent = Intent(context, generate_page::class.java)
+            startActivity(intent)
+
 
         }
 
@@ -119,8 +122,10 @@ class orderSummary_dialog : DialogFragment() {
                     dbRef2.child(orderID).setValue(orderModel).addOnSuccessListener{
                         //if successful, toast
                         Toast.makeText(context, "Completed order", Toast.LENGTH_LONG).show()
-                        val intent = Intent(context,products_page::class.java)
+                       /* val intent = Intent(context,products_page::class.java)
                         startActivity(intent)
+
+                        */
 
                     }.addOnFailureListener{
                         Toast.makeText(context, "Order Failed", Toast.LENGTH_LONG).show()

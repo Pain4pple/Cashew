@@ -33,7 +33,7 @@ class login_page : AppCompatActivity() {
 
         // DECLARATIONS
         val signupBtn : Button = findViewById(R.id.backLogInBtn)
-        val loginBtn : Button = findViewById(R.id.updateBtn)
+        val loginBtn : Button = findViewById(R.id.cancelOrderlBtn)
         username = findViewById(R.id.usernameEditText)
         password = findViewById(R.id.passwordEditText)
 
@@ -76,6 +76,7 @@ class login_page : AppCompatActivity() {
                             Toast.makeText(this@login_page,"Welcome, "+userData.userUname+"!",Toast.LENGTH_SHORT).show()
                             val intent = Intent(this@login_page, orderways_page::class.java)
                             //val intent = Intent(this@login_page, cart_page::class.java)
+                            //val intent = Intent(this@login_page, generate_page::class.java)
                                 val sharedPreferences = getSharedPreferences("currentUserDetails", MODE_PRIVATE)
                                 val myEdit = sharedPreferences.edit()
 

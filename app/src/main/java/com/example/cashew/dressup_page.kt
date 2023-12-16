@@ -66,7 +66,7 @@ class dressup_page : AppCompatActivity() {
 
         // WARDROBE VARIABLES
         val exitBtn : ImageButton = findViewById(R.id.exitBtn)
-        val updateIconBtn : Button = findViewById(R.id.updateBtn)
+        val updateIconBtn : Button = findViewById(R.id.cancelOrderlBtn)
         val price : TextView = findViewById(R.id.outfitPrice)
         val txtBalance : TextView = findViewById(R.id.coinBalance)
 
