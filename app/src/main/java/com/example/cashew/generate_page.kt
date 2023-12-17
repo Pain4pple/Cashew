@@ -69,7 +69,7 @@ class generate_page : AppCompatActivity() {
 
         //val order = order_model(orderID = "123456", orderDate = null)
         //val order = currentID
-//      //generateQRCode(order)
+      //generateQRCode(order)
 
         // CANCEL OR DELETE ORDER
         cancelButton.setOnClickListener {
