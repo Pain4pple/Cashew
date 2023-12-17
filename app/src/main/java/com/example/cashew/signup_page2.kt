@@ -18,6 +18,7 @@ class signup_page2  : AppCompatActivity() {
     private lateinit var editUname: EditText
 //    private lateinit var editEmail: EditText
     private lateinit var editPwd: EditText
+    private lateinit var editconfirmpasswd : EditText
 //    private lateinit var editDoB: EditText
     
 //  private lateinit var editconfirmpasswd : EditText
@@ -32,7 +33,7 @@ class signup_page2  : AppCompatActivity() {
 
         editUname = findViewById(R.id.editUname)
         editPwd = findViewById(R.id.editPassword)
-        val editconfirmpasswd : EditText = findViewById(R.id.editConfirm)
+        editconfirmpasswd = findViewById(R.id.editConfirm)
         rgtBtn = findViewById(R.id.registerBtn)
         logInBtn = findViewById(R.id.backLogInBtn)
 
@@ -48,12 +49,7 @@ class signup_page2  : AppCompatActivity() {
 
 
             if (isValidInput(username, password, confirmPwd) )  {
-
                 saveUserData()
-
-
-
-
             }
             //saveUserData()
 
@@ -100,7 +96,7 @@ class signup_page2  : AppCompatActivity() {
 
 
 
-        if (password != confirmPwd) {
+        if (!password.equals(confirmPwd)) {
             showError("Passwords do not match.")
 
             Log.i("PasswordValidation", "Entered Password: $password")
@@ -110,14 +106,6 @@ class signup_page2  : AppCompatActivity() {
 
         Log.i("PasswordValidation", "Entered Password: $password")
         Log.i("PasswordValidation", "Entered Confirm Password: $confirmPwd")
-
-
-
-
-
-
-
-
 
         return true
     }

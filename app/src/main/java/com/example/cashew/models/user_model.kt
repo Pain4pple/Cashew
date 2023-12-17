@@ -7,7 +7,8 @@ data class user_model(var userID:String?="",
                       var userPwd: String?="",
                       var userDob: String?="",
                       var userCashewCoins:Int? = 0,
-                      var userCashew:String? = "default") {
+                      var userCashew:String? = "default",
+                      var userType:String="user") {
 
 }
 

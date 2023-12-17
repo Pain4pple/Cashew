@@ -84,6 +84,7 @@ class login_page : AppCompatActivity() {
                                 myEdit.putString("ID",userData.userID)
                                 myEdit.putString("Username",userData.userUname)
                                 myEdit.putString("Email",userData.userEmail)
+                                myEdit.putString("Type",userData.userType)
                                 myEdit.putString("Name",userData.userName)
                                 myEdit.putString("Wardrobe",userData.userCashew)
                                 userData.userCashewCoins?.let { myEdit.putInt("Coins", it) }

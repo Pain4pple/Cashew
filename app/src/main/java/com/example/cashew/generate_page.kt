@@ -30,7 +30,7 @@ class generate_page : AppCompatActivity() {
     private lateinit var firebaseDatabase: FirebaseDatabase
     private lateinit var sh : SharedPreferences
     private var orderList : ArrayList<order_model> = ArrayList()
-    lateinit var orderID : TextView
+    lateinit var orderIDText : TextView
     lateinit var currentID : String
     lateinit var cancelButton : Button
 
@@ -43,18 +43,21 @@ class generate_page : AppCompatActivity() {
         firebaseDatabase = FirebaseDatabase.getInstance()
         dbRef = firebaseDatabase.getReference("Cart")
         sh = getSharedPreferences("currentUserDetails", AppCompatActivity.MODE_PRIVATE)
-        orderID = findViewById(R.id.orderIDLabel)
+        orderIDText = findViewById(R.id.orderIDLabel)
         val userID = sh.getString("ID","").toString()
         cancelButton = findViewById(R.id.cancelOrderlBtn)
+        var orderID = ""
 
-        // GENERATE QR CODE
-        getOrderDetails(userID)
-
-        // CANCEL OR DELETE ORDER
-        cancelButton.setOnClickListener {
-            // Call the function to cancel the order
-            cancelOrder(userID, currentID)
+        val extras = intent.extras
+        if (extras != null){
+            orderID = extras!!.getString("OrderID").toString()
         }
+        // GENERATE QR CODE
+//      getOrderDetails(userID)
+//      getOrderData(userID,orderWay)
+        getOrderData(userID, orderID)
+
+
         sh = getSharedPreferences("currentUserDetails", AppCompatActivity.MODE_PRIVATE)
         val orderSh = getSharedPreferences("orderDetails", MODE_PRIVATE)
         val orderWay = orderSh.getString("OrderWay","").toString()
@@ -63,12 +66,16 @@ class generate_page : AppCompatActivity() {
         dbRef2 = firebaseDatabase.getReference("Order").child("order_"+userID)
 
 
-        saveOrderData(userID,orderWay)
-
 
         //val order = order_model(orderID = "123456", orderDate = null)
         //val order = currentID
 //      //generateQRCode(order)
+
+        // CANCEL OR DELETE ORDER
+        cancelButton.setOnClickListener {
+            // Call the function to cancel the order
+            cancelOrder(userID, orderID)
+        }
     }
 
 
@@ -81,7 +88,7 @@ class generate_page : AppCompatActivity() {
         imageView.setImageBitmap(bitmap)
     }
 
-    private fun saveOrderData(userID: String,orderWay:String) {
+ /*   private fun getOrderData(userID: String,orderWay:String) {
         var cartModel :ArrayList<cart_model> = ArrayList()
         var total :Float? = 0f
         dbRef.child("cartItems_"+userID).addValueEventListener(object :
@@ -103,15 +110,25 @@ class generate_page : AppCompatActivity() {
                     var orderModel = order_model(orderID,userID,cartModel, LocalDate.now().toString(),total,"Cash",orderWay)
 
                     generateQRCode(orderModel)
-/*                    dbRef2.child(orderID).setValue(orderModel).addOnSuccessListener{
-                        //if successful, toast
-                        Toast.makeText(context, "Completed order", Toast.LENGTH_LONG).show()
-                        val intent = Intent(context,products_page::class.java)
-                        startActivity(intent)
+                }
+            }
 
-                    }.addOnFailureListener{
-                        Toast.makeText(context, "Order Failed", Toast.LENGTH_LONG).show()
-                    }*/
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Handle errors
+                Log.e("OrderSummaryDialog", "Error retrieving data: ${databaseError.message}")
+            }
+        })
+
+    }*/
+
+    private fun getOrderData(userID:String,orderID: String) {
+        dbRef = FirebaseDatabase.getInstance().getReference("Order")
+        dbRef.child("order_"+userID).child(orderID).addValueEventListener(object :
+            ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                if(dataSnapshot.exists()) {
+                    val orderModel = dataSnapshot.getValue(order_model::class.java)
+                    generateQRCode(orderModel!!)
                 }
             }
 
@@ -123,7 +140,7 @@ class generate_page : AppCompatActivity() {
 
     }
 
-    private fun getOrderDetails(userID:String) {
+/*    private fun getOrderDetails(userID:String) {
         dbRef = FirebaseDatabase.getInstance().getReference("Order")
         dbRef.child("order_"+userID).addValueEventListener(object :
             ValueEventListener {
@@ -143,7 +160,7 @@ class generate_page : AppCompatActivity() {
                         }
 
                     }
-                   orderID.text = "ORDERID:\n"+currentID.toString()
+                   orderIDText.text = "ORDERID:\n"+currentID.toString()
                     // myadapter.notifyDataSetChanged()
                     generateQRCode(order_model(orderID = currentID, orderDate = null))
                     Log.i("OrderSummaryDialog", "Error retrieving data: $currentID")
@@ -157,10 +174,10 @@ class generate_page : AppCompatActivity() {
                 Log.e("OrderSummaryDialog", "Error retrieving data: ${databaseError.message}")
             }
         })
-    }
+    }*/
 
     private fun cancelOrder(userID : String, orderID : String) {
-        val currentOrder = dbRef.child("order_$userID").child(orderID)
+        val currentOrder = firebaseDatabase.getReference("Order").child("order_$userID").child(orderID)
         //val currentCart = dbRef.child("cartItems_$userID")
 
         currentOrder.removeValue().addOnSuccessListener {

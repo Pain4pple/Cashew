@@ -2,12 +2,14 @@ package com.example.cashew
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cashew.models.product_model
 import com.example.cashew.objects.product_recycler
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import pl.droidsonroids.gif.GifImageView
 
 
@@ -38,10 +40,20 @@ class products_page : AppCompatActivity() {
         val orderWay:TextView = findViewById(R.id.orderWay)
         val changeOption:TextView = findViewById(R.id.changeOption)
         val cashewCoins: TextView = findViewById(R.id.cashewCoinsDisplay3)
+        val qrReader: FloatingActionButton = findViewById(R.id.qrScanner)
         val sh = getSharedPreferences("currentUserDetails", MODE_PRIVATE)
         val userCashew = sh.getString("Wardrobe", "").toString()
+        val userType = sh.getString("Type", "").toString()
         val orderSh = getSharedPreferences("orderDetails", MODE_PRIVATE)
         orderWay.text = orderSh.getString("OrderWay", "").toString()
+
+        if(userType.equals("admin")) {
+            qrReader.setVisibility(View.VISIBLE)
+        }
+        else{
+            qrReader.setVisibility(View.GONE)
+        }
+
 
         recyclerView.setLayoutManager(GridLayoutManager(this, 2))
         val productRecycler = product_recycler(productList,sh.getString("ID","").toString(),this)
@@ -88,6 +100,11 @@ class products_page : AppCompatActivity() {
 
         cashewGif.setOnClickListener{
             val intent = Intent(this, dressup_page::class.java)
+            startActivity(intent)
+        }
+
+        qrReader.setOnClickListener{
+            val intent = Intent(this, temporary_scanner::class.java)
             startActivity(intent)
         }
 
