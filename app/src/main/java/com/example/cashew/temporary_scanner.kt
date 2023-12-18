@@ -1,3 +1,4 @@
+/*
 package com.example.cashew
 
 import android.content.Intent
@@ -46,6 +47,7 @@ class temporary_scanner : AppCompatActivity() {
         }
     }
 
+*/
 /*    private fun saveOrderData(orderModel:order_model) {
 
                     dbRef2.child(orderID).setValue(orderModel).addOnSuccessListener {
@@ -67,5 +69,6 @@ class temporary_scanner : AppCompatActivity() {
             }
         })
 
-    }*/
-}
+    }*//*
+
+}*/

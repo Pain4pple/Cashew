@@ -6,13 +6,6 @@
     android:orientation="horizontal"
     android:padding="16dp">
 
-    <ImageView
-        android:id="@+id/ItemImageHolder"
-        android:layout_width="107dp"
-        android:layout_height="61dp"
-        android:layout_weight="1"
-        tools:srcCompat="@drawable/carrot_cupcake" />
-
     <LinearLayout
         android:layout_width="279dp"
         android:layout_height="61dp"

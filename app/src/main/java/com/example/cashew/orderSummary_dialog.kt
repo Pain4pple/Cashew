@@ -20,7 +20,6 @@ import com.example.cashew.models.cart_model
 import com.example.cashew.models.order_model
 import com.example.cashew.models.user_model
 import com.google.firebase.database.*
-import java.time.LocalDate
 import java.time.LocalDate.now
 import java.util.Date
 
@@ -68,19 +67,6 @@ class orderSummary_dialog : DialogFragment() {
 
         dbRef2 = firebaseDatabase.getReference("Order").child("order_"+userID)
 
-/*        payCash.setOnClickListener() {
-            var intent = Intent(context, generate_page::class.java)
-            startActivity(intent)
-
-        }*/
-
-        payCash.setOnClickListener() {
-            saveOrderData(userID,orderWay)
-//            var intent = Intent(context, generate_page::class.java)
-//            startActivity(intent)
-
-
-        }
 
         // Call function to populate ListView
         getCartDetails(userID)
@@ -93,6 +79,9 @@ class orderSummary_dialog : DialogFragment() {
             // Close the current activity
             dismiss()
 
+        }
+        payCash.setOnClickListener() {
+            saveOrderData(userID,orderWay)
         }
 
         // Return the inflated layout
@@ -128,12 +117,12 @@ class orderSummary_dialog : DialogFragment() {
                         //giveCoins(userID,cashewCoins.toInt())
                         emptyCart("cartItems_"+userID)
                         startActivity(intent)
-
-
+                        dismiss()
                     }.addOnFailureListener{
                         Toast.makeText(context, "Order Failed", Toast.LENGTH_LONG).show()
                     }
                 }
+                dbRef.removeEventListener(this);
             }
 
             override fun onCancelled(databaseError: DatabaseError) {
@@ -145,31 +134,6 @@ class orderSummary_dialog : DialogFragment() {
 
     }
 
-    private fun giveCoins(userID: String, cashewCoins: Int) {
-        val myEdit = sh.edit()
-        var coinsRef = firebaseDatabase.getReference("Users")
-        coinsRef.child(userID).addListenerForSingleValueEvent(object :ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                if(snapshot.exists()){
-                    val userDetails = snapshot.getValue(user_model::class.java)
-//                    Log.d("OrderSummaryDialog", "$userDetails")
-
-                    val newCoins = userDetails!!.userCashewCoins!! + cashewCoins
-                    coinsRef.child(userID).child("userCashewCoins").setValue(newCoins).addOnSuccessListener {
-                        myEdit.putInt("Coins", newCoins)
-                        myEdit.apply()
-
-                    }.addOnCanceledListener {
-                    }
-                }
-
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                Log.d("action","Error: "+error)
-            }
-        })
-    }
 
     private fun emptyCart(cart: String) {
         dbRef2 = firebaseDatabase.getReference("Cart")

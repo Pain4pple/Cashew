@@ -1,3 +1,5 @@
+package com.example.cashew.objects
+
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +10,7 @@ import android.widget.TextView
 import com.example.cashew.R
 import com.example.cashew.models.cart_model
 
-class CartAdapter(private val context: Context, private val cartList: ArrayList<cart_model>) : BaseAdapter() {
+class qr_list_adapter(private val context: Context, private val cartList: ArrayList<cart_model>) : BaseAdapter() {
 
     override fun getCount(): Int {
         return cartList.size

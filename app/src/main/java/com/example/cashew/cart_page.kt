@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cashew.models.cart_model
+import com.example.cashew.models.user_model
 import com.example.cashew.objects.cart_recycler
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -22,14 +23,16 @@ import com.google.firebase.database.ValueEventListener
 import pl.droidsonroids.gif.GifImageView
 
 class cart_page : AppCompatActivity() {
-    private lateinit var recyclerView : RecyclerView
     private var cartList : ArrayList<cart_model> = ArrayList()
     private var drawableResource : Int? = 0
-    private lateinit var dbRef: DatabaseReference
-    private lateinit var firebaseDatabase: FirebaseDatabase
     public var totalCart:Float = 0f
     lateinit var totalAmount :TextView
     lateinit var cartEmpty:TextView
+
+    private lateinit var cashewCoins: TextView
+    private lateinit var recyclerView : RecyclerView
+    private lateinit var dbRef: DatabaseReference
+    private lateinit var firebaseDatabase: FirebaseDatabase
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_order)
@@ -44,6 +47,7 @@ class cart_page : AppCompatActivity() {
         val changeOption:TextView = findViewById(R.id.changeOption2)
         val orderSh = getSharedPreferences("orderDetails", MODE_PRIVATE)
 
+        firebaseDatabase = FirebaseDatabase.getInstance()
         recyclerView = findViewById(R.id.orderRecyclerView)
         totalAmount = findViewById(R.id.totalAmount)
         cartEmpty = findViewById(R.id.cartEmpty)
@@ -65,10 +69,10 @@ class cart_page : AppCompatActivity() {
         orderWay.setText(orderSh.getString("OrderWay", "").toString())
 
         val userName: TextView = findViewById(R.id.uNameDisplay)
-        val cashewCoins: TextView = findViewById(R.id.cashewCoinsDisplay)
         val sh = getSharedPreferences("currentUserDetails", MODE_PRIVATE)
         val userCashew = sh.getString("Wardrobe", "").toString()
 
+        cashewCoins = findViewById(R.id.cashewCoinsDisplay)
 
         getCart(sh.getString("ID","").toString(),this)
         recyclerView.setLayoutManager(LinearLayoutManager(this,RecyclerView.VERTICAL, false))
@@ -84,7 +88,7 @@ class cart_page : AppCompatActivity() {
         cashewGif.setImageResource(drawableResource!!)
         if (sh.getString("ID","") != null) {
             userName.text = "Hi! "+sh.getString("Username", "")
-            cashewCoins.text = ""+sh.getInt("Coins", 0)
+            getCoins(sh.getString("ID","")!!)
         }
         else{
             userName.text = "who you?"
@@ -156,5 +160,21 @@ class cart_page : AppCompatActivity() {
         val newFragment = orderSummary_dialog()
         newFragment.show(supportFragmentManager, "orderSummary_dialog")
 
+    }
+    private fun getCoins(userID: String) {
+        var coinsRef = firebaseDatabase.getReference("Users")
+        coinsRef.child(userID).addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if(snapshot.exists()){
+                    val userDetails = snapshot.getValue(user_model::class.java)
+                    cashewCoins.text = userDetails!!.userCashewCoins.toString()
+                }
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.d("action","Error: "+error)
+            }
+        })
     }
 }

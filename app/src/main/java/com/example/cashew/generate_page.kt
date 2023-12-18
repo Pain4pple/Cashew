@@ -33,6 +33,7 @@ class generate_page : AppCompatActivity() {
     lateinit var orderIDText : TextView
     lateinit var currentID : String
     lateinit var cancelButton : Button
+    lateinit var doneButton : Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +47,7 @@ class generate_page : AppCompatActivity() {
         orderIDText = findViewById(R.id.orderIDLabel)
         val userID = sh.getString("ID","").toString()
         cancelButton = findViewById(R.id.cancelOrderlBtn)
+        doneButton = findViewById(R.id.doneButton)
         var orderID = ""
 
         val extras = intent.extras
@@ -53,9 +55,9 @@ class generate_page : AppCompatActivity() {
             orderID = extras!!.getString("OrderID").toString()
         }
         // GENERATE QR CODE
-     getOrderDetails(userID)
+//     getOrderDetails(userID)
 //      getOrderData(userID,orderWay)
- //      getOrderData(userID, orderID)
+       getOrderData(userID, orderID)
 
         /*
         sh = getSharedPreferences("currentUserDetails", AppCompatActivity.MODE_PRIVATE)
@@ -66,15 +68,19 @@ class generate_page : AppCompatActivity() {
         dbRef2 = firebaseDatabase.getReference("Order").child("order_"+userID)
         */
 
-
-        //val order = order_model(orderID = "123456", orderDate = null)
-        //val order = currentID
      // generateQRCode(order)
 
         // CANCEL OR DELETE ORDER
         cancelButton.setOnClickListener {
             // Call the function to cancel the order
             cancelOrder(userID, orderID)
+            finish()
+
+        }
+
+        doneButton.setOnClickListener {
+            val intent = Intent(this,products_page::class.java)
+            startActivity(intent)
         }
     }
 
@@ -83,7 +89,7 @@ class generate_page : AppCompatActivity() {
 
         val barcodeEncoder = BarcodeEncoder()
         val bitmap: Bitmap =
-            barcodeEncoder.encodeBitmap(order.toString(), BarcodeFormat.QR_CODE, 400, 400)
+            barcodeEncoder.encodeBitmap(order.orderID+","+order.userID, BarcodeFormat.QR_CODE, 400, 400)
         val imageView: ImageView = findViewById(R.id.qrCodeImageView)
         imageView.setImageBitmap(bitmap)
     }
@@ -121,7 +127,7 @@ class generate_page : AppCompatActivity() {
         })
 
     }*/
-        /*
+
     private fun getOrderData(userID:String,orderID: String) {
         dbRef = FirebaseDatabase.getInstance().getReference("Order")
         dbRef.child("order_"+userID).child(orderID).addValueEventListener(object :
@@ -130,9 +136,9 @@ class generate_page : AppCompatActivity() {
                 if(dataSnapshot.exists()) {
                     val orderModel = dataSnapshot.getValue(order_model::class.java)
                     generateQRCode(orderModel!!)
+                    orderIDText.text = "ORDERID:\n" + orderModel.orderID.toString()
                 }
             }
-
             override fun onCancelled(databaseError: DatabaseError) {
                 // Handle errors
                 Log.e("OrderSummaryDialog", "Error retrieving data: ${databaseError.message}")
@@ -141,9 +147,9 @@ class generate_page : AppCompatActivity() {
 
     }
 
- */
 
-        private fun getOrderDetails(userID: String) {
+
+/*        private fun getOrderDetails(userID: String) {
             dbRef = FirebaseDatabase.getInstance().getReference("Order")
             dbRef.child("order_" + userID).addValueEventListener(object :
                 ValueEventListener {
@@ -159,13 +165,12 @@ class generate_page : AppCompatActivity() {
 
                                 orderList.add(currentOrder!!)
                                 currentID = currentOrder.orderID ?: ""
+                                generateQRCode(order_model(orderID = currentID, userID = currentOrder.userID))
 
                             }
 
                         }
-                        orderIDText.text = "ORDERID:\n" + currentID.toString()
                         // myadapter.notifyDataSetChanged()
-                        generateQRCode(order_model(orderID = currentID, orderDate = null))
                         Log.i("OrderSummaryDialog", "Error retrieving data: $currentID")
                         Log.i("GeneratePage", "User retrieving data: $userID")
 
@@ -177,7 +182,7 @@ class generate_page : AppCompatActivity() {
                     Log.e("OrderSummaryDialog", "Error retrieving data: ${databaseError.message}")
                 }
             })
-        }
+        }*/
 
 
 
@@ -190,6 +195,7 @@ class generate_page : AppCompatActivity() {
         }
         val intent = Intent(this,cart_page::class.java)
         startActivity(intent)
+        finish()
 
     }
 

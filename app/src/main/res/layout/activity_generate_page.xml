@@ -17,19 +17,39 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@tools:sample/avatars" />
 
-    <Button
-        android:id="@+id/cancelOrderlBtn"
-        android:layout_width="260dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="60dp"
-        android:backgroundTint="@color/black"
-        android:fontFamily="@font/poppins_bold"
-        android:text="CANCEL ORDER"
-        app:cornerRadius="16dp"
+    <LinearLayout
+        android:layout_width="344dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/qrCodeImageView" />
+        app:layout_constraintTop_toBottomOf="@+id/orderIDLabel">
+
+        <Button
+            android:id="@+id/cancelOrderlBtn"
+            android:layout_width="169dp"
+            android:layout_height="66dp"
+            android:backgroundTint="@color/black"
+            android:fontFamily="@font/poppins_bold"
+            android:text="CANCEL ORDER"
+            app:cornerRadius="16dp" />
+
+        <Space
+            android:layout_width="89dp"
+            android:layout_height="52dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/doneButton"
+            android:layout_width="215dp"
+            android:layout_height="66dp"
+            android:layout_weight="1"
+            android:backgroundTint="@color/black"
+            android:fontFamily="@font/poppins_bold"
+            android:text="DONE"
+            app:cornerRadius="16dp" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/orderIDLabel"

@@ -2,14 +2,21 @@ package com.example.cashew
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.cashew.models.product_model
+import com.example.cashew.models.user_model
 import com.example.cashew.objects.product_recycler
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import pl.droidsonroids.gif.GifImageView
 
 
@@ -19,14 +26,19 @@ class products_page : AppCompatActivity() {
     private var productList : ArrayList<product_model> = ArrayList()
     private var drawableResource : Int? = 0
 
+    private lateinit var cashewCoins: TextView
+    private lateinit var dbRef: DatabaseReference
+    private lateinit var dbRef2: DatabaseReference
+    private lateinit var firebaseDatabase: FirebaseDatabase
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_products)
 
-        productList.add(product_model("1","Chocolate Cake",R.drawable.chocolate_cake,500))
-        productList.add(product_model("2","Cookies",R.drawable.cookies,600))
+        productList.add(product_model("1","Chocolate Cake",R.drawable.chocolate_cake,350))
+        productList.add(product_model("2","Cookies",R.drawable.cookies,300))
         productList.add(product_model("3","Cinnamon Roll",R.drawable.cinnamon_roll,200))
-        productList.add(product_model("4","Strawberry",R.drawable.strawberrysandwich,600))
+        productList.add(product_model("4","Strawberry",R.drawable.strawberrysandwich,205))
 
         recyclerView = findViewById(R.id.productsView)
 
@@ -39,7 +51,6 @@ class products_page : AppCompatActivity() {
         val userName: TextView = findViewById(R.id.uNameDisplay)
         val orderWay:TextView = findViewById(R.id.orderWay)
         val changeOption:TextView = findViewById(R.id.changeOption)
-        val cashewCoins: TextView = findViewById(R.id.cashewCoinsDisplay3)
         val qrReader: FloatingActionButton = findViewById(R.id.qrScanner)
         val sh = getSharedPreferences("currentUserDetails", MODE_PRIVATE)
         val userCashew = sh.getString("Wardrobe", "").toString()
@@ -54,7 +65,8 @@ class products_page : AppCompatActivity() {
             qrReader.setVisibility(View.GONE)
         }
 
-
+        firebaseDatabase = FirebaseDatabase.getInstance()
+        cashewCoins = findViewById(R.id.cashewCoinsDisplay3)
         recyclerView.setLayoutManager(GridLayoutManager(this, 2))
         val productRecycler = product_recycler(productList,sh.getString("ID","").toString(),this)
         recyclerView.adapter = productRecycler
@@ -71,7 +83,7 @@ class products_page : AppCompatActivity() {
 
         if (sh.getString("ID","") != null) {
             userName.text = "Hi! "+sh.getString("Username", "")
-            cashewCoins.text = ""+sh.getInt("Coins", 0)
+            getCoins(sh.getString("ID","")!!)
         }
         else{
             userName.text = "who you?"
@@ -110,7 +122,22 @@ class products_page : AppCompatActivity() {
 
     }
 
+    private fun getCoins(userID: String) {
+        var coinsRef = firebaseDatabase.getReference("Users")
+        coinsRef.child(userID).addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if(snapshot.exists()){
+                    val userDetails = snapshot.getValue(user_model::class.java)
+                    cashewCoins.text = userDetails!!.userCashewCoins.toString()
+                }
 
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.d("action","Error: "+error)
+            }
+        })
+    }
 
 
 }
