@@ -19,7 +19,6 @@ class scanner_page : AppCompatActivity() {
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
         scan_btn = findViewById(R.id.scanner)
         textView = findViewById(R.id.text)
-
         scan_btn.setOnClickListener(View.OnClickListener {
             val intentIntegrator = IntentIntegrator(this@scanner_page)
             intentIntegrator.setOrientationLocked(false)
