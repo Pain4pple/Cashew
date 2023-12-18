@@ -1,36 +1,43 @@
+package com.example.cashew
+
 import android.content.Intent
-import android.os.Build.VERSION_CODES.R
+import android.content.pm.ActivityInfo
 import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.cashew.R
 import com.google.zxing.integration.android.IntentIntegrator
-import com.google.zxing.integration.android.IntentResult
+
 
 class scanner_page : AppCompatActivity() {
-
+    lateinit var scan_btn: Button
+    var textView: TextView? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_scanner_page)
+        setContentView(R.layout.activity_scanner_page)
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+        scan_btn = findViewById(R.id.scanner)
+        textView = findViewById(R.id.text)
 
-        startQRCodeScanner()
-    }
-
-    private fun startQRCodeScanner() {
-        val integrator = IntentIntegrator(this)
-        integrator.setOrientationLocked(false)
-        integrator.setBeepEnabled(false)
-        //integrator.setCaptureActivity(CustomCaptureActivity::class.java)  // Use your own CaptureActivity if needed
-        integrator.initiateScan()
+        scan_btn.setOnClickListener(View.OnClickListener {
+            val intentIntegrator = IntentIntegrator(this@scanner_page)
+            intentIntegrator.setOrientationLocked(false)
+            intentIntegrator.setPrompt("Scan a QR Code")
+            intentIntegrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+            intentIntegrator.initiateScan()
+        })
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        val result: IntentResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
-
-        if (result.contents != null) {
-            val scannedOrderId = result.contents
-            // Retrieve order details from Firebase using the scannedOrderId
-            // Display the full order details in a new activity or fragment
+        val intentResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
+        if (intentResult != null) {
+            val contents = intentResult.contents
+            if (contents != null) {
+                textView!!.text = intentResult.contents
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data)
         }
     }
 }
