@@ -40,3 +40,30 @@ class scanner_page : AppCompatActivity() {
         }
     }
 }
+
+
+/*
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        val intentResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
+        if (intentResult != null) {
+            val contents = intentResult.contents
+            if (contents != null) {
+                val contentArray = contents.split("\n").toTypedArray()
+
+                // Assuming you have an array of TextViews with IDs text1, text2, text3, ...
+                val textViewIds =
+                    arrayOf(R.id.text1, R.id.text2, R.id.text3 /* Add more IDs as needed */)
+
+                for (i in contentArray.indices) {
+                    if (i < textViewIds.size) {
+                        val currentTextView = findViewById<TextView>(textViewIds[i])
+                        currentTextView.text = contentArray[i]
+                    }
+                }
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data)
+        }
+    }
+
+ */
