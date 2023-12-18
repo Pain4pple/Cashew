@@ -9,6 +9,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import com.example.cashew.models.outfit_model
+import com.example.cashew.models.user_model
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -22,7 +23,7 @@ class dressup_page : AppCompatActivity() {
     private lateinit var dbRef : DatabaseReference
     private lateinit var dbRef2 : DatabaseReference
     private lateinit var firebaseDatabase: FirebaseDatabase
-    private lateinit var updateIconBtn : Button
+    private lateinit var txtBalance : TextView
     private var cashewCurrentPrice : Int = 0
     private var cashewCurrentOutfit : String = ""
     private var cashewCurrentID : String = ""
@@ -68,17 +69,17 @@ class dressup_page : AppCompatActivity() {
         val exitBtn : ImageButton = findViewById(R.id.exitBtn)
         val updateIconBtn : Button = findViewById(R.id.cancelOrderlBtn)
         val price : TextView = findViewById(R.id.outfitPrice)
-        val txtBalance : TextView = findViewById(R.id.coinBalance)
 
         val outfitBtn : ImageButton = findViewById(R.id.outfitBtn)
         val nextBtn : ImageButton = findViewById(R.id.nextBtn)
         val prevBtn : ImageButton = findViewById(R.id.prevBtn)
 
+        txtBalance = findViewById(R.id.coinBalance)
+
         var currentOutfit = outfitList.get(counter)
         outfitBtn.setImageResource(currentOutfit.outfitDrawable)
         price.text = ""+currentOutfit.outfitPrice
-        var balance = sh.getInt("Coins",0)!!
-        txtBalance.text = ""+balance
+        getCoins(userID)
 
         exitBtn.setOnClickListener {
             val intent = Intent(this, products_page::class.java)
@@ -194,6 +195,23 @@ class dressup_page : AppCompatActivity() {
                 })
             }
         }
+    }
+
+    private fun getCoins(userID: String) {
+        var coinsRef = firebaseDatabase.getReference("Users")
+        coinsRef.child(userID).addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                if(snapshot.exists()){
+                    val userDetails = snapshot.getValue(user_model::class.java)
+                    txtBalance.text = userDetails!!.userCashewCoins.toString()
+                }
+
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.d("action","Error: "+error)
+            }
+        })
     }
 
 }
