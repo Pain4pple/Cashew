@@ -104,7 +104,7 @@ class products_page : AppCompatActivity() {
         }
 
         qrReader.setOnClickListener{
-            val intent = Intent(this, temporary_scanner::class.java)
+            val intent = Intent(this, scanner_page::class.java)
             startActivity(intent)
         }
 
