@@ -34,6 +34,7 @@ class dressup_page : AppCompatActivity() {
     private var userCashew:String = ""
     private var currentCashew:String = ""
     private var userID:String = ""
+    private var userCashewBalance:Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -161,13 +162,11 @@ class dressup_page : AppCompatActivity() {
         }
         else {
 
-            var balance = sh.getInt("Coins",0)!!
-
-            if(balance<cashewCurrentPrice!!){
+            if(userCashewBalance<cashewCurrentPrice!!){
                 Toast.makeText(this,"You don't have enough money!",Toast.LENGTH_SHORT).show()
             }
             else{
-                var newBal = balance - cashewCurrentPrice!!
+                var newBal = userCashewBalance - cashewCurrentPrice!!
                 myEdit.putInt("Coins", newBal)
                 myEdit.apply()
                 val userCashew = drawedImage
@@ -178,10 +177,16 @@ class dressup_page : AppCompatActivity() {
                     myEdit.putString("Wardrobe", userCashew)
                     myEdit.apply()
                     currentCashew = sh.getString("Wardrobe","").toString()
-
                 }.addOnFailureListener {
                     Toast.makeText(this, "Failed to change", Toast.LENGTH_SHORT).show()
                 }
+
+                dbRef.child(userID).child("userCashewCoins").setValue(newBal).addOnSuccessListener {
+                getCoins(userID)
+                }.addOnFailureListener {
+                    Toast.makeText(this, "Failed to buy cosmetic", Toast.LENGTH_SHORT).show()
+                }
+
                 dbRef.child(userID).child("purchasedOutfits").addListenerForSingleValueEvent(object : ValueEventListener {
                     override fun onDataChange(snapshot: DataSnapshot) {
                         dbRef2.child(userID).child("purchasedOutfits").child(cashewCurrentID).setValue(userCashew).addOnSuccessListener {
@@ -204,6 +209,7 @@ class dressup_page : AppCompatActivity() {
                 if(snapshot.exists()){
                     val userDetails = snapshot.getValue(user_model::class.java)
                     txtBalance.text = userDetails!!.userCashewCoins.toString()
+                    userCashewBalance = userDetails!!.userCashewCoins!!
                 }
 
             }
